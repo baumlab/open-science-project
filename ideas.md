@@ -16,6 +16,7 @@ Relevant links: [Global Fishing Watch] (http://globalfishingwatch.org/faq)
 [PEW's Eyes on the Seas] (http://www.pewtrusts.org/en/multimedia/video/2015/project-eyes-on-the-seas)  
   
 Relevant papers: [McCauley et al. 2016 Science] (https://www.researchgate.net/profile/Kristina_Boerder/publication/297743086_Ending_hide_and_seek_at_sea/links/56e4839108aedb4cc8ac2605.pdf) 
+[Brodeur et al. PLoS ONE; Improving Fishing Pattern Detection from Satellite AIS Using Data Mining and Machine Learning] (http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0158248). I think the author K Brodeur is pretty much doing her PhD on this stuff.
   
   
 *Pros:*
