@@ -24,3 +24,8 @@ Relevant links: [Global Fishing Watch] (http://globalfishingwatch.org/faq)
 * When is a fishing boat actually fishing?
 * How do MPA restrictions vary between MPAs?
 * Seems like something that may have been done already - lit search
+
+
+
+
+[Our figure colour palette] (https://github.com/karthik/wesanderson)
