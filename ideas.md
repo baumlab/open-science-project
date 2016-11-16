@@ -11,8 +11,13 @@ Dataset: [Automatic Identification System] (http://www.marinetraffic.com/en/ais/
 
 Study area: [10 largest MPAs] (http://www.protectplanetocean.org/collections/introduction/introbox/globalmpas/introduction-item.html)
 
-Relevant links: [Global Fishing Watch] (http://globalfishingwatch.org/faq)
-
+Relevant links: [Global Fishing Watch] (http://globalfishingwatch.org/faq)  
+[Article about big data and tracking fishing vessels] (http://e360.yale.edu/feature/how_satellites_and_big_data_can_help_to_save_the_oceans/2982/)  
+[PEW's Eyes on the Seas] (http://www.pewtrusts.org/en/multimedia/video/2015/project-eyes-on-the-seas)  
+  
+Relevant papers: [McCauley et al. 2016 Science] (https://www.researchgate.net/profile/Kristina_Boerder/publication/297743086_Ending_hide_and_seek_at_sea/links/56e4839108aedb4cc8ac2605.pdf) 
+  
+  
 *Pros:*
 
 * Huge relevance given recent creation of new 'super' MPAs
