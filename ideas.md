@@ -35,6 +35,13 @@ Are countries with higher GDPs better at enforcing MPA protection? [GDP Data]
 * Seems like something that may have been done already - lit search
 
 
+### 2. Evaluating past predictions
+
+Question: How well do we make predictions in ecology?
+
+Dataset: We would have to compile a dataset of papers depending on the specific question.
+
+Easton's thoughts: We could evalulate how predictions from fishery models or the effects of climate change on particular species were either correct or way off. We would look at older papers (say pre 2000) and see if there predictions actually held up. Hope that makes some sense
 
 
 [Our figure colour palette] (https://github.com/karthik/wesanderson)
