@@ -17,6 +17,8 @@ Relevant links: [Global Fishing Watch] (http://globalfishingwatch.org/faq)
   
 Relevant papers: [McCauley et al. 2016 Science] (https://www.researchgate.net/profile/Kristina_Boerder/publication/297743086_Ending_hide_and_seek_at_sea/links/56e4839108aedb4cc8ac2605.pdf) 
 [Brodeur et al. PLoS ONE; Improving Fishing Pattern Detection from Satellite AIS Using Data Mining and Machine Learning] (http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0158248). I think the author K Brodeur is pretty much doing her PhD on this stuff. Tim White (Hopkins Marine lab) should have a paper soon on using AIS for the Palmyra Atoll
+
+Here is a recent short note on what looks like a [working group on AIS] (https://arxiv.org/ftp/arxiv/papers/1609/1609.08756.pdf)
   
 Relevant data:  
 Are countries with higher GDPs better at enforcing MPA protection? [GDP Data]
