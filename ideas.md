@@ -47,3 +47,10 @@ Easton's thoughts: We could evalulate how predictions from fishery models or the
 
 
 [Our figure colour palette] (https://github.com/karthik/wesanderson)
+
+
+### 3. Living Planet Index
+
+This website has census data for 18,000 populations around the globe. They have already done some work assessing population trends (e.g. how do aquatic organisms fare compared to terrestrial species?). I think there is ample room to dig futher into the data though. Perhaps we could connect this to other abiotic or human activity databases as well? 
+
+[Living planet index] (http://livingplanetindex.org/projects?main_page_project=LivingPlanetReport&home_flag=1)
