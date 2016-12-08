@@ -24,6 +24,8 @@ Relevant data:
 Are countries with higher GDPs better at enforcing MPA protection? [GDP Data]
 (http://data.oecd.org/gdp/gross-domestic-product-gdp.htm)  
 
+**I think it would be interesting to build a mobile app that would notifiy people if a boat was currently in a MPA (and potentially shouldn't be) that they cared about**
+
 *Pros:*
 
 * Huge relevance given recent creation of new 'super' MPAs
