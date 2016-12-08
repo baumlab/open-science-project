@@ -54,3 +54,15 @@ Easton's thoughts: We could evalulate how predictions from fishery models or the
 This website has census data for 18,000 populations around the globe. They have already done some work assessing population trends (e.g. how do aquatic organisms fare compared to terrestrial species?). I think there is ample room to dig futher into the data though. Perhaps we could connect this to other abiotic or human activity databases as well? 
 
 [Living planet index] (http://livingplanetindex.org/projects?main_page_project=LivingPlanetReport&home_flag=1)
+
+
+### 4. Oil spill impact on fisheries catch
+
+Large oil spills linked to fisheries collapses - Exxon Valdez, Deep Horizon, Prestige. But what about medium and small spills? And what about effect sizes?
+
+[NOAA largest oil spills] (http://response.restoration.noaa.gov/oil-and-chemical-spills/oil-spills/largest-oil-spills-affecting-us-waters-1969.html)
+
+Pros - link between spills and environment only really apparent for crazy large spills, but not across scales (e.g. USA), fisheries types (fish, shellfish).
+
+Cons - VERY reliant on inference. No association between spill and catch might be misleading because we can't measure catch very well.
+
