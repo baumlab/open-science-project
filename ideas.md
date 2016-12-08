@@ -66,3 +66,11 @@ Pros - link between spills and environment only really apparent for crazy large 
 
 Cons - VERY reliant on inference. No association between spill and catch might be misleading because we can't measure catch very well.
 
+### 5. Ideas from group meeting in Victoria on Tues (6-Dec-2016)
+
+* Soil microbiome data and forests worldwide
+* Oil spills and coastal ecosystems
+* Fisheries/conservation during war in particular places
+* using data from [NCEAS list] (https://www.nceas.ucsb.edu/scicomp/data)
+* AIS data as described above
+
