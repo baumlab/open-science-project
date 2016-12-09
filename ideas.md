@@ -24,6 +24,8 @@ Relevant data:
 Are countries with higher GDPs better at enforcing MPA protection? [GDP Data]
 (http://data.oecd.org/gdp/gross-domestic-product-gdp.htm)  
 
+**I think it would be interesting to build a mobile app that would notifiy people if a boat was currently in a MPA (and potentially shouldn't be) that they cared about**
+
 *Pros:*
 
 * Huge relevance given recent creation of new 'super' MPAs
@@ -56,3 +58,23 @@ This website has census data for 18,000 populations around the globe. They have 
  
 
 [Living planet index] (http://livingplanetindex.org/projects?main_page_project=LivingPlanetReport&home_flag=1)
+
+
+### 4. Oil spill impact on fisheries catch
+
+Large oil spills linked to fisheries collapses - Exxon Valdez, Deep Horizon, Prestige. But what about medium and small spills? And what about effect sizes?
+
+[NOAA largest oil spills] (http://response.restoration.noaa.gov/oil-and-chemical-spills/oil-spills/largest-oil-spills-affecting-us-waters-1969.html)
+
+Pros - link between spills and environment only really apparent for crazy large spills, but not across scales (e.g. USA), fisheries types (fish, shellfish).
+
+Cons - VERY reliant on inference. No association between spill and catch might be misleading because we can't measure catch very well.
+
+### 5. Ideas from group meeting in Victoria on Tues (6-Dec-2016)
+
+* Soil microbiome data and forests worldwide
+* Oil spills and coastal ecosystems
+* Fisheries/conservation during war in particular places
+* using data from [NCEAS list] (https://www.nceas.ucsb.edu/scicomp/data)
+* AIS data as described above
+
