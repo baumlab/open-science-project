@@ -66,9 +66,23 @@ Large oil spills linked to fisheries collapses - Exxon Valdez, Deep Horizon, Pre
 
 [NOAA largest oil spills] (http://response.restoration.noaa.gov/oil-and-chemical-spills/oil-spills/largest-oil-spills-affecting-us-waters-1969.html)
 
+[NMFS historical landings by species + state] (https://www.st.nmfs.noaa.gov/commercial-fisheries/commercial-landings/annual-landings-with-group-subtotals/index)
+
 Pros - link between spills and environment only really apparent for crazy large spills, but not across scales (e.g. USA), fisheries types (fish, shellfish).
 
 Cons - VERY reliant on inference. No association between spill and catch might be misleading because we can't measure catch very well.
+
+Method - quantify long-term trend in shellfish fisheries landings + value in states with a history of oil spills (Texas, Louisiana, Washington). Identify momentary loss of landings in year after oil spill occurred.
+
+Oil data - need lat-lon, spill size, and spill duration. NOAA has this information.
+
+Catch data - we have state-level data. Are there higher spatial resolution data available? Fisheries divided into subregions - data must exist!
+
+OR
+
+Fishery-independent data - intertidal monitoring data to examine community-level impacts?
+
+
 
 ### 5. Ideas from group meeting in Victoria on Tues (6-Dec-2016)
 
