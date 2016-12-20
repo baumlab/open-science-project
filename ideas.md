@@ -92,3 +92,6 @@ Fishery-independent data - intertidal monitoring data to examine community-level
 * using data from [NCEAS list] (https://www.nceas.ucsb.edu/scicomp/data)
 * AIS data as described above
 
+### 6. Data from Jill
+
+[KNB info] (https://knb.ecoinformatics.org/)
