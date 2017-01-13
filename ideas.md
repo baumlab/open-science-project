@@ -95,3 +95,7 @@ Fishery-independent data - intertidal monitoring data to examine community-level
 ### 6. Data from Jill
 
 [KNB info] (https://knb.ecoinformatics.org/)
+
+### 7. Sushi project
+
+This is a project originally put forth by Nick Fabina on facebook. Danielle and I chatted with him a bit on the project. For now another collaborator is going to look at the data Nick has assembled. We might help on the project later.
