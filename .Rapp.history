@@ -1,0 +1,11 @@
+setwd("~/Documents/git-jpwrobinson/open-science-project")
+oil <- read.table('data/oil-spill-data/noaa-incidents.csv',sep=',',header=T)
+oil=subset(oil,is.na(oil$lat)==F) # only look at incidents with Lat and Long
+oil = subset(oil, oil$threat=='Oil') #only choose oil spill incidents
+oil= subset(oil,is.na(oil$max_ptl_release_gallons)==F) #only look at incidents with information on total number of gallons
+head(oil)
+str(oil)
+oil$Date<-as.Date(as.character(oild$open_date)))
+oil$Date<-as.Date(as.character(oild$open_date))
+oil$Date<-as.Date(as.character(oil$open_date))
+head(oil)
