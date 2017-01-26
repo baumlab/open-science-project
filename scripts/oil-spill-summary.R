@@ -10,7 +10,7 @@
 setwd("~/Desktop/Research/open-science-project")
 setwd("~/Documents/git-jpwrobinson/open-science-project")
 
-library(stringr); theme_set(theme_bw())
+library(scales); library(stringr); theme_set(theme_bw())
 
 oil <- read.table('data/oil-spill-data/noaa-incidents.csv',sep=',',header=T)
 oil<-subset(oil,is.na(oil$lat)==F) # only look at incidents with Lat and Long
@@ -47,8 +47,21 @@ neg<-function(x) -x
 ## subset to west coast
 oil.west<-oil[oil$lat>29 & oil$lat<80 &  oil$lon>neg(190) & oil$lon<neg(110),]
 
+
+## save Rdata file
+save(oil.west, file='data/oil_west_clean.Rdata')
+
 # plot of spill size over time
 pdf(file='figures/oil_spills_overtime.pdf', height=7, width=11)
 ggplot(oil.west, aes(Date, log10(max_ptl_release_gallons))) + geom_point()
 dev.off()
+
+# histogram of spill sizes 
+pdf(file='figures/oil_spills_histogram.pdf', height=7, width=11)
+ggplot(oil.west, aes((max_ptl_release_gallons))) + geom_histogram() + scale_x_continuous(labels=comma)
+dev.off()
+
+hist(oil.west$max_ptl_release_gallons, plot=F, breaks=seq(1, 100000000, 10000))	
+
+length(unique(oil.west$id)[oil.west$max_ptl_release_gallons<1000])
 

@@ -1,0 +1,33 @@
+---
+title: "oil-data-summary"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load('../data/oil_west_clean.Rdata')
+```
+
+#### Summarising oil data
+
+Oil data extracted from NOAA XXXX???. 
+
+We excluded Chemical and Other spill types, leaving `r length(unique(oil.west$id))` oil spills from `r min(oil.west$Date)` to `r max(oil.west$Date)`. Spill region covers West coast of USA and Canada (latitude: `r round(min(oil.west$lat), digits=2)`, `r round(max(oil.west$lat), digits=2)`; longitude: `r round(min(oil.west$lon), digits=2)`, `r round(max(oil.west$lon), digits=2)`) (Figure 1,2).
+
+Spill size reported for `r length(unique(oil.west$id)[oil.west$max_ptl_release_gallons>0])/length(unique(oil.west$id))*100` of spills, with majority of spills < 1000 gallons (`r length(oil.west$max_ptl_release_gallons<1000)`) (Figure 3).
+
+*How is 'max_ptl_release_gallons' variable measured?*
+
+
+#### Figures
+
+![](../figures/oil_spills_overtime.pdf)  
+*Figure 1* Oil spill size (log10 gallons) over time (years).
+
+![](../figures/oil_map_spillsize.pdf)  
+*Figure 2* Map of oil spill size (gallons).
+
+![](../figures/oil_spills_histogram.pdf)  
+*Figure 3* Histogram of oil spill size (gallons).
+
+
