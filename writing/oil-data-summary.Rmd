@@ -10,7 +10,9 @@ load('../data/oil_west_clean.Rdata')
 
 #### Summarising oil data
 
-Oil data extracted from NOAA XXXX???. 
+Oil data extracted from [NOAA's Raw Incident Data](https://incidentnews.noaa.gov/raw/index). Dataset contains location and date of spill indicents, with associated maximum potential release in gallons. *"This may be a known quantity or the upper bound of a minimum-maximum estimate. Note that different commodities have different toxicities and reaction characteristics, so 10,000 gallons of one material may be more significant than 10,000 gallons of another."*
+
+ 
 
 We excluded Chemical and Other spill types, leaving `r length(unique(oil.west$id))` oil spills from `r min(oil.west$Date)` to `r max(oil.west$Date)`. Spill region covers West coast of USA and Canada (latitude: `r round(min(oil.west$lat), digits=2)`, `r round(max(oil.west$lat), digits=2)`; longitude: `r round(min(oil.west$lon), digits=2)`, `r round(max(oil.west$lon), digits=2)`) (Figure 1,2).
 
