@@ -20,6 +20,8 @@ Spill size reported for `r length(unique(oil.west$id)[oil.west$max_ptl_release_g
 
 *How is 'max_ptl_release_gallons' variable measured?*
 
+*(Note that different commodities have different toxicities and reaction characteristics, so 10,000 gallons of one material may be more significant than 10,000 gallons of another.)*
+
 
 #### Figures
 
