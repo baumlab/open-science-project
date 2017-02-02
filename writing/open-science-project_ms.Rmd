@@ -75,6 +75,13 @@ Make citations like this: [@CITEKEY; @ANOTHERCITEKEY]
 Sea Around Us
 Oil spill database
 
+## Data Analysis {-}
+
+May be a lot of parameters here but there is a lot to control for, potentially might get away with detrending the environmentals or using just an ARMA and include everything we don't care about in an error term or something for everything but discrete events (blooms, oil spills, diseases) which I think should be included explicitly in the model:
+
+N(t+1) = lag*N(t) (autoregressive model) + environmentals (temperature, chl a, pH, El Nino, habitat, prevailing current/wind) + (lags to potential disease outbreaks and algal blooms) + (lag of environmentals) + moving-average model for errors + (lag of oil spills)
+
+
 
 # Results and discussion {-}
 
