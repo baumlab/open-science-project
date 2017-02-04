@@ -72,15 +72,29 @@ Make citations like this: [@CITEKEY; @ANOTHERCITEKEY]
 # Methods {-}
 
 ## Data Sources {-}
-Sea Around Us
-Oil spill database
+
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)). 
+
+* We examined all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (range in lat; range in lon).   
+* Maximum spill size (gallons) was estimated by....  
+
+Fish data were provided by the Sea Around Us project, which provides global, spatially-explicit estimates of fisheries catch within EEZ boundaries (Pauly & Zeller 2015; Zeller et al. 2016). Taxon-level catch estimates were produced using a combination of international and national catch statistics, with missing datapoints interpolated using information from peer-reviewed publications, grey literature, fisheries surveys, and expert knowledge (Pauly & Zeller 2015). Data were spatially-allocated to a 0.5 degree resolution grid using published species distribution data, whereby....... 
+* Look to Sumaila et al. (2012) for methods on fish data as relates to Deepwater oil spill
+
+* We extracted annual commercial fisheries landings data (catch and discards, tonnes?) for individual taxa at a 0.5 degree resolution) for 1967-2016 for EEZs of Canada and US (west coast). Data were aggregated according to.....
+
+* Oil and fisheries data were paired by.....
+
+
 
 ## Data Analysis {-}
 
+**Detrending**
 May be a lot of parameters here but there is a lot to control for, potentially might get away with detrending the environmentals or using just an ARMA and include everything we don't care about in an error term or something for everything but discrete events (blooms, oil spills, diseases) which I think should be included explicitly in the model:
 
 N(t+1) = lag*N(t) (autoregressive model) + environmentals (temperature, chl a, pH, El Nino, habitat, prevailing current/wind) + (lags to potential disease outbreaks and algal blooms) + (lag of environmentals) + moving-average model for errors + (lag of oil spills)
 
+**Spill impact analysis**
 
 
 # Results and discussion {-}
@@ -89,6 +103,19 @@ Results and discussion go here
 
 Insert figures like this: 
 ![Caption](../figures/figurefile.pdf) 
+
+## Caveats (my favourite)
+
+The ecological impact of an oil spill is highly context-dependent, and will be affected by the environmental conditions, clean-up response, and type of oil:
+
+* Environmental conditions: currents, weather, habitat type (?)
+* Clean-up response: effectiveness and range in response?
+* Type of oil: persistence in environment
+
+The Sea Around Us dataset provided a time-series of spatially-explicit catch data that enabled.....However, such reconstructed catch data are subject to several limitations:
+
+* limitations of SaU?
+
 
 # Acknowledgements {-}
 
