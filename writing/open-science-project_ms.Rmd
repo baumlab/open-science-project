@@ -65,23 +65,29 @@ citep("Article")
 # This initializes the citation engine 
 ```
 
-Intro goes here.
 Make citations like this: [@CITEKEY; @ANOTHERCITEKEY]
 
+## 1. Pollutants and the environment
+
+## 2. Oil spill impacts on ecosystems - toxins, mortality, small-scale vs. notorious (Deepwater, Exxon)
+
+## 3. Oil spill impacts on natural resources - fisheries, lead into inverts
+
+## 4. Examples of oil spill economics/fisheres - stress novelty of examining multiple spills
+
+* Sumaila et al. (2012) used catch estimates to model the effect of the Deepwater oil spill on fisheries value through area closures
+* Galicia...
+* Exxon-Valdez
 
 # Methods {-}
 
 ## Data Sources {-}
 
-We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)). 
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (32.57 - 70.86N&deg;; -179.55 - 116.20W&deg;).   
 
-* We examined all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (range in lat; range in lon).   
-* Maximum spill size (gallons) was estimated by....  
+* Maximum spill size (gallons) was estimated by....  [James waiting on email from NOAA on this]
 
-Fish data were provided by the Sea Around Us project, which provides global, spatially-explicit estimates of fisheries catch within EEZ boundaries (Pauly & Zeller 2015; Zeller et al. 2016). Taxon-level catch estimates were produced using a combination of international and national catch statistics, with missing datapoints interpolated using information from peer-reviewed publications, grey literature, fisheries surveys, and expert knowledge (Pauly & Zeller 2015). Data were spatially-allocated to a 0.5 degree resolution grid using published species distribution data, whereby....... 
-* Look to Sumaila et al. (2012) for methods on fish data as relates to Deepwater oil spill
-
-* We extracted annual commercial fisheries landings data (catch and discards, tonnes?) for individual taxa at a 0.5 degree resolution) for 1967-2016 for EEZs of Canada and US (west coast). Data were aggregated according to.....
+Fish data were provided by the Sea Around Us Project, which collates global, spatially-explicit estimates of annual fisheries catch at the national level (Pauly & Zeller 2015; Zeller et al. 2016). Taxon-level catch estimates were produced using a combination of international and national catch statistics and, within each exclusive economic zone (EEZ), allocated to 0.5 degree cells using published species distribution data (Pauly & Zeller 2015). From this database, we examined annual commercial fisheries landings data (catch and discards combined, tonnes) for individual species (?) at a 0.5 degree resolution) spanning 1967-2016 for the EEZs of Canada and US (west coast). Data were aggregated according to.....
 
 * Oil and fisheries data were paired by.....
 
@@ -119,6 +125,7 @@ The Sea Around Us dataset provided a time-series of spatially-explicit catch dat
 
 # Acknowledgements {-}
 
+Travis Tai - mapping code.
 
 # References {-}
 

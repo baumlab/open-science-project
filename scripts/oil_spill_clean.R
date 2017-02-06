@@ -10,7 +10,7 @@
 setwd("~/Desktop/Research/open-science-project")
 setwd("~/Documents/git-jpwrobinson/open-science-project")
 
-library(scales); library(stringr); theme_set(theme_bw())
+library(scales); library(stringr); theme_set(theme_bw()); library(mapdata); library(maptools)
 
 # oil <- read.table('data/oil-spill-data/noaa-incidents.csv',sep=',',header=T)
 # oil<-subset(oil,is.na(oil$lat)==F) # only look at incidents with Lat and Long
@@ -43,7 +43,7 @@ library(scales); library(stringr); theme_set(theme_bw())
 
 # #-----------------------------------FINISHED DATE CLEANING------------------------------------------#
 
-# neg<-function(x) -x 
+neg<-function(x) -x 
 # ## subset to west coast
 # oil.west<-oil[oil$lat>29 & oil$lat<80 &  oil$lon>neg(190) & oil$lon<neg(110),]
 
@@ -66,4 +66,17 @@ dev.off()
 hist(oil.west$max_ptl_release_gallons, plot=F, breaks=seq(1, 100000000, 10000))	
 
 length(unique(oil.west$id)[oil.west$max_ptl_release_gallons<1000])
+
+
+# create simple map of west coast with usa and canada spills - sized by gallons
+pdf(file='figures/oil_map_spillsize_WA.pdf', height=7, width=11)
+w2hr <- map_data("world2Hires")
+WA<-w2hr[w2hr$long< 240 & w2hr$long> 230 & w2hr$lat<49 & w2hr$lat>45.5,]
+
+# create plot with ggplot
+oil.west$lon<-oil.west$lon+360
+oil.WA<-oil.west[oil.west$lon< 240 & oil.west$lon> 230 & oil.west$lat<49 & oil.west$lat>45.5,]
+ggplot() + geom_polygon(data = WA, aes(x=long, y = lat, group = group)) + coord_fixed(1.3) + geom_point(data=oil.WA,aes(x=lon,y=lat,size=0.1*log(max_ptl_release_gallons)),color='red')
+dev.off()
+
 
