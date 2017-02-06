@@ -6,7 +6,8 @@ setwd("~/Documents/git-jpwrobinson/open-science-project")
 
 theme_set(theme_bw()) 
 library(scales); library(sp); library(rgdal); library(raster); library(maps); library(mapdata); library(maptools)
-
+library(maptools); library(prettymapr)
+require(plotrix)
 
 load('data/SaU_landings_clean.Rdata')
 
@@ -27,8 +28,13 @@ coordinates(pts) <- ~lon+lat
 # plot(pts, lwd=0.5)
 # axis(2); axis(1)
 
+
+rast <- raster(ncol = 10, nrow = 10)
+extent(rast) <- extent(pts)
+rasterize(pts, rast, pts$catch, fun = mean)
+
 map("worldHires", xlim=c(-150,-110),ylim=c(29,50), col="gray95", fill=TRUE)
-plot(pts, col=pts$col, cex=0.5, add=TRUE, lwd=0.1)
+plot(pts, col=pts$col, cex=0.5, lwd=0.1)
 
 rast <- raster(ncol = 10, nrow = 10)
 extent(rast) <- extent(pts)
@@ -44,5 +50,15 @@ gridded(pts) <- TRUE
 #convert to raster
 r <- raster(pts)
 #plot
-plot(r, add=TRUE)
+plot(r)
 
+
+
+sites <- SpatialPointsDataFrame(data.frame('lon' = tot.catch[,"lon"], 'lat' = tot.catch[,'lat']), data.frame(catch=tot.catch$sum, col=tot.catch$sum.col))
+proj <- CRS('+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0')
+proj4string(sites) <- proj
+
+## set resolution for grid size. reso = 6 is the average reef size in Mellin et al. 2010 (6km)
+rast <-raster(xmn=sites@bbox[1,1], xmx=sites@bbox[1,2], ymn=sites@bbox[2,1], ymx=sites@bbox[2,2], 
+              crs = proj, vals=NULL)
+rasterize(sites, rast, pts$sum, fun = mean)

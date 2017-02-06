@@ -10,7 +10,7 @@
 setwd("~/Desktop/Research/open-science-project")
 setwd("~/Documents/git-jpwrobinson/open-science-project")
 
-library(scales); library(stringr); theme_set(theme_bw()); library(mapdata); library(maptools)
+# library(scales); library(stringr); theme_set(theme_bw()); library(mapdata); library(maptools)
 
 # oil <- read.table('data/oil-spill-data/noaa-incidents.csv',sep=',',header=T)
 # oil<-subset(oil,is.na(oil$lat)==F) # only look at incidents with Lat and Long
@@ -41,9 +41,12 @@ library(scales); library(stringr); theme_set(theme_bw()); library(mapdata); libr
 # ## remove surplus date columns
 # oil$Day<-NULL; oil$day<-NULL; oil$month<-NULL
 
+# ## change year to numeric
+# oil$year<-as.numeric(oil$year)
+
 # #-----------------------------------FINISHED DATE CLEANING------------------------------------------#
 
-neg<-function(x) -x 
+# neg<-function(x) -x 
 # ## subset to west coast
 # oil.west<-oil[oil$lat>29 & oil$lat<80 &  oil$lon>neg(190) & oil$lon<neg(110),]
 
