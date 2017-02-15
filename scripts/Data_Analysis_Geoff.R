@@ -3,10 +3,10 @@ rm(list=ls())
 library(forecast)
 
 setwd("c:/Users/shark_000/Documents/OpenScienceProject/open-science-project")
-load("data/SaU_landings_clean.Rdata")
-oil<-read.csv("data/oil-spill-data/noaa-incidents.csv", header=TRUE)
+load("data/oil_west_clean.Rdata")
+fish<-read.csv("data/oil-spill-data/noaa-incidents.csv", header=TRUE)
 
-str(fish)
+str(oil.west)
 
 #############################
 ###Trying out ARIMA first####
