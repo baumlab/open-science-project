@@ -1,4 +1,5 @@
 setwd('open-science-project')
+setwd('~/Documents/git-jpwrobinson/open-science-project')
 
 library(readr)
 library(dplyr)
@@ -52,5 +53,10 @@ fish$spill<-ifelse(is.na(fish$spill.size), 'FALSE', 'TRUE')
 
 
 
+## subsetting to grids with spills in history
+fish$grid.ID<-with(fish, paste(lat, lon))
+spill.ids<-unique(fish$grid.ID[fish$spill==TRUE])
+spills<-fish[fish$grid.ID%in% spill.ids,]
 
-
+## save Rdata of fish + oil spill combined
+save(spills, file='data/fish_with_spill_grids_only.Rdata')
