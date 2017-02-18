@@ -7,14 +7,15 @@ library(ggplot2)
 
 sea <- read_csv('data/sea-around-us/Jamie_Shellfish_NA.csv')
 
-oil <- 
-  read_csv('../data/incidents.csv') %>% 
-  filter(threat == 'Oil') %>% 
-  mutate(year = year(as.Date(open_date)))
+#oil <- 
+#  read_csv('../data/incidents.csv') %>% 
+ # filter(threat == 'Oil') %>% 
+  #mutate(year = year(as.Date(open_date)))
+load("data/oil_west_clean.Rdata")
 
-west_oil <- 
-  oil %>% 
-  filter(lon < (-110), lon > (-190))
+west_oil <- oil.west
+ # oil %>% 
+  #filter(lon < (-110), lon > (-190))
 
 combined <- full_join(sea, west_oil, by = 'year') %>% 
   mutate(lat_diff = abs(lat.x - lat.y), lon_diff = abs(lon.x - lon.y)) %>% 
@@ -38,6 +39,7 @@ oil.west$row<-1:nrow(oil.west)
 ## append cell IDs for lat-lon that match to fish data
 oil.west<-CELLMATCH(oil.west)
 
+head(data.frame(oil.west))
 ## now need to aggregate oil spills within cells in the same year. 
 oil<-aggregate(max_ptl_release_gallons ~ lat + lon + year + lonCell + latCell, oil.west, sum)
 oil$ID<-with(oil, paste(latCell, lonCell, year, sep='.'))
@@ -48,9 +50,22 @@ fish$ID<-with(fish, paste(lat, lon, year, sep='.'))
 ## numeric: spill size
 fish$spill.size<-oil$max_ptl_release_gallons[match(fish$ID, oil$ID)]
 ## logical: did spill occur in same year?
-fish$spill<-ifelse(is.na(fish$spill.size), 'FALSE', 'TRUE')
+fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
 
+####Geoff adding in PDO
+#pdo <- read.csv('data/pdo.csv', header=T)
+#dates<-strsplit(as.character(pdo$Date), split="")
+#for (i in 1:length(dates)) {
 
+#	pdo$Year[i]<-paste(dates[[i]][1:4], collapse="")
+#	pdo$Month[i]<-paste(dates[[i]][5:6], collapse="")
 
+#}
+
+#pdo_year<-subset(aggregate(pdo$Value, by=list(pdo$Year), mean), Group.1>=1950)
+#colnames(pdo_year)<-c("year", "pdo")
+#write.csv(pdo_year, "data/pdo_mean_by_year.csv")
+pdo_year <- read.csv('data/pdo_mean_by_year.csv', header=T)
+fish$pdo<-pdo_year$pdo[match(fish$year, pdo_year$year)]
 
 
