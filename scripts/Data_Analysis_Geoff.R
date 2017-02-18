@@ -4,9 +4,7 @@ library(forecast)
 
 setwd("c:/Users/shark_000/Documents/OpenScienceProject/open-science-project")
 load("data/oil_west_clean.Rdata")
-fish<-read.csv("data/oil-spill-data/noaa-incidents.csv", header=TRUE)
-
-str(oil.west)
+oil<-read.csv("data/oil-spill-data/noaa-incidents.csv", header=TRUE)
 
 #############################
 ###Trying out ARIMA first####
@@ -94,7 +92,58 @@ auto.arima(crustaceans$landings)
 arima_1_1_0<-arima(crustaceans$landings, order=c(1,1,0))
 arima_1_1_0$aic
 ################################
-#Things to do:
-#1. develop script for relating spatial scales between SoA data and oil data
-#2. decide on how to incorporate environmental variables - detrending (splines), regression
-#3. decide on how to incorporate spatial scale/correlation 
+#Trying out GAMs################
+################################
+
+##From get_oil_and_fish.R - too lazy to make work with source()############
+source('scripts/functions/ConvertOccurToCellGrid_TTAI.R')  # function from Travis Tai (UBC)
+load('data/SaU_landings_clean.Rdata') ## cleaned landings
+load('data/oil_west_clean.Rdata') # cleaned oil
+
+## change oil lon to negative format
+oil.west$row<-1:nrow(oil.west)  
+## append cell IDs for lat-lon that match to fish data
+oil.west<-CELLMATCH(oil.west)
+
+head(data.frame(oil.west))
+## now need to aggregate oil spills within cells in the same year. 
+oil<-aggregate(max_ptl_release_gallons ~ lat + lon + year + lonCell + latCell, oil.west, sum)
+oil$ID<-with(oil, paste(latCell, lonCell, year, sep='.'))
+
+fish$ID<-with(fish, paste(lat, lon, year, sep='.')) #ring 1 cell per spill per year.
+
+## add oil spill to fish cell based on year. Only conside
+## numeric: spill size
+fish$spill.size<-oil$max_ptl_release_gallons[match(fish$ID, oil$ID)]
+## logical: did spill occur in same year?
+fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
+pdo_year <- read.csv('data/pdo_mean_by_year.csv', header=T)
+fish$pdo<-pdo_year$pdo[match(fish$year, pdo_year$year)]
+###########################################
+
+fish$spill.size[fish$spill.size==NA]<-0
+
+#Add lag of one and two years
+fish$spill.lag1<-as.numeric(c(NA, fish$spill.size[-length(fish$spill.size)]))
+fish$spill.lag2<-as.numeric(c(NA, fish$spill.lag1[-length(fish$spill.lag1)]))
+
+clams<-subset(fish, common_name=="Clams" & eez=="USA (West Coast)")
+snow.crab<-subset(fish, common_name=="Tanner, snow crabs"& eez=="USA (West Coast)")
+geoduck<-subset(fish, common_name==" Pacific geoduck"& eez=="USA (West Coast)")
+#shrimp<-subset(fish, common_name=="Northern shrimp")
+
+library(mgcv)
+
+gam.out.clam<-gam(sum~pdo+year+spill.size, data=clams)
+gam.out.snow<-gam(sum~pdo+year+spill, data=snow.crab)
+gam.out.geoduck<-gam(sum~pdo+year+spill, data=geoduck) ##Too many NAs. 
+gam.out1<-gam(sum~pdo+year+taxa_broad*spill.size, data=fish, family=Gamma(link=log))
+gam.out2<-gam(sum~pdo+year+taxa_broad*spill, data=fish, family=Gamma(link=log))
+
+plot(gam.out.clam$residuals~gam.out.clam$fitted)
+boxplot(snow.crab$sum, ylim=c(0,50))
+
+summary(gam.out.clam)
+summary(gam.out.snow)
+summary(gam.out1)
+summary(gam.out2)
