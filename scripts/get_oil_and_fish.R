@@ -1,4 +1,5 @@
 setwd('open-science-project')
+setwd('~/Documents/git-jpwrobinson/open-science-project')
 
 library(readr)
 library(dplyr)
@@ -52,6 +53,15 @@ fish$spill.size<-oil$max_ptl_release_gallons[match(fish$ID, oil$ID)]
 ## logical: did spill occur in same year?
 fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
 
+
+
+
+
+
+
+
+
+
 ####Geoff adding in PDO
 #pdo <- read.csv('data/pdo.csv', header=T)
 #dates<-strsplit(as.character(pdo$Date), split="")
@@ -59,6 +69,7 @@ fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
 
 #	pdo$Year[i]<-paste(dates[[i]][1:4], collapse="")
 #	pdo$Month[i]<-paste(dates[[i]][5:6], collapse="")
+
 
 #}
 
@@ -68,4 +79,11 @@ fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
 pdo_year <- read.csv('data/pdo_mean_by_year.csv', header=T)
 fish$pdo<-pdo_year$pdo[match(fish$year, pdo_year$year)]
 
+## subsetting to grids with spills in history
+fish$grid.ID<-with(fish, paste(lat, lon))
+spill.ids<-unique(fish$grid.ID[fish$spill==TRUE])
+spills<-fish[fish$grid.ID%in% spill.ids,]
 
+
+## save Rdata of fish + oil spill combined
+save(spills, file='data/fish_with_spill_grids_only.Rdata')
