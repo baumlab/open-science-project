@@ -30,7 +30,7 @@ par(mfrow=c(4,4), mar=c(3,4,3,3))
 for(i in 1:length(id.vec)) {
 
 	temp.dat<-geo[geo$grid.ID==id.vec[i],]
-	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)')
+	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)', main=id.vec[i])
 	abline(v=temp.dat$year[temp.dat$spill==TRUE], col='red')
 
 }
@@ -41,4 +41,42 @@ dev.off()
 
 
 
+
+### What is a reasonable scale of analysis? SaU is at 0.5 degree, but may be disaggregated according to state-level data.
+## Similarly, what is a reasonable size of spill to examine? Starting with 10,000 gallons.
+
+bigsp.grids<-spills[which(spills$spill.size>10000),]
+bigsp<-spills[spills$grid.ID %in% bigsp.grids$grid.ID,]
+
+id.vec<-unique(bigsp$grid.ID)
+
+pdf(file='figures/spills_over10000_timeseries_allgrids.pdf', height=7, width=11)
+par(mfrow=c(6,6), mar=c(3,4,3,3))
+
+
+## full time series
+for(i in 1:length(id.vec)) {
+
+	temp.dat<-bigsp[bigsp$grid.ID==id.vec[i],]
+	temp.dat<-aggregate(sum ~  spill + year, temp.dat, sum)
+	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)', main=id.vec[i])
+	abline(v=temp.dat$year[temp.dat$spill==TRUE], col='red')
+
+}
+
+## zoomed into spills
+for(i in 1:length(id.vec)) {
+
+	temp.dat<-bigsp[bigsp$grid.ID==id.vec[i],]
+	temp.dat<-aggregate(sum ~  spill + year, temp.dat, sum)
+	yy<-temp.dat$year[temp.dat$spill==TRUE]
+	temp.dat<-temp.dat[temp.dat$year>yy[1]-6,]
+	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)', main=id.vec[i])
+	abline(v=temp.dat$year[temp.dat$spill==TRUE], col='red')
+
+}
+
+
+
+dev.off()
 
