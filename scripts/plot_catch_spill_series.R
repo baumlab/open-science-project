@@ -91,10 +91,6 @@ species<-main.species$common_name[main.species$grid.ID>20]
 
 pdf(file='figures/spills_over10000_timeseries_allgrids_majorspecies.pdf', height=7, width=11)
 
-
-
-
-
 # by species that are caught > 20 grids
 for(a in 1:length(species)){
 	par(mfrow=c(6,6), mar=c(3,4,3,3))
