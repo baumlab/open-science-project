@@ -17,13 +17,13 @@ summary(gam.out.clam)
 
 clams$residuals = gam.out.clam$residuals
 snow.crab$residuals = gam.out.snow $residuals
-geoduck$residuals = gam.out.geoduck$residuals
+geoduck$residuals = as.numeric(model$residuals)
 
 
 require(ggplot2)
 ggplot() + geom_point(data=geoduck,aes(x=lon,y=lat,col=log(abs(residuals))),size=4) + facet_wrap(~year)
 
-ggplot() + geom_point(data=geoduck,aes(x=year,y=residuals,col=as.factor(abs(lat*lon))),size=4) 
+ggplot(data=geoduck,aes(x=year,y=residuals,col=as.factor(abs(lat*lon)))) + geom_point(size=2) + geom_smooth(method = 'loess',se = F) 
 
 
 #require(geosphere)

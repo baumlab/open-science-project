@@ -18,7 +18,7 @@ hist(pairwise_distance)
 resid_diff=dist2(geoduck2010$residuals,geoduck2010$residuals)
 
 resid_and_dist = as.data.frame(cbind(c(pairwise_distance),c(resid_diff)))
-colnames(zed)=c('pairwise_distance','resid_diff')
+colnames(resid_and_dist)=c('pairwise_distance','resid_diff')
 
 ggplot(data=resid_and_dist,aes(x=c(pairwise_distance),y=c(resid_diff))) + geom_point(alpha=0.2) + geom_smooth(method='loess')
 
