@@ -7,6 +7,7 @@ library(dplyr)
 library(lubridate)
 library(ggplot2)
 theme_set(theme_bw())
+uniques<-function(x){length(unique(x))}
 
 load('data/fish_with_spill_grids_only.Rdata')
 
@@ -51,6 +52,9 @@ bigsp<-spills[spills$grid.ID %in% bigsp.grids$grid.ID,]
 id.vec<-unique(bigsp$grid.ID)
 
 pdf(file='figures/spills_over10000_timeseries_allgrids.pdf', height=7, width=11)
+
+
+
 par(mfrow=c(6,6), mar=c(3,4,3,3))
 
 
@@ -76,7 +80,49 @@ for(i in 1:length(id.vec)) {
 
 }
 
+dev.off()
 
+
+##### repeat for commonly caught species
+main.species<-aggregate(grid.ID ~ common_name, bigsp, uniques)
+species<-main.species$common_name[main.species$grid.ID>20]
+
+
+
+pdf(file='figures/spills_over10000_timeseries_allgrids_majorspecies.pdf', height=7, width=11)
+
+# by species that are caught > 20 grids
+for(a in 1:length(species)){
+	par(mfrow=c(6,6), mar=c(3,4,3,3))
+	# temp id vector for grids with species 
+	temp.species<-bigsp[bigsp$common_name==species[a],]
+	id.temp<-unique(temp.species$grid.ID)
+
+## full time series
+for(i in 1:length(id.temp)) {
+
+	temp.dat<-temp.species[temp.species$grid.ID==id.temp[i],]
+	# temp.dat<-aggregate(sum ~  spill + year, temp.dat, sum)
+	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)', sub=id.temp[i], main=species[a])
+	abline(v=temp.dat$year[temp.dat$spill==TRUE], col='red')
+
+}
+
+## zoomed into spills
+# par(mfrow=c(6,6), mar=c(3,4,3,3))
+
+# for(i in 1:length(id.temp)) {
+
+# 	temp.dat<-temp.species[temp.species$grid.ID==id.temp[i],]
+# 	# temp.dat<-aggregate(sum ~  spill + year, temp.dat, sum)
+# 	yy<-temp.dat$year[temp.dat$spill==TRUE]
+# 	temp.dat<-temp.dat[temp.dat$year>yy[1]-6,]
+# 	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)', sub=id.temp[i], main=species[a])
+# 	abline(v=temp.dat$year[temp.dat$spill==TRUE], col='red')
+
+# }
+
+}
 
 dev.off()
 
