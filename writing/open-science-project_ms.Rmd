@@ -62,6 +62,9 @@ Abstract goes here.
 <!-- Initialize citations -->
 ```{r, echo=FALSE, include=FALSE}
 citep("Article")
+
+# **If we have papers in Mendeley we do not need to include citations individually. We can export a bibtex file (.bib) straight from Mendeley
+
 # This initializes the citation engine 
 ```
 
@@ -138,6 +141,7 @@ Travis Tai - mapping code.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE} 
   write.bibtex(file="references.bib")
+# **If we have papers in Mendeley we do not need to include citations individually. We can export a bibtex file (.bib) straight from Mendeley
 ```
 
 

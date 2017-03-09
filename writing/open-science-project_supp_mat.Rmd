@@ -1,0 +1,57 @@
+---
+date: "r format(Sys.time(), '%d %B, %Y')"
+geometry: margin=2.5cm
+linestretch: 2
+mainfont: mathptmx
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_width: 7.5
+    keep_tex: yes
+    number_sections: no
+  html_document:
+    fig_caption: yes
+    fig_width: 7.5
+    force_captions: yes
+    highlight: pygments
+    number_sections: yes
+    theme: cerulean
+  word_document:
+    fig_caption: yes
+    fig_width: 7.5
+---
+<!-- Install and source necessary packages -->
+```{r, echo=FALSE}
+  library(knitcitations); cleanbib()
+  cite_options(citation_format = "pandoc", check.entries=FALSE)
+  library(bibtex)
+  
+  # List all necessary packages here:
+  # install.packages('')
+  
+  # Source all necessary packages here:
+  # library()
+```
+\pagebreak
+
+# Supplementary material: The impact of oil spills on western North American shellfish fisheries {-}
+
+Running Head:
+
+Authors: "Open Science Team"
+
+Institute: $^1$ Department of Biology, University of Victoria, PO BOX 1700 Station CSC, Victoria, British Columbia, V8W 2Y2, Canada $^2$
+
+Corresponding Author:
+
+Keywords: 
+
+\pagebreak
+
+## Information to include
+
+* residual plots and model justification
+* data cleaning information
+* raw model results (effect sizes and such)
+* other analyses not included in main manuscript
+* maps of study area? if not already included
