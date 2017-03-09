@@ -83,15 +83,17 @@ Make citations like this: [@CITEKEY; @ANOTHERCITEKEY]
 
 ## Data Sources {-}
 
-We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (32.57 - 70.86N&deg;; -179.55 - 116.20W&deg;).   
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (32.57 - 70.86N&deg;; -179.55 - 116.20W&deg;). Discuss oil spill data filtering as in "oil-data-summary.Rmd" file.   
 
-* Maximum spill size (gallons) was estimated by....  [James waiting on email from NOAA on this]
 
 Fish data were provided by the Sea Around Us Project, which collates global, spatially-explicit estimates of annual fisheries catch at the national level (Pauly & Zeller 2015; Zeller et al. 2016). Taxon-level catch estimates were produced using a combination of international and national catch statistics and, within each exclusive economic zone (EEZ), allocated to 0.5 degree cells using published species distribution data (Pauly & Zeller 2015). From this database, we examined annual commercial fisheries landings data (catch and discards combined, tonnes) for individual species (?) at a 0.5 degree resolution) spanning 1967-2016 for the EEZs of Canada and US (west coast). Data were aggregated according to.....
+
+Need to also discuss why we chose the particular species for our analyses..
 
 * Oil and fisheries data were paired by.....
 * Oil spills occurring the same grid cell and the same year were summed...
 
+Should have final numbers for the number of data points (number of grid cells for each year) for each species we plan to look at.
 
 
 ## Data Analysis {-}
