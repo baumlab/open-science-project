@@ -102,7 +102,11 @@ May be a lot of parameters here but there is a lot to control for, potentially m
 N(t+1) = lag*N(t) (autoregressive model) + environmentals (temperature, chl a, pH, El Nino, habitat, prevailing current/wind) + (lags to potential disease outbreaks and algal blooms) + (lag of environmentals) + moving-average model for errors + (lag of oil spills)
 
 **Spill impact analysis**
+We took yearly total catch for each fishery within each grid cell to be our response variable. Our explanatory variables include a measure of Pacific Decadal Oscillation, the year, latitude, and longitude. To examine the effect of oil spills on catch we included variables on whether an oil spill occured during the current year or either of the previous two.
 
+We used generalized linear models (or GAMs, GLMMs) with a Gamma error distribution and log link function to model catch. The Gamma distribution is appropriate given catch data that is non-negative and highly skewed... (MORE HERE).
+
+Fishery catch is clearly not independent between sites or across years. Therefore, we examined residual plots (see Appendix) to check for temporal and spatial autocorrelation in the residuals. There was not strong spatial autocorrelation in the residuals after accounting for other explantory variables. However, there was strong temporal autocorrelation within each grid cell. Therefore, we included a random effect for individual grid cell to account for this non-independence (citation here). We fit all these models with the ADMB package (citation) within R (citation).
 
 # Results and discussion {-}
 
