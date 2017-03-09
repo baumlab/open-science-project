@@ -1,8 +1,9 @@
 rm(list=ls())
 
-library(forecast)
+library(forecast); library(visreg); library(mgcv)
 
 setwd("c:/Users/shark_000/Documents/OpenScienceProject/open-science-project")
+setwd("/Users/IMAC3/Documents/git-jpwrobinson/open-science-project")
 load("data/oil_west_clean.Rdata")
 oil<-read.csv("data/oil-spill-data/noaa-incidents.csv", header=TRUE)
 
@@ -129,15 +130,14 @@ fish$spill.lag2<-as.numeric(c(NA, fish$spill.lag1[-length(fish$spill.lag1)]))
 
 clams<-subset(fish, common_name=="Clams" & eez=="USA (West Coast)")
 snow.crab<-subset(fish, common_name=="Tanner, snow crabs"& eez=="USA (West Coast)")
-geoduck<-subset(fish, common_name==" Pacific geoduck"& eez=="USA (West Coast)")
+geoduck<-subset(fish, common_name=="Pacific geoduck"& eez=="USA (West Coast)")
 #shrimp<-subset(fish, common_name=="Northern shrimp")
 
-library(mgcv)
 
-gam.out.clam<-gam(sum~pdo+year+spill.size, data=clams)
+gam.out.clam<-gam(sum~pdo+year+spill, data=clams)
 gam.out.snow<-gam(sum~pdo+year+spill, data=snow.crab)
 gam.out.geoduck<-gam(sum~pdo+year+spill, data=geoduck) ##Too many NAs. 
-gam.out1<-gam(sum~pdo+year+taxa_broad*spill.size, data=fish, family=Gamma(link=log))
+# gam.out1<-gam(sum~pdo+year+taxa_broad*spill.size, data=fish, family=Gamma(link=log))
 gam.out2<-gam(sum~pdo+year+taxa_broad*spill, data=fish, family=Gamma(link=log))
 
 plot(gam.out.clam$residuals~gam.out.clam$fitted)
@@ -145,5 +145,37 @@ boxplot(snow.crab$sum, ylim=c(0,50))
 
 summary(gam.out.clam)
 summary(gam.out.snow)
-summary(gam.out1)
+# summary(gam.out1)
 summary(gam.out2)
+
+
+
+
+### James running same analysis with large spills 
+load('data/fish_with_spill_grids_only.Rdata')
+
+### Run for 1 cell with big oil spill .
+test.id<-unique(spills$grid.ID[which(spills$spill.size==6216000)])
+test<-spills[spills$grid.ID==test.id,]
+
+
+crabs<-subset(test, common_name=="Red king crab" )
+snow.crab<-subset(test, common_name=="Tanner, snow crabs")
+geoduck<-subset(test, common_name=="Pacific geoduck")
+#shrimp<-subset(test, common_name=="Northern shrimp")
+
+
+
+gam.out.crab<-gam(sum~pdo+year+spill, data=crabs)
+gam.out.snow<-gam(sum~pdo+year+spill, data=snow.crab)
+gam.out.geoduck<-gam(sum~pdo+year+spill, data=geoduck) ##Too many NAs. 
+gam.out2<-gam(sum~pdo+year+taxa_broad*spill, data=spills, family=Gamma(link=log))
+
+plot(gam.out.crab$residuals~gam.out.crab$fitted)
+summary(gam.out.crab)
+summary(gam.out.snow)
+summary(gam.out2)
+
+visreg(gam.out.crab)
+
+
