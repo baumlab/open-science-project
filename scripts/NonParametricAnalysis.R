@@ -40,9 +40,9 @@ OnlySpills<-subset(fish, spill==TRUE)
 fish$spill.size[is.na(fish$spill.size)]<-0
 fish1<-subset(fish, year>1999) #%>% subset(spill.size == 0 | spill.size>1000)
 
-#species<-fish1%>%subset(common_name=="Tanner, snow crabs" & eez== "USA (West Coast)") 
+species<-fish1%>%subset(common_name=="Tanner, snow crabs" & eez== "USA (West Coast)") 
 
-species<-fish1%>%subset(common_name=="Pacific geoduck" & eez== "USA (West Coast)")
+#species<-fish1%>%subset(common_name=="Pacific geoduck" & eez== "USA (West Coast)")
 
 table(fish1$common_name)
 source('scripts/functions/create_site_code.R')
@@ -64,18 +64,18 @@ table(species$year, species$spill)
 #####compare to slope using year -1, 0, 1, 2, after oil spill
 
 oil<-species[species$spill==TRUE & species$spill.size>1000,]
+table(oil$site_code, oil$year)
+spill_slope<-vector(length=length(unique(oil$site_code)))
 
-spill_slope<-vector(length=nrow(oil[oil$spill==TRUE,]))
+for (i in 1:length(unique(oil$site_code))) {
 
-for (i in 1:length(spill_slope)) {
-
-temp0<-subset(species, site_code==oil$site_code[i])
+temp0<-subset(species, site_code==unique(oil$site_code)[i])
 temp1<-temp0[order(temp0$year), ]
 oil.spill.years<-subset(temp1, spill==TRUE)$year
 
 	if (length(oil.spill.years)==1) {
 non.spill.rows<-c(sapply((-3):(-1), function(z) {which(temp1$year==oil.spill.years)+z}))
-spill.rows<-c(sapply((-1):1, function(z) {which(temp1$year==oil.spill.years)+z}))
+spill.rows<-c(sapply((0):2, function(z) {which(temp1$year==oil.spill.years)+z}))
 
 spill.rows<-spill.rows[which(spill.rows<=nrow(temp1))]
 
@@ -86,7 +86,7 @@ spill_slope[i]<-(lm(non.spills$sum~non.spills$year)$coef[2]-lm(spills$sum~spills
 } else {
 
 non.spill.rows<-c(sapply((-3):(-1), function(z) {which(temp1$year==oil.spill.years[1])+z}))
-spill.rows<-c(sapply((-1):2, function(z) {which(temp1$year==oil.spill.years[1])+z}))
+spill.rows<-c(sapply((0):3, function(z) {which(temp1$year==oil.spill.years[1])+z}))
 
 spill.rows<-spill.rows[which(spill.rows<=nrow(temp1))]
 
@@ -113,10 +113,10 @@ for (i in 1:length(sites)) {
 temp0<-subset(species, site_code==sites[i])
 	if(sum(temp0$spill==TRUE)==0) {
 temp1<-temp0[order(temp0$year), ]
-non.oil.years<-sample(2003:2011, 1)
+non.oil.years<-sample(2003:2008, 1)
 
 non.spill.rows<-c(sapply((-3):(-1), function(z) {which(temp1$year==non.oil.years[1])+z}))
-spill.rows<-c(sapply((-1):2, function(z) {which(temp1$year==non.oil.years[1])+z}))
+spill.rows<-c(sapply((0):2, function(z) {which(temp1$year==non.oil.years[1])+z}))
 
 spills<-temp1[spill.rows,]
 non.spills<-temp1[non.spill.rows,]
@@ -130,5 +130,5 @@ hist(non_spill_slope, xlim=c(-10,10), freq=FALSE, ylim=c(0,0.6), col="blue")
 par(new=TRUE)
 hist(spill_slope, xlim=c(-10,10), freq=FALSE, ylim=c(0,0.6), col="green")
 
-mean(non_spill_slope)
+mean(spill_slope)
 sum(non_spill_slope>mean(spill_slope))/length(non_spill_slope)
