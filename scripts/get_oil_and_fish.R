@@ -61,7 +61,6 @@ fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
 
 
 
-
 ####Geoff adding in PDO
 #pdo <- read.csv('data/pdo.csv', header=T)
 #dates<-strsplit(as.character(pdo$Date), split="")

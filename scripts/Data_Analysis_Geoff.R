@@ -1,6 +1,7 @@
 rm(list=ls())
 
 library(forecast)
+library(tidyr)
 
 setwd("c:/Users/shark_000/Documents/OpenScienceProject/open-science-project")
 load("data/oil_west_clean.Rdata")
@@ -105,7 +106,7 @@ oil.west$row<-1:nrow(oil.west)
 ## append cell IDs for lat-lon that match to fish data
 oil.west<-CELLMATCH(oil.west)
 
-head(data.frame(oil.west))
+
 ## now need to aggregate oil spills within cells in the same year. 
 oil<-aggregate(max_ptl_release_gallons ~ lat + lon + year + lonCell + latCell, oil.west, sum)
 oil$ID<-with(oil, paste(latCell, lonCell, year, sep='.'))
@@ -120,25 +121,67 @@ fish$spill<-ifelse(is.na(fish$spill.size), FALSE, TRUE)
 pdo_year <- read.csv('data/pdo_mean_by_year.csv', header=T)
 fish$pdo<-pdo_year$pdo[match(fish$year, pdo_year$year)]
 ###########################################
-
-fish$spill.size[fish$spill.size==NA]<-0
+OnlySpills<-subset(fish, spill==TRUE)
+fish$spill.size[is.na(fish$spill.size)]<-0
+fish1<-subset(fish, year>1999) %>% subset(spill.size == 0 | spill.size>1000)
 
 #Add lag of one and two years
-fish$spill.lag1<-as.numeric(c(NA, fish$spill.size[-length(fish$spill.size)]))
-fish$spill.lag2<-as.numeric(c(NA, fish$spill.lag1[-length(fish$spill.lag1)]))
+#fish$spill.lag1<-as.numeric(c(NA, fish$spill.size[-length(fish$spill.size)]))
+#fish$spill.lag2<-as.numeric(c(NA, fish$spill.lag1[-length(fish$spill.lag1)]))
 
-clams<-subset(fish, common_name=="Clams" & eez=="USA (West Coast)")
-snow.crab<-subset(fish, common_name=="Tanner, snow crabs"& eez=="USA (West Coast)")
-geoduck<-subset(fish, common_name==" Pacific geoduck"& eez=="USA (West Coast)")
+#fish<-fish[with(fish, order(eez, common_name, year)), ]
+
+snow.crab<-fish1%>%subset(common_name=="Tanner, snow crabs"& eez=="USA (West Coast)") %>%
+	unite(coord, c(lat, lon), remove=FALSE)
+
+oil_coords<-snow.crab$coord[which(snow.crab$spill==TRUE)]
+
+snow.crab_oil<-snow.crab[which(snow.crab$coord %in% oil_coords),]
+
+for (i in unique(snow.crab$coord)) {
+	#for (k in unique(snow.crab$common_name)) {
+snow.crab$s[which(snow.crab$spill==TRUE)]
+		temp<-subset(snow.crab, snow.crab$coord==i)	
+	if (sum(temp$spill==TRUE)>0) {
+		temp2<-temp[order(temp$year),]
+		temp2$relative<-rep(NA, nrow(temp2))
+	   for (m in (-6:5)) {
+
+
+	    } 
+
+	    if (exists("snow.crab_use")) {
+	    snow.crab_use<-rbind(snow.crab_use, subset(temp2, relative!="NA"))
+	} else(snow.crab_use<-subset(temp2, relative!=NA))
+}}
+
+
+#}
+
+}
+rm(temp2)
+
+by(fish, INDICES=list(fish$eez, fish$common_name), FUN=subset_rows)
+
+subset_rows(fish, e=c(unique(fish$eez)), c=unique(fish$common_name), y3=unique(fish$year))
+
+out<-fish %>% group_by(eez, common_name, year) %>% subset_rows(.)
+subset_rows(fish)
+
+clams<-subset(fish1, common_name=="Clams" & eez=="USA (West Coast)")
+subset_rows(snow.crab)
+
+
+geoduck<-subset(fish1, common_name==" Pacific geoduck"& eez=="USA (West Coast)")
 #shrimp<-subset(fish, common_name=="Northern shrimp")
 
 library(mgcv)
 
-gam.out.clam<-gam(sum~pdo+year+spill.size, data=clams)
+gam.out.clam<-gam(sum~pdo+year+spill, data=clams)
 gam.out.snow<-gam(sum~pdo+year+spill, data=snow.crab)
 gam.out.geoduck<-gam(sum~pdo+year+spill, data=geoduck) ##Too many NAs. 
-gam.out1<-gam(sum~pdo+year+taxa_broad*spill.size, data=fish, family=Gamma(link=log))
-gam.out2<-gam(sum~pdo+year+taxa_broad*spill, data=fish, family=Gamma(link=log))
+#gam.out1<-gam(sum~pdo+year+taxa_broad*spill.size, data=OnlySpills, family=Gamma(link=log))
+gam.out2<-gam(sum~pdo+year+taxa_broad*spill, data=fish1, family=Gamma(link=log))
 
 plot(gam.out.clam$residuals~gam.out.clam$fitted)
 boxplot(snow.crab$sum, ylim=c(0,50))
@@ -147,3 +190,11 @@ summary(gam.out.clam)
 summary(gam.out.snow)
 summary(gam.out1)
 summary(gam.out2)
+
+
+#######################################
+#######Easton and stats################
+#######################################
+
+lognormal
+lat and long as fixed effects
