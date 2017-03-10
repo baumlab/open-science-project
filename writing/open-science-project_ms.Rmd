@@ -62,6 +62,9 @@ Abstract goes here.
 <!-- Initialize citations -->
 ```{r, echo=FALSE, include=FALSE}
 citep("Article")
+
+# **If we have papers in Mendeley we do not need to include citations individually. We can export a bibtex file (.bib) straight from Mendeley
+
 # This initializes the citation engine 
 ```
 
@@ -83,15 +86,17 @@ Make citations like this: [@CITEKEY; @ANOTHERCITEKEY]
 
 ## Data Sources {-}
 
-We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (32.57 - 70.86N&deg;; -179.55 - 116.20W&deg;).   
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (32.57 - 70.86N&deg;; -179.55 - 116.20W&deg;). Discuss oil spill data filtering as in "oil-data-summary.Rmd" file.   
 
-* Maximum spill size (gallons) was estimated by....  [James waiting on email from NOAA on this]
 
 Fish data were provided by the Sea Around Us Project, which collates global, spatially-explicit estimates of annual fisheries catch at the national level (Pauly & Zeller 2015; Zeller et al. 2016). Taxon-level catch estimates were produced using a combination of international and national catch statistics and, within each exclusive economic zone (EEZ), allocated to 0.5 degree cells using published species distribution data (Pauly & Zeller 2015). From this database, we examined annual commercial fisheries landings data (catch and discards combined, tonnes) for individual species (?) at a 0.5 degree resolution) spanning 1967-2016 for the EEZs of Canada and US (west coast). Data were aggregated according to.....
+
+Need to also discuss why we chose the particular species for our analyses..
 
 * Oil and fisheries data were paired by.....
 * Oil spills occurring the same grid cell and the same year were summed...
 
+Should have final numbers for the number of data points (number of grid cells for each year) for each species we plan to look at.
 
 
 ## Data Analysis {-}
@@ -102,7 +107,11 @@ May be a lot of parameters here but there is a lot to control for, potentially m
 N(t+1) = lag*N(t) (autoregressive model) + environmentals (temperature, chl a, pH, El Nino, habitat, prevailing current/wind) + (lags to potential disease outbreaks and algal blooms) + (lag of environmentals) + moving-average model for errors + (lag of oil spills)
 
 **Spill impact analysis**
+We took yearly total catch for each fishery within each grid cell to be our response variable. Our explanatory variables include a measure of Pacific Decadal Oscillation, the year, latitude, and longitude. To examine the effect of oil spills on catch we included variables on whether an oil spill occured during the current year or either of the previous two.
 
+We used generalized linear models (or GAMs, GLMMs) with a Gamma error distribution and log link function to model catch. The Gamma distribution is appropriate given catch data that is non-negative and highly skewed... (MORE HERE).
+
+Fishery catch is clearly not independent between sites or across years. Therefore, we examined residual plots (see Appendix) to check for temporal and spatial autocorrelation in the residuals. There was not strong spatial autocorrelation in the residuals after accounting for other explantory variables. However, there was strong temporal autocorrelation within each grid cell. Therefore, we included a random effect for individual grid cell to account for this non-independence (citation here). We fit all these models with the ADMB package (citation) within R (citation).
 
 # Results and discussion {-}
 
@@ -132,6 +141,7 @@ Travis Tai - mapping code.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE} 
   write.bibtex(file="references.bib")
+# **If we have papers in Mendeley we do not need to include citations individually. We can export a bibtex file (.bib) straight from Mendeley
 ```
 
 
