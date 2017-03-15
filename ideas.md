@@ -113,3 +113,10 @@ Relevant reading:
 * [Rhyne et al. 2017, PeerJ] (https://peerj.com/articles/2949/)
 * [Rhyne et al. 2012, PLoS ONE] (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035808)
 
+### 9. Scientific Publishing at a Global Scale  
+  
+[Here] (http://www.scimagojr.com/index.php) is a website with information including Documents, Citations, Self Citations, Citations Per Document, and H index by country, and is also subsettable by Subject Area and Year (1996-2015). We could look at questions regarding scientific publishing and GDP, population...?  
+  
+Also, they have really awesome visualizations. It seems like we could incorporate this data into a larger question about publishing trends/science globally. (If you think of any more specific ideas/questions, add them here!)  
+  
+We would need to check with them via [email] (scimagojr@scimago.es) to confirm if there are any additional requirements for using this data, although they appear open access online, and include a citation for using the data in publications.  
