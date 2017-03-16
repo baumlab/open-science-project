@@ -1,0 +1,33 @@
+---
+title: "Oil impacts and open science"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+JR: I think we should reference a lot of our more general statements with links to news articles (like oil spills or political decisions), and specific scientific results to a journal article (rather than citing the paper). 
+
+#### Introduction to derby idea
+
+
+
+
+#### Oil spill question
+
+In light of [recent political moves towards greater oil extraction in N America] (news article), we decided to examine oil spill impacts across the west coast of North America. We focused on shellfish fisheres, reasoning that [sessile organisms would experience high mortality soon after an oil spill] (REF), and that [subsequent fisheries closures] (example of fisheries closures) would instantly impact catch.
+
+#### Spill data, fisheries data
+
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada. We extracted fisheries catch data from the [Sea Around Us Project] (link to website) (SaU), which collates global, spatially-explicit estimates of annual fisheries catch at the national level ([Pauly & Zeller 2015] (LINK); [Zeller et al. 2016] (LINK)). The SaU dataset uses international and national catch statistics to generate taxon-level catch estimates at a 0.5 degree resolution, spanning 1964-2016 (???? check years???), and provided us with California, Oregon, Washington, BC, and Alaska fisheries catch.
+
+
+
+#### Unanswered questions and data gap
+
+
+Beyond our data issues, the ecological impact of an oil spill is highly context-dependent, and will be affected by the environmental conditions, clean-up response, and type of oil. *(REFFFFFFFERENCES NEEDED).* Quantifying oil spill impacts on marine ecosystems is critical....
+
+You can find our ideas, data, and progress in our [public Github repository] (link). We welcome any suggestions that might help us to resurrect this project.
