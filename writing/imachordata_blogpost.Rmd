@@ -11,9 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 JR: I think we should reference a lot of our more general statements with links to news articles (like oil spills or political decisions), and specific scientific results to a journal article (rather than citing the paper). 
 
 #### Introduction to derby idea
+What is an open derby? We had the idea to run something similar to a research derby (http://www.researchderby.org/what-is-a-research-derby.html) where grad students and post-docs collaborated on a paper together, learned GitHub and RMarkdown and kept an open notebook of the research project on GitHub. Our goal was to examine a conservation issue, write up a manuscript using open access (OA) data, and then publish in an OA journal. In the end we hope we can also write up a quick idea paper to outline what we did and discuss how these tools are useful for ecologists everywhere! 
 
+This idea of open science is using OA data, publishing an OA journal, publishing OA code, and keeping your ideas/notebook open as well. To do this, we utilize the tools RMarkdown and GitHub. RMarkdown is a wonderful part of RStudio, that allows you to write/run code while writing a manuscript or other notes at the same time. Then you can 'knit' the document and output different formats: html, pdf or word. Github is website service that promotes version control and collaboration. All of those v1, v15, v20 (conflicted copy), etc. will be a thing of the past because GitHub automatically version controls your files!  
 
+Thus, we decided to use these tools for our collaborative project as there are six of us, working in different countries and different timezones, to ensure seamless collaboration.
 
+#### Who we are?
+
+JMI: I feel like its worth introducing who is working on the project. Showing that we are graduate students with diverse interests and working around the world.
 
 #### Oil spill question
 
@@ -21,13 +27,18 @@ In light of [recent political moves towards greater oil extraction in N America]
 
 #### Spill data, fisheries data
 
-We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada. We extracted fisheries catch data from the [Sea Around Us Project] (link to website) (SaU), which collates global, spatially-explicit estimates of annual fisheries catch at the national level ([Pauly & Zeller 2015] (LINK); [Zeller et al. 2016] (LINK)). The SaU dataset uses international and national catch statistics to generate taxon-level catch estimates at a 0.5 degree resolution, spanning 1964-2016 (???? check years???), and provided us with California, Oregon, Washington, BC, and Alaska fisheries catch.
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada. However, we were unale to find oil spill data from British Columbia. After extensive web searches, emails and even an FOI of the government (https://www.ontario.ca/page/how-make-freedom-information-request), we were told there is no existing electronic database that categorizes all of the oil spills occuring off the coast of British Columbia.  
+
+We extracted fisheries catch data from the [Sea Around Us Project] (link to website) (SaU), which collates global, spatially-explicit estimates of annual fisheries catch at the national level ([Pauly & Zeller 2015] (LINK); [Zeller et al. 2016] (LINK)). The SaU dataset uses international and national catch statistics to generate taxon-level catch estimates at a 0.5 degree resolution, spanning 1950-2013, and provided us with California, Oregon, Washington, BC, and Alaska fisheries catch. Yet, as promising as this data appeared at first, it is suggested to not use this data at such a refined scale (i.e. 0.5 X 0.5 grid cells) and should be used at the EEZ level or higher. When exploring this data, we found inherent issues in the spatial allocation of fisheries catch, where all grid cells would have the same trend lines across years. Therefore, we realized this SaU data was not ideal for the project we had in mind. 
 
 
 
-#### Unanswered questions and data gap
-
-
+#### Unanswered questions
 Beyond our data issues, the ecological impact of an oil spill is highly context-dependent, and will be affected by the environmental conditions, clean-up response, and type of oil. *(REFFFFFFFERENCES NEEDED).* Quantifying oil spill impacts on marine ecosystems is critical....
 
-You can find our ideas, data, and progress in our [public Github repository] (link). We welcome any suggestions that might help us to resurrect this project.
+
+#### Future Work
+You can find our ideas, data, and progress in our [public Github repository] (link). We welcome any suggestions that might help us to resurrect this project. We currently are brainstorming future ideas for our project! 
+
+
+http://science.sciencemag.org/content/331/6018/703 
