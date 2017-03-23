@@ -99,3 +99,24 @@ Fishery-independent data - intertidal monitoring data to examine community-level
 ### 7. Sushi project
 
 This is a project originally put forth by Nick Fabina on facebook. Danielle and I chatted with him a bit on the project. For now another collaborator is going to look at the data Nick has assembled. We might help on the project later.
+
+
+### 8. Aquarium trade (JPWR, JMI)
+
+Aquarium trade removes biomass and lowers species diversity on coral reefs worldwide. Recently, analysis of aquarium trade imports into the US show that reefs are impacted globally, with imports from the Pacific, Indian, and Atlantic oceans. However, impacts on the size, trophic, and functional structure of aquarium-exploited reefs, and how this varies geographically, remains unclear.
+
+[Dataset on US fish imports (by species and state) recently published] (https://www.aquariumtradedata.org/). Link to fishbase for Lmax, trophic level, functional role, try to standardise country-level exports by country-level biomass estimates, examine relative impact of aquarium trade across countries and overall impact on fish community structure.
+
+Relevant reading: 
+
+* [Moran & Kanemoto 2017, Nature] (http://www.nature.com/articles/s41559-016-0023)
+* [Rhyne et al. 2017, PeerJ] (https://peerj.com/articles/2949/)
+* [Rhyne et al. 2012, PLoS ONE] (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035808)
+
+### 9. Scientific Publishing at a Global Scale  
+  
+[Here] (http://www.scimagojr.com/index.php) is a website with information including Documents, Citations, Self Citations, Citations Per Document, and H index by country, and is also subsettable by Subject Area and Year (1996-2015). We could look at questions regarding scientific publishing and GDP, population...?  
+  
+Also, they have really awesome visualizations. It seems like we could incorporate this data into a larger question about publishing trends/science globally. (If you think of any more specific ideas/questions, add them here!)  
+  
+We would need to check with them via [email] (scimagojr@scimago.es) to confirm if there are any additional requirements for using this data, although they appear open access online, and include a citation for using the data in publications.  

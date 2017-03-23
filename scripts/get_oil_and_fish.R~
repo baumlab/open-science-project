@@ -1,7 +1,10 @@
 setwd('open-science-project')
+<<<<<<< HEAD
 setwd('/Users/jpwrobinson/Documents/git_repos/open-science-project')
-setwd('~/Documents/git-jpwrobinson/open-science-project')
 
+=======
+setwd('~/Documents/git-jpwrobinson/open-science-project')
+>>>>>>> a388027a98f246ace7b973f322543ebdb6ec5af9
 
 library(readr)
 library(dplyr)

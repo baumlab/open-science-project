@@ -62,7 +62,7 @@ mat<-matrix(c(1,1,1,1,2,2,3,3), byrow=TRUE, nrow=2)
 layout(mat)
 
 par(mfrow=c(2,2), mar=c(2,2,2,2))
-plot(world360, xlim=c(-150,-110),ylim=c(29,50))
+plot(world360, xlim=c(-150,-110 ),ylim=c(29,50))
 plot(tt,  lwd=0.5, add=TRUE)
 plot(world360, xlim=c(-150,-110),ylim=c(29,50), add=TRUE)
 
