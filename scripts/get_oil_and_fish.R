@@ -1,4 +1,6 @@
 setwd('open-science-project')
+setwd('/Users/jpwrobinson/Documents/git_repos/open-science-project')
+
 
 library(readr)
 library(dplyr)
@@ -52,5 +54,5 @@ fish$spill<-ifelse(is.na(fish$spill.size), 'FALSE', 'TRUE')
 
 
 
-
+dim(fish[fish$spill=='TRUE',])
 
