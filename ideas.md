@@ -120,3 +120,6 @@ Relevant reading:
 Also, they have really awesome visualizations. It seems like we could incorporate this data into a larger question about publishing trends/science globally. (If you think of any more specific ideas/questions, add them here!)  
   
 We would need to check with them via [email] (scimagojr@scimago.es) to confirm if there are any additional requirements for using this data, although they appear open access online, and include a citation for using the data in publications.  
+
+### Meeting (JMI, JPWR, DC) 27March17  
+Going forward: come up with specific ideas/questions for each idea (#8 aquarium fish, #9 scientific publishing) and then discuss! Need to download the specific data for each one, JPWR is contacting the aquarium fish people to get the full csv.  
