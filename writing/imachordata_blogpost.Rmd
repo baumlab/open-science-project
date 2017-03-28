@@ -15,7 +15,7 @@ What is Open Derby? We had the idea to run something similar to a [research derb
 
 This idea of open science is using OA data, publishing in an OA journal, publishing OA code, and keeping your ideas/notebook open as well. To do this, we utilize the tools RMarkdown and GitHub. RMarkdown is a wonderful part of RStudio, that allows you to write/run code while writing a manuscript or other notes at the same time. Then you can 'knit' the document and output different formats: html, pdf or word. GitHub is website service that promotes version control and collaboration. All of those v1, v15, v20 (conflicted copy), etc. will be a thing of the past because GitHub automatically version controls your files!  
 
-Thus, we decided to use these tools for our collaborative project as there are six of us, working in different countries and different timezones, to ensure seamless collaboration.
+Thus, we decided to use these tools for our collaborative project (including this blog post!) as there are six of us, working in different countries and different timezones, to ensure seamless collaboration.
 
 #### Who we are?
 
@@ -27,7 +27,7 @@ James Robinson:
 
 Easton White: 
 
-Jillian Dunic: 
+Jillian Dunic: I have just finished my MSc with Jarrett Byrnes where I examined how human drivers affect local-scale biodiversty. Now I am working on my PhD with Isabelle Cote at Simon Fraser University working on the effect of multiple stressors on tipping points in eelgrass. 
 
 Danielle Claar:
 
