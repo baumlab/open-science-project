@@ -7,23 +7,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-JR: I think we should reference a lot of our more general statements with links to news articles (like oil spills or political decisions), and specific scientific results to a journal article (rather than citing the paper). 
-
 #### Introduction to derby idea
-What is Open Derby? We had the idea to run something similar to a [research derby] (http://www.researchderby.org/what-is-a-research-derby.html) where grad students and post-docs collaborated openly, learning version control in GitHub, writing and analysing data in RMarkdown, and publishing all project development in an open notebook. Our goal was to examine a conservation issue using open access (OA) data, and publish our findings and code in an OA journal. Ultimately, we hope to share Open Derby with other graduate students and academics across the life sciences, with the end goal of providing a framework for switching entire lab groups into open and reproducible research machines. 
 
-This idea of open science is using OA data, publishing in an OA journal, publishing OA code, and keeping your ideas/notebook open as well. To do this, we utilize the tools RMarkdown and GitHub. RMarkdown is a wonderful part of RStudio, that allows you to write/run code while writing a manuscript or other notes at the same time. Then you can 'knit' the document and output different formats: html, pdf or word. GitHub is website service that promotes version control and collaboration. All of those v1, v15, v20 (conflicted copy), etc. will be a thing of the past because GitHub automatically version controls your files!  
+Ensuring openness and reproducibility in ecology is an ongoing challenge, although open tools ([R Studio](http://rmarkdown.rstudio.com/), [Github](https://github.com/)) are free to use and user support is everywhere. To help ecology labs switch to their collaborations into an open science framework, we had the idea of running an 'Open Derby'. Similar to a [research derby](http://www.researchderby.org/what-is-a-research-derby.html), where grad students and post-docs collaborate together to solve a conservation problem, our idea extends the derby concept to working fully openly: learning version control in GitHub, writing and analysing data in RMarkdown, and publishing all project development in an open notebook. Our end goal was to examine a conservation issue using open access (OA) data, and publish our findings and code in an OA journal. Ultimately, we hope to share Open Derby with other graduate students and academics across the life sciences, with the hope that we can provide a model for switching entire lab groups into open and reproducible research machines. 
 
-Thus, we decided to use these tools for our collaborative project as there are six of us, working in different countries and different timezones, to ensure seamless collaboration.
+If you aren't familiar with open science tools, RMarkdown is a wonderful method of writing code into a manuscript that can be formatted into manuscripts, reports, and presentations, which we use in tandem with GitHub, a service that allows version control of your data, analyses and manuscripts, and is incredibly useful for managing input between collaborators. We are six PhD students from 4 institutions based in 3 countries, who are present or past members of Dr. Julia Baum's marine ecology lab at the University of Victoria and have come together to demo the Open Derby concept.
 
 #### Who we are?
 
-JMI: I feel like its worth introducing who is working on the project. Showing that we are graduate students with diverse interests and working around the world. ++JR 
-
 **How about everyone writes a quick sentence about what they study and where they work?**   
 
-James Robinson: 
+James Robinson: PhD student in Baum lab, studying macroecology of tropical Pacific coral reefs (defending in April 2017) and leader of the Open Derby project
 
 Easton White: 
 
@@ -35,29 +29,35 @@ Jamie McDevitt-Irwin: Finishing up my MSc in Julia Baum's lab at the University 
 
 Geoffrey Osgood: 
 
+In January 2017, we met to decide on a research question for Open Derby. **Spoiler**: we failed in our first attempt. In the interests of openness, and [publishing null results](http://blogs.plos.org/everyone/2015/02/25/positively-negative-new-plos-one-collection-focusing-negative-null-inconclusive-results/), here is what we did:
 
-#### Oil spill question
+#### Our conservation question - quantifying oil spill impacts across regions
 
-In light of [recent political moves towards greater oil extraction in N America] (https://www.nytimes.com/2017/03/24/business/energy-environment/keystone-oil-pipeline.html?_r=0), we decided to examine oil spill impacts across the west coast of North America. We focused on shellfish fisheres, reasoning that [sessile organisms would experience high mortality soon after an oil spill] (http://www.pnas.org.ezproxy.library.uvic.ca/content/109/50/20303.full, http://www.sciencedirect.com.ezproxy.library.uvic.ca/science/article/pii/S0269749107004952), and that [subsequent fisheries closures] (http://www.vch.ca/about-us/news/archive/2015-news/fishing-closure-in-response-to-the-english-bay-oil-spill, http://sero.nmfs.noaa.gov/deepwater_horizon/closure_info/, https://www.wildlife.ca.gov/OSPR/Science/Laboratories/Chemistry/Special-Projects/Fishery-Closure) would instantly impact catch. 
+In light of [recent political moves towards greater oil extraction in N America](https://www.nytimes.com/2017/03/24/business/energy-environment/keystone-oil-pipeline.html?_r=0), we decided to examine oil spill impacts across the west coast of North America. We focused on shellfish fisheres, reasoning that [sessile organisms would experience high mortality soon after an oil spill] (http://www.pnas.org.ezproxy.library.uvic.ca/content/109/50/20303.full, http://www.sciencedirect.com.ezproxy.library.uvic.ca/science/article/pii/S0269749107004952), and that subsequent fisheries closures (e.g. [English Bay, BC, Canada](http://www.vch.ca/about-us/news/archive/2015-news/fishing-closure-in-response-to-the-english-bay-oil-spill), [Gulf of Mexico, USA](http://sero.nmfs.noaa.gov/deepwater_horizon/closure_info/), [Santa Barbara, CA, USA](https://www.wildlife.ca.gov/OSPR/Science/Laboratories/Chemistry/Special-Projects/Fishery-Closure)) would instantly impact catch. 
 
-#### Spill data, fisheries data
+#### Open datasets - oil spills and fisheries catch
 
-We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada. However, we were unale to find oil spill data from British Columbia. After extensive web searches, emails and even a freedom of information request (https://www.ontario.ca/page/how-make-freedom-information-request), we were told there is no existing electronic database that categorizes all of the oil spills occurring off the coast of British Columbia.  
+We extracted oil spill data from the Emergency Response Division of the National Oceanic and Atmospheric Administration (NOAA; [https://incidentnews.noaa.gov/raw/index](https://incidentnews.noaa.gov/raw/index)) which recorded all major spills that occurred between 1967-2016 in marine environments on the west coasts of U.S.A. and Canada (Figure 1). However, we were unale to find oil spill data from British Columbia. After extensive web searches, emails and even a [freedom of information request](https://www.ontario.ca/page/how-make-freedom-information-request), we were told there is no existing electronic database that categorizes all of the oil spills occurring off the coast of British Columbia.  
 
-We extracted fisheries catch data from the [Sea Around Us Project] (http://www.seaaroundus.org/) (SaU), which collates global, spatially-explicit estimates of annual fisheries catch at the national level ([Pauly & Zeller 2015] (LINK); [Zeller et al. 2016] (LINK)). The SaU dataset uses international and national catch statistics to generate taxon-level catch estimates at a 0.5 degree resolution, spanning 1950-2013, and provided us with California, Oregon, Washington, BC, and Alaska fisheries catch. Yet, as promising as this data appeared at first, we were advised not use this data at spatial scales below the EEZ level. We also contacted Canadian and US fisheries departments to request port-level catch data. 
+Figure 1 [oil_map_spillsize.pdf]
 
-Sadly, data resolution issues sunk our project. With fishing catch data, smaller spatial aggregations of the SaU dataset were simply EEZ level trends with catch estimates scaled downwards, and we did not reasonably expect to detect oil spill impacts at the EEZ level. We were also unable to locate consistent port-level data that spanned either BC, California, or Alaska. Similarly, the oil spill incidents were sporadically reported (Figure X), and it was unclear how spill estimates were generated - a contact from NOAA warned us that there was no established methodology for estimating the size of oil spill, and many incident amounts might amount to guesswork.
+We extracted fisheries catch data from the [Sea Around Us Project](http://www.seaaroundus.org/) (SaU), which collates global, spatially-explicit estimates of annual fisheries catch at the national level ([Pauly & Zeller 2015](http://www.seaaroundus.org/doc/Researcher+Publications/dzeller/PDF/Papers/2016/Pauly%26Zeller-Global-Catch-Nature-Communications-2016.pdf); [Zeller et al. 2016](http://www.sciencedirect.com/science/article/pii/S0308597X16302421)). The SaU dataset uses international and national catch statistics to generate taxon-level catch estimates at a 0.5 degree resolution, spanning 1950-2013, and provided us with California, Oregon, Washington, BC, and Alaska fisheries catch. Yet, as promising as this data appeared at first, we were advised not use this data at spatial scales below the EEZ level. We also contacted Canadian and US fisheries departments to request port-level catch data. 
 
+Sadly, data resolution issues sunk our project. With fishing catch data, smaller spatial aggregations of the SaU dataset were simply EEZ level trends with catch estimates scaled downwards (Figure 2), and we did not reasonably expect to detect oil spill impacts at the EEZ level. We were also unable to locate consistent port-level data that spanned either BC, California, or Alaska. Similarly, the oil spill incidents were not consistently reported, and it was unclear how spill estimates were generated - a contact from NOAA warned us that there was no established methodology for estimating the size of oil spill, and many incident amounts might amount to guesswork.
 
+Figure 2 [EEZ_vs_05degree_catch_trends_USWC_only.pdf]
 
-#### Unanswered questions
-
-Beyond our data issues, the ecological impact of an oil spill is highly context-dependent, and will be affected by the environmental conditions, clean-up response, and type of oil. *(REFFFFFFFERENCES NEEDED).* Quantifying oil spill impacts on marine ecosystems is critical....
-
+Beyond our data issues, the ecological impact of an oil spill is highly context-dependent, and will be affected by the environmental conditions, clean-up response, and type of oil. *(REFFFFFFFERENCES NEEDED).* Our understanding of oil spill impacts on marine ecosystems is, sadly, limited to large, catastrophic events. We urge more openness and data collection of spill characteristics, so that researchers may begin to quantify the cumulative impacts of smaller, more frequent spills on marine ecosystems.
 
 #### Future Work
 
-You can find our ideas, data, and progress in our [public Github repository] (link). We welcome any suggestions that might help us to resurrect this project, and hope to inspire others to write up their failed projects so that others might benefit from our ideas. We currently are brainstorming conservation questions for our next attempt! 
+You can find our ideas, data, and progress in our [public Github repository] (link). We welcome any suggestions that might help us to resurrect this project, and hope to inspire others to write up their failed projects so that others might benefit from our ideas. Our project lead - James Robinson - is currently developing Open Derby for general consumption as a member of [Mozilla's Open Science Leadership training programme](https://mozilla.github.io/leadership-training/projects/). 
+
+We currently are brainstorming conservation questions for our next attempt. Ecologists, please, send us your unanswered conservation problems, unanalyzed datasets, and suggestions for advancing open ecology!
+
+James Robinson, Danielle Claar, Jill Dunic, Jamie McDevitt-Irwin, Geoffrey Osgood, Easton White
+
+*** ^^^^^^ I WENT ME THEN ALPHABETICAL. IF ANYONE WOULD LIKE DIFFERENT ORDER, I'M MORE THAN HAPPY TO CHANGE****
 
 
-http://science.sciencemag.org/content/331/6018/703 
+ 
