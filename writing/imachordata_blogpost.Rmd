@@ -16,17 +16,17 @@ Ensuring openness and reproducibility in ecology is an ongoing challenge, althou
 
 If you aren't familiar with open science tools, RMarkdown is a wonderful method of writing code into a manuscript that can be formatted into manuscripts, reports, and presentations. We use RMarkdown in tandem with GitHub, a service that allows version control of your data, analyses, and manuscripts, and is incredibly useful for managing input between collaborators. We are six PhD students from 4 institutions based in 3 countries, who are present or past members of [Dr. Julia Baum's marine ecology lab](http://baumlab.weebly.com) at the University of Victoria and have come together to demo the Open Derby concept:
 
-James Robinson: PhD student in Baum lab, studying macroecology of tropical Pacific coral reefs (defending in April 2017) and leader of the Open Derby project
-
-Easton White: 
-
-Jillian Dunic: 
+James Robinson: PhD student in the Baum lab, studying macroecology of tropical Pacific coral reefs (defending in April 2017) and leader of the Open Derby project
 
 Danielle Claar: PhD student in the Baum Lab, studying the dynamics of coral symbioses in response to environmental stressors
 
-Jamie McDevitt-Irwin: Finishing up my MSc in Julia Baum's lab at the University of Victoria. I am evaluating how stressors, specifically human disturbance and bleaching stress from an El Niño event, influence the community structure of the coral microbiome.  
+Jillian Dunic: 
 
-Geoffrey Osgood: 
+Jamie McDevitt-Irwin: Finishing up my MSc in the Baum lab, evaluating how stressors, specifically human disturbance and bleaching stress from an El Niño event, influence the community structure of the coral microbiome.  
+
+Geoffrey Osgood: PhD student in the Baum lab, using data and models to study shark populations in South Africa and on Pacific reefs
+
+Easton White: 
 
 In January 2017, we met to decide on a research question for Open Derby and **SPOILER**, we failed in our first attempt. In the interests of openness, and [publishing null results](http://blogs.plos.org/everyone/2015/02/25/positively-negative-new-plos-one-collection-focusing-negative-null-inconclusive-results/), here is what we did:
 
