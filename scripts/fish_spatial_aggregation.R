@@ -262,11 +262,28 @@ dev.off()
 
 
 
+pdf(file='figures/EEZ_vs_05degree_catch_trends_USWC_only.pdf', height=7, width=11)
+### FOR USA PACIFIC
+layout(matrix(c(1,2,3,4), byrow=FALSE, ncol=1))
 
+par(mar=c(3,4,2,2))
+	with(eez[which(eez$eez=='USA (West Coast)' & eez$common_name=='Pacific geoduck'),], 
+		plot(year, sum, type='l', xlab='Year', ylab='Catch (tonnes)', main='USA (West Coast) EEZ', cex.axis=1, axes=FALSE))
+	axis(2, cex=0.8); axis(1, labels=NA)
 
+	eez.id<-unique(top$grid05[top$eez=='USA (West Coast)' & top$common_name=='Pacific geoduck'])
+# full time series
+for(i in 1:3) {
+	ran.id<-sample(eez.id, 1)
+	temp.dat<-top[which(top$grid05==ran.id & top$common_name=='Pacific geoduck'),]
+	temp.dat<-aggregate(sum ~  year, temp.dat, sum)
+	plot(temp.dat$year, temp.dat$sum, type='l', xlab='Year', ylab='Catch (tonnes)', main=unique(top$ID[top$grid05==ran.id]), cex.axis=0.5, axes=FALSE)
+	axis(2, cex=0.8); axis(1, labels=NA)
+}
+axis(1)
+mtext('Catch (tonnes)', side=2, outer=TRUE, line=1)
 
-
-
+dev.off()
 
 
 

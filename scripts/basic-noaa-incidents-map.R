@@ -44,9 +44,10 @@ points(usa_and_canada_spills$lon, usa_and_canada_spills$lat, pch=19, col="red", 
 
 # create simple map of west coast with usa and canada spills - sized by gallons
 pdf(file='figures/oil_map_spillsize.pdf', height=7, width=11)
-map("worldHires", xlim=c(-190,-110),ylim=c(29,80), col="gray95", fill=TRUE)
+map("worldHires", xlim=c(-190,-110),ylim=c(29,80), col="gray95", fill=TRUE, xlab='Longitude', ylab='Latitude')
 points(usa_and_canada_spills$lon, usa_and_canada_spills$lat, pch=19, col="red", cex=pi*0.015*log10(usa_and_canada_spills$max_ptl_release_gallons)^2)
 legend('topleft', legend=c('1000 gallons', '10,000 gallons', '100,000 gallons', '1,000,000 gallons'), pt.cex=c(pi*0.015*3^2, pi*0.015*4^2, pi*0.015*5^2, pi*0.015*6^2), col='red' , pch=19)
+axis(1); axis(2)
 dev.off()
 
 
