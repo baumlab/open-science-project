@@ -14,20 +14,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Ensuring openness and reproducibility in ecology is an ongoing challenge, although open tools ([R Studio](http://rmarkdown.rstudio.com/), [Github](https://github.com/)) are free to use, and user support is everywhere. To illustrate how ecology collaborations can fit within an open science framework, we had the idea of running an 'Open Derby'. Similar to a [research derby](https://www.researchgate.net/publication/257197202_The_'Research_Derby'_A_pressure_cooker_for_creative_and_collaborative_science_the_Earth_2_Ocean_Research_Derby), where grad students and post-docs from different academic departments and universities collaborate together to solve a conservation problem, our idea extends the derby concept to working fully openly: learning version control in GitHub, writing and analysing data in RMarkdown, and publishing all project development in an open notebook. Our end goal is to examine a conservation issue using open access (OA) data, and publish our findings and code in an OA journal. Ultimately, we hope to share Open Derby with other graduate students and academics across the life sciences, with the hope that we can provide a model for switching entire lab groups into open and reproducible research machines. 
 
-If you are not familiar with open science tools, RMarkdown is a wonderful method of writing code into a manuscript that can be formatted into manuscripts, reports, and presentations. We use RMarkdown in tandem with GitHub, a service that allows version control of your data, analyses, and manuscripts, and is incredibly useful for managing input between collaborators. We are six PhD students from 4 institutions based in 3 countries, who are present or past members of [Dr. Julia Baum's marine ecology lab](http://baumlab.weebly.com) at the University of Victoria and have come together to demo the Open Derby concept:
+If you are not familiar with open science tools, RMarkdown is a wonderful method of writing code into a manuscript that can be formatted into manuscripts, reports, and presentations. We use RMarkdown in tandem with GitHub, a service that allows version control of your data, analyses, and manuscripts, and is incredibly useful for managing input between collaborators. Learning these tools can be daunting but learning with friends makes it easier and more fun to build these skills. We are six PhD students from 4 institutions based in 3 countries, who are present or past members of [Dr. Julia Baum's marine ecology lab](http://baumlab.weebly.com) at the University of Victoria and have come together to demo the Open Derby concept:
 
 James Robinson: PhD student in the Baum lab, studying macroecology of tropical Pacific coral reefs (defending in April 2017) and leader of the Open Derby project
 
-
-Thus, we decided to use these tools for our collaborative project (including this blog post!) as there are six of us, working in different countries and different timezones, to ensure seamless collaboration.
-
 Danielle Claar: PhD student in the Baum Lab, studying the dynamics of coral symbioses in response to environmental stressors
-
 
 Easton White: PhD student at the University of California, Davis. He uses mathematical and statistical technqiues to address various ecological and conservation questions.
 
-Jillian Dunic: I have just finished my MSc with Jarrett Byrnes where I examined how human drivers affect local-scale biodiversty. Now I am working on my PhD with Isabelle Cote at Simon Fraser University working on the effect of multiple stressors on tipping points in eelgrass. 
-
+Jillian Dunic: PhD student at Simon Fraser University, studying the effect of multiple stressors on tipping points in eelgrass. 
 
 Jamie McDevitt-Irwin: Finishing up my MSc in the Baum lab, evaluating how stressors, specifically human disturbance and bleaching stress from an El Niño event, influence the community structure of the coral microbiome.  
 
@@ -45,7 +40,7 @@ In light of [recent political moves towards greater oil extraction in N America]
 
 Tools used: Rmarkdown, Github, Slack, etherpad, Skype
 
-As mentioned earlier, we used Rmarkdown and Github to manage our workflow. We met once every one or two weeks on Skype to discuss project goals and delegated tasks, taking notes on Skype calls in a publicly accessible [etherpad](https://public.etherpad-mozilla.org/). These meetings, combined with Github, allowed us to divide and conquer without duplicating each other's work. The goal was to have everyone only spend 1-3 hours on the project per week (after all, we each have dissertations to write). Everyone contributed to coding in R---whether it was data cleaning, analysis, or visualizations---and writing the intial manuscript. We also used [Slack](https://slack.com/) to regularly chat about the project in between Skype meetings: slack can also integrate Github, allowing particpants to be notified when a change on Github has occured.  In the future, we might take notes on a markdown file that can be easily version controlled, and may make use of Github's wiki and project planning features.
+As mentioned earlier, we used Rmarkdown and Github to manage our workflow. We met once every one or two weeks on Skype to discuss project goals and delegated tasks, taking notes on Skype calls in a publicly accessible [etherpad](https://public.etherpad-mozilla.org/). These meetings, combined with Github, allowed us to divide and conquer without duplicating each other's work. The goal was to have everyone only spend 1-3 hours on the project per week (after all, we each have dissertations to write). Everyone contributed to coding in R---whether it was data cleaning, analysis, or visualizations---and writing the intial manuscript. We also used [Slack](https://slack.com/) to regularly chat about the project in between Skype meetings. Slack eliminates the need for endless email chains and slack can also integrate Github, allowing particpants to be notified when a change on Github has occurred. In the future, we might take notes on a markdown file that can be easily version controlled, and may make use of Github's wiki and project planning features.
 
 #### Open datasets - oil spills and fisheries catch
 
@@ -67,9 +62,9 @@ Beyond data issues, the ecological impact of an oil spill is highly context-depe
 
 You can find our ideas, data, and progress in our [public Github repository](https://github.com/baumlab/open-science-project). We welcome any suggestions that might help us to resurrect this project, and hope to inspire others to write up their failed projects so that others might benefit from our ideas. Our project lead - James Robinson - is currently developing Open Derby for general consumption as a member of [Mozilla's Open Science Leadership training programme](https://mozilla.github.io/leadership-training/projects/). 
 
-But, we are now brainstorming conservation questions for our next attempt. Ecologists, please, send us your unanswered conservation problems, unanalyzed datasets, and suggestions for advancing open ecology!
+But, we are now brainstorming conservation questions for our next attempt. Ecologists, please, send us your unanswered conservation problems, unanalyzed datasets, and suggestions for advancing open ecology! This time we are taking the approach of bringing datasets and questions to the brainstorming session. We will let you know how this progresses!
 
-James Robinson, Danielle Claar, Jill Dunic, Jamie McDevitt-Irwin, Geoffrey Osgood, Easton White
+James Robinson, Danielle Claar, Jillian Dunic, Jamie McDevitt-Irwin, Geoffrey Osgood, Easton White
 
 *** ^^^^^^ I WENT ME THEN ALPHABETICAL. IF ANYONE WOULD LIKE DIFFERENT ORDER, I'M MORE THAN HAPPY TO CHANGE****
 
