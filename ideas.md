@@ -110,8 +110,28 @@ Aquarium trade removes biomass and lowers species diversity on coral reefs world
 Relevant reading: 
 
 * [Moran & Kanemoto 2017, Nature] (http://www.nature.com/articles/s41559-016-0023)
+* Asked how consumption demand (for international products, e.g. logging in Brazil -> consumed in USA) threatened IUCN Red List species by estimating the 'biodiversity footprint' of each country as the sum (across species) of threats exerted directly by economic activities
+* Result was to identify hotspots of species threatened by the combined economic demand of other countries, which revealed 1) hotspots threatened by global trade and 2) hotspots threatened by trade from 1-2 countries (which might be conserved more easily)
+* Underlying point - spatial tool for managing conservation priorities more effectively
+
+
 * [Rhyne et al. 2017, PeerJ] (https://peerj.com/articles/2949/)
 * [Rhyne et al. 2012, PLoS ONE] (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035808)
+ 
+Rhyne et al. 2012    
+Goal: describe the biodiversity, volume and trade pathways of marine tropical fish using import records for the year 2004-2005 (very descriptive)  
+* 	outline the diversity of fish coming into the states from each country  
+*  evaluate trophic levels coming into the united states (no pattern found)  
+* abundance/volume of fish coming into the states from each country 
+
+*JMI/JPWR Questions/Ideas*  
+Goal: 1) To identify "threat hotspots" due to the aquarium trade (n=45 countries) and 2) evaluate variation in aquarium pressure on reefs with different fisheries condition by a) looking at the proportion of trophic level/functional group by country and b) evaluating what fishes are being taken from different fisheries/reef conditions (i.e. what fish are being taken from a healthy vs shit reef?)  
+
+Baselines:
+1) IUCN- accounts for population size and threatened species (also used in the Moran and Kanemoto 2017 paper) 
+2) Newton (fisheries production, n=16), MacNeil (biomass estimate, n=6), Edwards (herbivore biomass, n > 16)  
+
+
 
 ### 9. Scientific Publishing at a Global Scale  
   
