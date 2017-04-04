@@ -140,7 +140,7 @@ Which data to use for baselines?:
 
 1) Hotspots question = IUCN- accounts for population size and threatened species (also used in the Moran and Kanemoto 2017 paper) 
 2) Fisheries condition/status = Newton et al. 2008 Cur. Biol. (fisheries production, n=16), MacNeil et al. 2015 Nature (biomass estimate, n=6), Edwards et al. 2013 Proc B (herbivore biomass, n > 16) 
-3) Trade regulations = NA. Need to find this.
+3) Trade regulations = if the country is a member of CITES, try to find another example of trade regulations
 
 
 
