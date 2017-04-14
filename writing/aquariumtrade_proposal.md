@@ -30,3 +30,15 @@ We propose to analyse regional variation in reef fish species exported to the US
 3. List of species with IUCN Red List status  
 
 You also mentioned longer term invertebrate data. We would like to focus on the fish for now, just to get ourselves familiar with the dataset and because our backgrounds are all in reef fish. Going forward, if we find interesting results with the fish trade, we would certainly be interested in extending our approach to think about other species.
+
+
+Very few IUCN listed fish sp.
+CITES = seahorses, corals, clams
+
+Geographic analysis of range distributions - where are species exported from? small range - which species? large range - lots of export countries?
+
+Distribution data - Global Biodiversity Index
+
+Some of the distributions are errors.
+
+Big changes over time with fish trade - carnivores fall off 
