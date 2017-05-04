@@ -14,7 +14,7 @@ We propose to analyse regional variation in reef fish species exported to the US
 
 2. Are threat hotspots in systems that are already considered highly threatened? Examine relationship between coral reef fishery condition at threat hotspots, using published fishery sustainability estimates (e.g. Newton et al. 2007, Current Biology).
 
-2. How effective are trade regulations in controlling aquarium export? Compare aquarium exports from countries with strong vs weak regulations/governance, based on CITES membership, n. years since joining CITES, and GDP.
+2. How effective are trade regulations in controlling aquarium export? Compare aquarium exports from countries with strong vs weak regulations/governance, based on CITES membership, n. years since joining CITES, and GDP (CITES information: https://www.cites.org/eng/disc/parties/chronolo.php).
 
 *Possible additional question*
 
