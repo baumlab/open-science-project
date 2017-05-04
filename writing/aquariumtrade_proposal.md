@@ -41,4 +41,7 @@ Distribution data - Global Biodiversity Index
 
 Some of the distributions are errors.
 
-Big changes over time with fish trade - carnivores fall off 
+Big changes over time with fish trade - carnivores fall off, smaller fish go up.
+
+http://www.gbif.org/
+http://www.iobis.org/about/
