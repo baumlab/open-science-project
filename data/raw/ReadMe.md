@@ -3,7 +3,7 @@
 Notes from XLSX file, SQL Statement  
 
 * Excludes less than 10   * Only Includes Species level taxa
-* Modeled Data 0 is invoice 1 is modeled to fill the gaps  
+* Modeled Data: 0 is invoice; 1 is modeled to fill the gaps  
 
 Years of data  
 
