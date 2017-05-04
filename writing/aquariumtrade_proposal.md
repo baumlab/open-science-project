@@ -10,16 +10,17 @@ We propose to analyse regional variation in reef fish species exported to the US
 
 #### Research questions  
 
-1. Are certain regions or countries experiencing stronger impacts from aquarium trade? Use IUCN data to identify aquarium trade "threat hotspots", defined as A) the number of Red List species exported by a country and B) the number of species that are also threatened by fishing
-
-2. Are threat hotspots in systems that are already considered highly threatened? Examine relationship between coral reef fishery condition at threat hotspots, using published fishery sustainability estimates (e.g. Newton et al. 2007, Current Biology).
-
 2. How effective are trade regulations in controlling aquarium export? Compare aquarium exports from countries with strong vs weak regulations/governance, based on CITES membership, n. years since joining CITES, and GDP (CITES information: https://www.cites.org/eng/disc/parties/chronolo.php).
 
-*Possible additional question*
+**CITES - how effective are countries governance, protection measures etc.? Lit search for metrics - how do other people do this? Need CITES data.**
 
 4. Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? Examine size, diet, and functional group structure of exported species by country. *Issue with this question is that determining the baseline community structure is very difficult, probably impossible*.
 
+**Requires data exploration. Add Lmat, TL etc., examine if big/old fish species are collected**
+
+5. Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less? small range - which species? large range - lots of export countries?
+
+**Need range data, endemic?**
 
 #### Data required from Aquariumtradedata.org
 
@@ -48,3 +49,13 @@ Big changes over time with fish trade - carnivores fall off, smaller fish go up.
 
 http://www.gbif.org/
 http://www.iobis.org/about/
+
+#### Unanswerable research questions
+
+1. Are certain regions or countries experiencing stronger impacts from aquarium trade? Use IUCN data to identify aquarium trade "threat hotspots", defined as A) the number of Red List species exported by a country and B) the number of species that are also threatened by fishing
+
+*Low number of IUCN species. Probably not fished species.*
+
+2. Are threat hotspots in systems that are already considered highly threatened? Examine relationship between coral reef fishery condition at threat hotspots, using published fishery sustainability estimates (e.g. Newton et al. 2007, Current Biology).
+
+*No - fishery condition? No idea*
