@@ -44,7 +44,10 @@ fish.export<-aggregate(Total ~ Exporter.Country, trade, sum)
 ggplot(sp.export, aes(Exporter.Country, Taxa)) + 
 	geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=90)) + xlab('') + ylab('Number of species')
 
-ggplot(sp.export, aes(Exporter.Country, fish.export)) + 
+ggplot(fish.export, aes(Exporter.Country, Total)) + 
+	geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=90)) + xlab('') + ylab('Number of fish')
+
+ggplot(fish.export[!fish.export$Exporter.Country %in% c('Philippines', 'Indonesia'),], aes(Exporter.Country, Total)) + 
 	geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=90)) + xlab('') + ylab('Number of fish')
 
 
