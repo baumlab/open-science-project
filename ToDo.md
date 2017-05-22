@@ -6,6 +6,8 @@
 
 #### 22nd May 2017
 
-* thinking about standardising fish number + diversity by coastline/reef area/species richness. GIS/UNEP data sources - need GIS skillz to extract national estimates.
+* thinking about standardising fish number + diversity by coastline/reef area/species richness. GIS/UNEP data sources - need GIS skillz to extract national estimates (JMI)
+* find someone with GIS skillz
 * then, examine standardised aquarium trade as function of governance indicators 
-* still waiting on range size data...
+* still waiting on range size data... (JR)
+* James to append functional group data. Rhyne et al. 2012 examined global trend in TL ~ catch volume per species, found no relationship.
