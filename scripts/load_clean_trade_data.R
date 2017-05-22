@@ -7,6 +7,7 @@
 
 setwd("~/Desktop/Research/open-science-project")
 setwd("~/Documents/git-jpwrobinson/open-science-project")
+setwd("~/Documents/git_repos/open-science-project")
 
 
 # pull in trade data
@@ -38,7 +39,12 @@ country[country$Total>500000,]
 
 ## examine species number by country
 sp.export<-aggregate(Taxa ~ Exporter.Country, trade, function(x)length(unique(x)))
+fish.export<-aggregate(Total ~ Exporter.Country, trade, sum)
 
 ggplot(sp.export, aes(Exporter.Country, Taxa)) + 
 	geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=90)) + xlab('') + ylab('Number of species')
+
+ggplot(sp.export, aes(Exporter.Country, fish.export)) + 
+	geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=90)) + xlab('') + ylab('Number of fish')
+
 
