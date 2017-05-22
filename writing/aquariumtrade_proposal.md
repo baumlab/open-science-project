@@ -8,10 +8,10 @@ Robinson J*, Claar D, Dunic J, McDevitt-Irwin J, Osgood G, and White E
 Department of Biology, University of Victoria, Canada  
 Earth 2 Oceans group, Simon Fraser University, Canada  
 Evolution & Ecology Department, University of California Davis, CA  
-=======
+
 ## Aquarium Fish Trade Proposal
 By: Robinson J, Claar D, Dunic J, McDevitt-Irwin J, Osgood G, and White E  
->>>>>>> c419be60981e81ec045a76d7f2a4efc7d796f01b
+
 
 
 #### Introduction  
@@ -24,23 +24,18 @@ We propose to analyse regional variation in reef fish species exported to the US
 
 2. How effective are trade regulations in controlling aquarium export? Compare aquarium exports from countries with strong vs weak regulations/governance, based on CITES membership, n. years since joining CITES, and GDP (CITES information: https://www.cites.org/eng/disc/parties/chronolo.php).
 
-<<<<<<< HEAD
-2. Are threat hotspots in systems that are already considered highly threatened? Examine relationship between coral reef fishery condition and threat hotspot, using published fishery sustainability estimates (e.g. Newton et al. 2007, Current Biology).
-
-2. How effective are trade regulations in controlling aquarium export? Examine threat hotspots by regulations/governance strength, based on CITES membership, n. years since joining CITES, and GDP.
-=======
-**CITES - how effective are countries governance, protection measures etc.? Lit search for metrics - how do other people do this? Need CITES data.**
+**CITES - how effective are countries governance, protection measures etc.? Lit search for metrics - JMI has UN human dev. indicators; EW has World Bank governance indicators**
 
 4. Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? Examine size, diet, and functional group structure of exported species by country. *Issue with this question is that determining the baseline community structure is very difficult, probably impossible*.
->>>>>>> c419be60981e81ec045a76d7f2a4efc7d796f01b
+
 
 **Requires data exploration. Add Lmat, TL etc., examine if big/old fish species are collected**
 
-<<<<<<< HEAD
+
 4 . Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? Examine size, diet, and functional group structure of exported species by country. *Issue with this question is that determining the baseline community structure is very difficult, probably impossible*.
-=======
+
 5. Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less? small range - which species? large range - lots of export countries?
->>>>>>> c419be60981e81ec045a76d7f2a4efc7d796f01b
+
 
 **Need range data, endemic?**
 
@@ -81,3 +76,4 @@ http://www.iobis.org/about/
 2. Are threat hotspots in systems that are already considered highly threatened? Examine relationship between coral reef fishery condition at threat hotspots, using published fishery sustainability estimates (e.g. Newton et al. 2007, Current Biology).
 
 *No - fishery condition? No idea*
+
