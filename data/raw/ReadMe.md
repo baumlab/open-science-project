@@ -2,7 +2,8 @@
 
 Notes from XLSX file, SQL Statement  
 
-* Excludes less than 10   * Only Includes Species level taxa
+* Excludes less than 10   
+* Only Includes Species level taxa
 * Modeled Data: 0 is invoice; 1 is modeled to fill the gaps  
 
 Years of data  
@@ -22,4 +23,7 @@ Modeled Data: back-calculated to estimate the total number of imported fish (200
 3.  Government Effectiveness (GE) – capturing perceptions of the quality of public services, the quality of the civil service and the degree of its independence from political pressures, the quality of policy formulation and implementation, and the credibility of the government's commitment to such policies.  
 4.  Regulatory Quality (RQ) – capturing perceptions of the ability of the government to formulate and implement sound policies and regulations that permit and promote private sector development.  
 5.  Rule of Law (RL) – capturing perceptions of the extent to which agents have confidence in and abide by the rules of society, and in particular the quality of contract enforcement, property rights, the police, and the courts, as well as the likelihood of crime and violence.  
-6.  Control of Corruption (CC) – capturing perceptions of the extent to which public power is exercised for private gain, including both petty and grand forms of corruption, as well as "capture" of the state by elites and private interests.  
+6.  Control of Corruption (CC) – capturing perceptions of the extent to which public power is exercised for private gain, including both petty and grand forms of corruption, as well as "capture" of the state by elites and private interests.    
+
+#### Coastline Data  
+JMI took from https://www.cia.gov/library/publications/the-world-factbook/fields/2060.html  
