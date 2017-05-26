@@ -6,7 +6,7 @@
 
 #### 22nd May 2017
 
-* thinking about standardising fish number + diversity by coastline/reef area/species richness. GIS/UNEP data sources - need GIS skillz to extract national estimates (JMI)
+* thinking about standardising fish number + diversity by coastline/reef area/species richness. GIS/UNEP data sources - need GIS skillz to extract national estimates (JMI) (JMI: requested reef area, have coastline, error when trying to request the shannon index)   
 * find someone with GIS skillz
 * then, examine standardised aquarium trade as function of governance indicators 
 * still waiting on range size data... (JR)
