@@ -18,6 +18,7 @@ trade<-trade[trade$Modeled.Data==0,]
 ## remove un IDd species
 trade<-trade[!trade$Taxa=='',]
 
+write.csv(trade, file='data/trade_taxa_all.csv')
 
 
 length(unique(trade$Taxa)) ## 2645 species!
