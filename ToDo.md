@@ -11,3 +11,8 @@
 * then, examine standardised aquarium trade as function of governance indicators 
 * still waiting on range size data... (JR)
 * James to append functional group data. Rhyne et al. 2012 examined global trend in TL ~ catch volume per species, found no relationship.
+
+#### UPDATE: 26th May 2017 (JR)
+
+* NOAA trophic group data does not cover every fish in the database, even for Pacific countries. Problematic to compare trophic information between countries when some species are not included. Currently investigating Fishbase.
+* Received OBIS distribution data from Andrew Rhyne. Next step is to figure out how to quantify range size/distribution extent. We have lat-lon of occurrences for each species (multiple entries per species). How to turn this into an explanatory variable? Our question - is trade volume linked to range size and, if so, which species are most/least vulnerable to aquarium trade (theme of endemism etc.).
