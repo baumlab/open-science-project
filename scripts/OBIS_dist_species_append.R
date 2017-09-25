@@ -35,9 +35,9 @@ sum(a$Total[a$range=='NO'])/(sum(a$Total[a$range=='YES'])+ sum(a$Total[a$range==
 length(a$Total[a$range=='NO'])/(length(a$Total[a$range=='YES'])+ length(a$Total[a$range=='NO']))*100
 ## 84% of species without data
 
-pdf(file='figures/range_size_km_trade_volume_2008_09_11.pdf', height=12, width=7)
-ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() + facet_wrap(~Exporter.Country)
-ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() 
+pdf(file='figures/range_size_km_trade_volume_2008_09_11.pdf', height=11, width=9)
+ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() + facet_wrap(~Exporter.Country) + ylab('log10 Trade volume')
+ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() + ylab('log10 Trade volume')
 dev.off()
 
 
