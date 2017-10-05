@@ -1,0 +1,48 @@
+---
+title: "Aquarium Project Questions"
+author: "Jamie McDevitt-Irwin"
+date: '2017-10-05'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Question 1
+How effective are trade regulations in controlling aquarium export? Compare aquarium exports from countries with strong vs weak regulations/governance, based on CITES membership, n. years since joining CITES, and GDP (CITES information: https://www.cites.org/eng/disc/parties/chronolo.php).
+
+**Data**: CITES - how effective are countries governance, protection measures etc.? Lit search for metrics - JMI has UN human dev. indicators; EW has World Bank governance indicators
+
+**Expectation**: countries with poor governance have higher trade export volume + diversity (standardised to reef area/coastline/regional richness). 
+
+Consider temporal aspect here as well - does good/bad governance in year 1 reduce/increase fish trade in year 2?
+
+#### Question 2
+
+Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? Examine size, diet, and functional group structure of exported species by country. 
+
+![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/trophic_by_trade_volume_2008_09_11.pdf)  
+
+
+
+**Data**: Requires functional group data. James has this for Indo-Pacific fishes.
+
+**Expectation**: planktivores are primarily targeted. Are there 1) countries that export more herbs/piscs than expected? 2) Which non-planktivore species are exported in high volumes? 
+
+**Caveats**: 1) Standardise countries by estimating proportional volume of functional groups for each country; 2) determining the baseline community structure is very difficult, probably impossible.
+
+#### Question 3
+
+Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less? small range - which species? large range - lots of export countries?
+
+![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/range_size_km_trade_volume_2008_09_11.pdf)  
+
+**Data**: From Andrew Rhyne  
+
+**Expectation**: linear relationship between export volume ~ range size. But any species that falls off the line is of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
+
+**Caveat:** This question is country-independent - ranges cross borders, data point = fish species.
+
+
+
