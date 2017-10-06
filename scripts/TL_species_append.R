@@ -6,6 +6,9 @@
 
 # Purpose: this code reads in CREP trophic data and Fishbase data 
 
+# clear my environment
+rm(list=ls()) 
+
 setwd("~/Desktop/Research/open-science-project")
 setwd("~/Documents/git-jpwrobinson/open-science-project")
 setwd("~/Documents/git_repos/open-science-project")
@@ -15,6 +18,8 @@ trade<-read.csv(file='data/trade_taxa_all.csv')
 
 # read CREP species data
 load('data/TMPspecies.Rdata')
+ls()
+head(species_table)
 # match in trophic levels
 trade$TROPHIC<-species_table$TROPHIC_MONREP[match(trade$Taxa, species_table$TAXONNAME)]
 

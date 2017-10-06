@@ -33,14 +33,20 @@ trade$range<-ifelse(is.na(trade$range_size_km), 'NO', 'YES')
 ## how many fish with range size estimates?
 a<-aggregate(Total ~ range + range_size_km + Taxa + TROPHIC + Exporter.Country + YEAR, trade, sum, na.action=NULL)
 a<-aggregate(Total ~ range + range_size_km + Taxa + TROPHIC + Exporter.Country, a, mean, na.action=NULL)
+
 sum(a$Total[a$range=='NO'])/(sum(a$Total[a$range=='YES'])+ sum(a$Total[a$range=='NO']))*100
 ## 55% of total fish traded without data
 length(a$Total[a$range=='NO'])/(length(a$Total[a$range=='YES'])+ length(a$Total[a$range=='NO']))*100
 ## 84% of species without data
 head(a)
 
-pdf(file='figures/range_size_km_trade_volume_2008_09_11.pdf', height=11, width=9)
+
+########## Plots ############
+# plot trade volume by range sizes 
+pdf(file='figures/range_size_km_trade_volume_country_2008_09_11.pdf', height=11, width=9)
 ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() + facet_wrap(~Exporter.Country) + ylab('log10 Trade volume')+ geom_smooth(method=lm, se=FALSE)
+dev.off()
+pdf(file='figures/range_size_km_trade_volume_2008_09_11.pdf', height=11, width=9)
 ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() + ylab('log10 Trade volume') + geom_smooth(method=lm, se=FALSE)
 dev.off()
 
@@ -48,20 +54,30 @@ dev.off()
 pdf(file='figures/trophic_by_trade_volume_2008_09_11.pdf', height=11, width=9)
 ggplot(data=a, aes(x=TROPHIC, y=log10(Total), fill=TROPHIC)) +
     geom_bar(stat="identity", position=position_dodge(), colour="black")
+dev.off()
 
-
-# and by country
+# plot total trade volume by country
+pdf(file='figures/trophic_by_trade_volume_country_2008_09_11.pdf', height=11, width=9)
 ggplot(data=a, aes(x=TROPHIC, y=log10(Total), fill=TROPHIC)) +
     geom_bar(stat="identity", position=position_dodge(), colour="black") +
     facet_wrap(~Exporter.Country)
 dev.off()
 
 sp.full<-aggregate(YEAR ~ Taxa + Exporter.Country, trade, unique)
+head(sp.full)
 
-trade[trade$Taxa=='Chromis viridis',]
 
-trade[which.max(trade$Total),]
-head(trade)
+# plot by species 
+ggplot(data=a, aes(x=Taxa, y=log10(Total), fill=TROPHIC)) +
+    geom_bar(stat="identity", position=position_dodge(), colour="black") +
+    facet_wrap(~TROPHIC)
+# only two species in piscivores 
+
+
+# trade[trade$Taxa=='Chromis viridis',]
+
+# trade[which.max(trade$Total),]
+# head(trade)
 
 ### We subsetted to 2008, 09, 11 years only (full records). Range size is not a good predictor of trade volume, nor does 
 ## differences in range size appear to affect vulnerability to high/low trade volume.
