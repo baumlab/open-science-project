@@ -16,3 +16,12 @@
 
 * NOAA trophic group data does not cover every fish in the database, even for Pacific countries. Problematic to compare trophic information between countries when some species are not included. Currently investigating Fishbase.
 * Received OBIS distribution data from Andrew Rhyne. Next step is to figure out how to quantify range size/distribution extent. We have lat-lon of occurrences for each species (multiple entries per species). How to turn this into an explanatory variable? Our question - is trade volume linked to range size and, if so, which species are most/least vulnerable to aquarium trade (theme of endemism etc.).
+
+
+#### October 10, 2017  
+* get CITES data (JMI-done)
+* run trophic groups with FishBase data (JMI)
+* find a global reef fish functional group dataset from David Bellwood/Mouillot/Kulbicki, because this may have more values than FishBase for our species
+* run range sizes with the OBIS dataset (JMI)
+* Think about how to look at governance: over time? averaged?  (maybe look at papers using these values)
+* making a google sheets for the literature like we had for the oil spill data   
