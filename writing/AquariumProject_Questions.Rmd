@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #### Question 1
 How effective are trade regulations in controlling aquarium export? Compare aquarium exports from countries with strong vs weak regulations/governance, based on CITES membership, n. years since joining CITES, and GDP (CITES information: https://www.cites.org/eng/disc/parties/chronolo.php).
 
-**Data**: CITES (need to get), UN human development indicators, World Bank Governance Indicators
+**Data**: CITES, UN human development indicators, World Bank Governance Indicators
 
 **Expectation**: countries with poor governance have higher trade export volume + diversity (standardised to reef area/coastline/regional richness). 
 
@@ -28,7 +28,7 @@ Consider temporal aspect here as well - does good/bad governance in year 1 reduc
 
 Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? Examine size, diet, and functional group structure of exported species by country. 
 
-**Data**: Requires functional group data. James has this for Indo-Pacific fishes. What about size data?
+**Data**: CREP trophic groups (lots of data missing for our species), FishBase (only two of our species matched), JPWR looking for another dataset  
 
 **Expectation**: planktivores are primarily targeted. Are there 1) countries that export more herbs/piscs than expected? 2) Which non-planktivore species are exported in high volumes? 
 
@@ -44,7 +44,7 @@ Are certain trophic levels or functional groups disproportionately targeted by a
 
 Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less? small range - which species? large range - lots of export countries?
 
-**Data**: Range sizes from Andrew Rhyne  
+**Data**: OBIS range sizes (how to calculate range size from lat/long presence data?), Luis et al. 2013 range size data 
 
 **Expectation**: linear relationship between export volume ~ range size. But any species that falls off the line is of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
 
