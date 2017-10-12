@@ -19,9 +19,9 @@
 
 
 #### October 10, 2017  
-* get CITES data (JMI-done)
-* run trophic groups with FishBase data (JMI)
-* find a global reef fish functional group dataset from David Bellwood/Mouillot/Kulbicki, because this may have more values than FishBase for our species
-* run range sizes with the OBIS dataset (JMI)
-* Think about how to look at governance: over time? averaged?  (maybe look at papers using these values)
+* get CITES data (*JMI*-done)
+* run trophic groups with FishBase data (*JMI*- done, only two of our species are in the FishBase data so we can't use this)  
+* find a global reef fish functional group dataset from David Bellwood/Mouillot/Kulbicki, because this may have more values than FishBase for our species (*JPWR*)  
+* how to turn OBIS into an explanatory varaiible, because it has lat-lon occurances for each species? (*JMI*- thinking about this)  
+* Think about how to look at governance: over time? averaged?  (maybe look at papers using these values) (*GO*)
 * making a google sheets for the literature like we had for the oil spill data   

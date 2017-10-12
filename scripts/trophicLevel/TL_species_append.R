@@ -1,12 +1,9 @@
-
-
 # Created by James Robinson
 # Created on 26-May-2017
 
-
 # Purpose: this code reads in CREP trophic data and Fishbase data 
 
-# clear my environment
+# clear environment
 rm(list=ls()) 
 
 setwd("~/Desktop/Research/open-science-project")
@@ -15,18 +12,22 @@ setwd("~/Documents/git_repos/open-science-project")
 
 # read aquarium data
 trade<-read.csv(file='data/trade_taxa_all.csv')
+head(trade)
 
 # read CREP species data
 load('data/TMPspecies.Rdata')
 ls()
 head(species_table)
+
+
 # match in trophic levels
 trade$TROPHIC<-species_table$TROPHIC_MONREP[match(trade$Taxa, species_table$TAXONNAME)]
-
 ## trophic groups for 2268 species. missing for 5245 species.
 
 trade.trophic<-trade[!is.na(trade$TROPHIC),]
 trade.trophic<-droplevels(trade.trophic)
+
+
 
 write.csv(trade.trophic, file='data/trade_with_trophic_group.csv')
 
@@ -42,8 +43,21 @@ b$total<-a$Total[match(b$Exporter.Country, a$Exporter.Country)]
 b$prop.trophic<-round(b$Total/b$total*100, 2)
 hist(b$prop.trophic)
 
-## much missing trophic level estimates. 
+## many missing trophic level estimates. What else can we use?
+# Fishbase: only two of our species were found
+# http://www.documentation.ird.fr/hor/PAR00000515 (try this out)
+
+
+
 
 ## try fish base
-library(rfishbase)
+# install.packages("devtools")
+library(devtools)
+devtools::install_github("ropensci/rfishbase")
+library("rfishbase")
 
+trade$Taxa
+fishes <-validate_names(trade$Taxa)  # some warnings about names being misapplied to other species but returns the best match
+fishes # only found two of our fish
+test <-ecology(fishes,fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph"))
+fish

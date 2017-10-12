@@ -1,10 +1,9 @@
 
-
-# Created by James Robinson
+# Created by James Robinson (moved by JMI on 11-Oct-2017 because it was saved under OBIS)
 # Created on 26-May-2017
 
 theme_set(theme_bw())
-# Purpose: this code reads in OBIS data from Andrew Rhyne, adds to trade dataset
+# Purpose: this code reads in Luiz et al. 2013 range size dataset, adds to trade dataset
 
 # setwd("~/Desktop/Research/open-science-project")
 # setwd("~/Documents/git-jpwrobinson/open-science-project")
@@ -12,9 +11,6 @@ theme_set(theme_bw())
 
 setwd("~/Documents/git_repos/open-science-project")
 library("ggplot2")
-# read full distribution data
-obis<-read.csv(file='data/OBIS_dist_species.csv')
-head(obis)
 
 ## calculate maximum linear range size 
 ## maximum linear distance (MLD) in kilometers—as a metric of geographic range size (7, 16) (Luiz et al. 2013)
@@ -38,7 +34,7 @@ sum(a$Total[a$range=='NO'])/(sum(a$Total[a$range=='YES'])+ sum(a$Total[a$range==
 ## 55% of total fish traded without data
 length(a$Total[a$range=='NO'])/(length(a$Total[a$range=='YES'])+ length(a$Total[a$range=='NO']))*100
 ## 84% of species without data
-head(a)
+head(a)  
 
 
 ########## Plots ############
@@ -50,28 +46,6 @@ pdf(file='figures/range_size_km_trade_volume_2008_09_11.pdf', height=11, width=9
 ggplot(a, aes(range_size_km, log10(Total), col=TROPHIC)) + geom_point() + ylab('log10 Trade volume') + geom_smooth(method=lm, se=FALSE)
 dev.off()
 
-# plot total trade volume by trophic level
-pdf(file='figures/trophic_by_trade_volume_2008_09_11.pdf', height=11, width=9)
-ggplot(data=a, aes(x=TROPHIC, y=log10(Total), fill=TROPHIC)) +
-    geom_bar(stat="identity", position=position_dodge(), colour="black")
-dev.off()
-
-# plot total trade volume by country
-pdf(file='figures/trophic_by_trade_volume_country_2008_09_11.pdf', height=11, width=9)
-ggplot(data=a, aes(x=TROPHIC, y=log10(Total), fill=TROPHIC)) +
-    geom_bar(stat="identity", position=position_dodge(), colour="black") +
-    facet_wrap(~Exporter.Country)
-dev.off()
-
-sp.full<-aggregate(YEAR ~ Taxa + Exporter.Country, trade, unique)
-head(sp.full)
-
-
-# plot by species 
-ggplot(data=a, aes(x=Taxa, y=log10(Total), fill=TROPHIC)) +
-    geom_bar(stat="identity", position=position_dodge(), colour="black") +
-    facet_wrap(~TROPHIC)
-# only two species in piscivores 
 
 
 # trade[trade$Taxa=='Chromis viridis',]
