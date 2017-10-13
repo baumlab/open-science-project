@@ -6,8 +6,8 @@
 # clear environment
 rm(list=ls()) 
 
-setwd("~/Desktop/Research/open-science-project")
-setwd("~/Documents/git-jpwrobinson/open-science-project")
+# setwd("~/Desktop/Research/open-science-project")
+# setwd("~/Documents/git-jpwrobinson/open-science-project")
 setwd("~/Documents/git_repos/open-science-project")
 
 # read aquarium data
@@ -57,7 +57,7 @@ devtools::install_github("ropensci/rfishbase")
 library("rfishbase")
 
 trade$Taxa
-fishes <-validate_names(trade$Taxa)  # some warnings about names being misapplied to other species but returns the best match
+fishes <-validate_names(trade$Taxa, limit=1000)  # some warnings about names being misapplied to other species but returns the best match
 fishes # only found two of our fish
 test <-ecology(fishes,fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph"))
 fish
