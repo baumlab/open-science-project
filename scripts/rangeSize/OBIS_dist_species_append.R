@@ -69,10 +69,15 @@ dim(haha) #1445, 2, so it only calculated EOO for 1445 species
 # merge back to trade data
 trade$EOO<-haha$EOO[match(trade$Taxa, haha$Species)]
 head(trade)
-dim(trade) # 2296, 7
+dim(trade) # 2296, 8
+trade$EOO # need to get rid of the NAs
 
-trade.obis <- trade
-trade.obis <- dplyr::select(trade.obis, -X)
+library(tidyr)
+test <- trade %>% drop_na(EOO)
+dim(test) #2147
+
+trade.obis <- test
+trade.obis <- dplyr::select(trade.obis, -X) # get rid of the column X
 head(trade.obis)
 class(trade.obis)
 
