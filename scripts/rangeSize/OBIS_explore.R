@@ -17,6 +17,7 @@ rm(list=ls())
 load("data/trade_with_obis_eoo.Rdata") # "trade.obis"
 ls()
 head(trade.obis)
+dim(trade.obis) #2147,7
 
 
 # plot total by range size
@@ -24,11 +25,19 @@ ggplot(trade.obis, aes(EOO, log10(Total))) + geom_point() + ylab('log10 Trade vo
 
 
 
-# how many fish with range size estimates?
+# aggregate the years?
 a<-aggregate(Total ~ EOO + Taxa +  Exporter.Country + YEAR, trade.obis, sum, na.action=NULL)
 head(a)
+dim(a) #2147, 5
 a<-aggregate(Total ~ EOO + Taxa +  Exporter.Country, a, mean, na.action=NULL)
 head(a)
+dim(a) #2147, 7 so its not aggregating by year? because the dimensions are staying the same?
+
+
+
+
+
+
 
 
 ggplot(a, aes(EOO, log10(Total))) + geom_point() + ylab('log10 Trade volume')+ geom_smooth(method=lm, se=FALSE)
