@@ -74,6 +74,7 @@ dim(trade) # 2296, 7
 trade.obis <- trade
 trade.obis <- dplyr::select(trade.obis, -X)
 head(trade.obis)
+class(trade.obis)
 
 save(trade.obis, file="data/trade_with_obis_eoo.Rdata")
 

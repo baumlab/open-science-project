@@ -25,16 +25,31 @@ head(trade)
 
 trade$range_size_km<-mld$range_size_km[match(trade$Taxa, mld$Taxa)]
 trade$range<-ifelse(is.na(trade$range_size_km), 'NO', 'YES')
+trade$range
+head(trade)
+dim(trade) #393, 10
+str(trade)
 
+############## JIMMY WHY DID YOU DO THIS? :) 
 ## how many fish with range size estimates?
-a<-aggregate(Total ~ range + range_size_km + Taxa + TROPHIC + Exporter.Country + YEAR, trade, sum, na.action=NULL)
-a<-aggregate(Total ~ range + range_size_km + Taxa + TROPHIC + Exporter.Country, a, mean, na.action=NULL)
+a<-aggregate(Total ~ range + range_size_km + Taxa + TROPHIC + Exporter.Country + YEAR, trade, sum, na.action=NULL) # doesn't seem like anything is actually being summed?
+dim(a) #214, 7
+head(a)
+a<-aggregate(Total ~ range + range_size_km + Taxa + TROPHIC + Exporter.Country, a, mean, na.action=NULL) # took out year so its the mean across years for each country and taxa? 
+dim(a) #214, 6
+head(a)
 
-sum(a$Total[a$range=='NO'])/(sum(a$Total[a$range=='YES'])+ sum(a$Total[a$range=='NO']))*100
+
+# ALSO I CAN'T GET THIS TO WORK...
+sum(a$Total[a$range=='NO'])/(sum(a$Total[a$range=='YES']) + sum(a$Total[a$range=='NO']))*100
 ## 55% of total fish traded without data
 length(a$Total[a$range=='NO'])/(length(a$Total[a$range=='YES'])+ length(a$Total[a$range=='NO']))*100
 ## 84% of species without data
 head(a)  
+######################
+
+
+
 
 
 ########## Plots ############
