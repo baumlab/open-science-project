@@ -21,13 +21,13 @@ tail(obis)
 dim(obis) #1393965, 10
 levels(obis$taxa_name) #2509 species 
 # decimal lat and long are both + and - values
-
-
 # Before you can match in the trade data, you need one value for each species from the OBIS data
-# Idea from Jimmy: Find max and min for each sp. Scale lat and lon to mean 0 and sd of 1 across all species. Sum together for each species. Proxy for range size.
+#####################################################
+
 
 
 # match trade data with OBIS
+#####################################################
 trade<-read.csv(file='data/trade_taxa_all.csv')
 head(trade)
 str(trade)
@@ -42,11 +42,13 @@ dim(test) #609832 occurences
 # how many species are in the obis dataset from trade? 
 trade$decimalLatitude<-obis$decimalLatitude[match(trade$Taxa, obis$taxa_name)]
 levels(trade$Taxa) # 1553 so all of them!!
+#####################################################
 
 
 
 
 # Calculate Extent of Occurence from OBIS data 
+#####################################################
 # subset out just decimal and species names 
 test.conr <- dplyr::select(test, one_of(c("decimalLatitude", "decimalLongitude", "taxa_name")))
 head(test.conr)
@@ -80,6 +82,8 @@ trade.obis <- test
 trade.obis <- dplyr::select(trade.obis, -X) # get rid of the column X
 head(trade.obis)
 class(trade.obis)
+trade.obis$EOO # there are still alot with zero range size?
+
 
 save(trade.obis, file="data/trade_with_obis_eoo.Rdata")
-
+#####################################################

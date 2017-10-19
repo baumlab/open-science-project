@@ -44,15 +44,17 @@ Are certain trophic levels or functional groups disproportionately targeted by a
 
 Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less? small range - which species? large range - lots of export countries?
 
-**Data**: OBIS range sizes (how to calculate range size from lat/long presence data?), Luis et al. 2013 range size data 
+**Data**: OBIS range sizes (how to calculate range size from lat/long presence data?), Luis et al. 2013 range size data. The figures below are for EOO
 
 **Expectation**: linear relationship between export volume ~ range size. But any species that falls off the line is of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
 
 **Caveat:** This question is country-independent - ranges cross borders, data point = fish species.  
-![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/range_size_km_trade_volume_country_2008_09_11.pdf)  
-![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/range_size_km_trade_volume_2008_09_11.pdf)
 
+*Problem 1)* Each point is one species volume and range size (i.e. averaged by  years and summed by country), however when doing this I noticed that there aren't any fish taax that have exports in one country for multiple years? This seems odd.   
+*Problem 2)* There are lots of fish species that have 0 calculated as the range size, not NA (those were already filtered out). Should we get rid of these species because maybe they have only been picked up by OBIS in one area so thats why they have an EOO of zero?  
 
+![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/eoo_trade_volume_2008_09_11.pdf)  
+![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/EOO_trade.trophic_volume_2008_09_11.pdf)
 
 #### Data Decisions  
 * subsetted to full years of data only (2008, 2009, 2011)  
