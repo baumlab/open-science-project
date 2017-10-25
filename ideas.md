@@ -14,12 +14,12 @@ Study area: [10 largest MPAs] (http://www.protectplanetocean.org/collections/int
 Relevant links: [Global Fishing Watch] (http://globalfishingwatch.org/faq)  
 [Article about big data and tracking fishing vessels] (http://e360.yale.edu/feature/how_satellites_and_big_data_can_help_to_save_the_oceans/2982/)  
 [PEW's Eyes on the Seas] (http://www.pewtrusts.org/en/multimedia/video/2015/project-eyes-on-the-seas)  
-  
+
 Relevant papers: [McCauley et al. 2016 Science] (https://www.researchgate.net/profile/Kristina_Boerder/publication/297743086_Ending_hide_and_seek_at_sea/links/56e4839108aedb4cc8ac2605.pdf) 
 [Brodeur et al. PLoS ONE; Improving Fishing Pattern Detection from Satellite AIS Using Data Mining and Machine Learning] (http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0158248). I think the author K Brodeur is pretty much doing her PhD on this stuff. Tim White (Hopkins Marine lab) should have a paper soon on using AIS for the Palmyra Atoll
 
 Here is a recent short note on what looks like a [working group on AIS] (https://arxiv.org/ftp/arxiv/papers/1609/1609.08756.pdf)
-  
+
 Relevant data:  
 Are countries with higher GDPs better at enforcing MPA protection? [GDP Data]
 (http://data.oecd.org/gdp/gross-domestic-product-gdp.htm)  
@@ -122,8 +122,8 @@ Relevant reading:
 **[Rhyne et al. 2012, PLoS ONE] (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035808)**
 
 * Goal: describe the biodiversity, volume and trade pathways of marine tropical fish using import records for the year 2004-2005 (very descriptive)  
-* 	outlined the diversity of fish coming into the states from each country  
-*  evaluated trophic levels coming into the united states (no pattern found)  
+  * outlined the diversity of fish coming into the states from each country  
+* evaluated trophic levels coming into the united states (no pattern found)  
 * examined abundance/volume of fish coming into the states from each country 
 
 **JMI/JPWR Questions/Ideas**  
@@ -131,7 +131,7 @@ Relevant reading:
 Goals: 
 
 1) To identify "threat hotspots" due to the aquarium trade (n=45 countries) using IUCN status of species
-      
+​      
 2) evaluate variation in aquarium pressure on reefs with different fisheries condition by a) looking at the proportion of trophic level/functional group by country and b) evaluating what fishes are being taken from different fisheries/reef conditions (i.e. what fish are being taken from a healthy vs shit reef?)  
 
 3) Evaluate effectiveness of national regulations by comparing exports from countries with strong vs weak regulations/governance
@@ -145,11 +145,11 @@ Which data to use for baselines?:
 
 
 ### 9. Scientific Publishing at a Global Scale  
-  
+
 [Here] (http://www.scimagojr.com/index.php) is a website with information including Documents, Citations, Self Citations, Citations Per Document, and H index by country, and is also subsettable by Subject Area and Year (1996-2015). We could look at questions regarding scientific publishing and GDP, population...?  
-  
+
 Also, they have really awesome visualizations. It seems like we could incorporate this data into a larger question about publishing trends/science globally. (If you think of any more specific ideas/questions, add them here!)  
-  
+
 We would need to check with them via [email] (scimagojr@scimago.es) to confirm if there are any additional requirements for using this data, although they appear open access online, and include a citation for using the data in publications.  
 
 ### Meeting (JMI, JPWR, DC) 27March17  
