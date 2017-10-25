@@ -9,7 +9,7 @@
 # setwd("~/Documents/git_repos/open-science-project")
 
 setwd("~/Documents/git_repos/open-science-project")
-library("ggplot2")
+library("ggplot2"); library(dplyr)
 theme_set(theme_bw())
 # clear my environment
 rm(list=ls())
@@ -42,6 +42,12 @@ tail(trade.obis.mean)
 t <-trade.obis %>% group_by(Taxa, Exporter.Country) %>% summarise(a=sum(n()))
 t <-data.frame(t)
 summary(t)
+
+# also confirmed here:
+y<-aggregate(YEAR ~ Exporter.Country + Taxa, trade.obis, function(x)length(unique(x)))
+unique(y$YEAR)	
+
+
 # but why? this seems wierd 
 #####################################################
 
@@ -55,11 +61,19 @@ pdf(file='figures/eoo_trade_volume_2008_09_11.pdf', height=11, width=9)
 ggplot(trade.obis.mean, aes(EOO, log10(Total))) + geom_point() + ylab('log10 trade volume') + geom_smooth(method=lm, se=FALSE)
 dev.off()
 # there are lots of species that got a zero range size in teh EOO calculation, why and should we drop them? 
+
 #####################################################
+## James looking at export diversity
+library(dplyr); library(visreg); library(lme4)
 
 
+trade.obis<-trade.obis %>% group_by(Taxa) %>% mutate(div=length(unique(Exporter.Country)))
+hist(trade.obis$div)
 
-
+m<-glm(div ~ scale((EOO)) + scale(decimalLatitude), trade.obis, family=poisson)
+summary(m)
+visreg(m)
+hist(resid(m))
 
 
 
