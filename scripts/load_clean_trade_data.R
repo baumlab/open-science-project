@@ -8,17 +8,17 @@
 setwd("~/Desktop/Research/open-science-project")
 setwd("~/Documents/git-jpwrobinson/open-science-project")
 setwd("~/Documents/git_repos/open-science-project")
-
+library(dplyr); library(ggplot)
 
 # pull in trade data
 trade<-read.csv('data/raw/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
 
 ## remove modelled data
-trade<-trade[trade$Modeled.Data==0,]
+# trade<-trade[trade$Modeled.Data==0,]
 ## remove un IDd species
 trade<-trade[!trade$Taxa=='',]
 ## remove incomplete years
-trade<-trade[trade$YEAR%in%c('2008', '2009' , '2011'),]
+# trade<-trade[trade$YEAR%in%c('2008', '2009' , '2011'),]
 
 write.csv(trade, file='data/trade_taxa_all.csv')
 
@@ -32,13 +32,22 @@ dim(sp[sp$Total<100,]) # 834 species with < 100 individuals
 
 # examine commonest species
 hist(sp$Total, plot=F)
-sp %>% filter(Total > 100000)
+sp %>% filter(Total > 78110)
+
 
 # examine biggest exporting countries
 country<-aggregate(Total ~ Exporter.Country, trade, sum)
 country[country$Total>500000,]
 ## Belize, Dominican, Fiji, Haiti, Indonesia, Philippines, Sri Lanka all > 500,000
 
+## create export diversity dataframe
+div <- trade %>% group_by(Taxa) %>% summarise(N = n())
+# take top 100 most common species
+sp.common<-sp %>% filter(Total > 78110) 
+div <- div %>% filter(Taxa %in% sp.common$Taxa)
+## 
+
+write.csv(div, file='data/trade_top100.csv')
 
 ## examine species number by country
 sp.export<-aggregate(Taxa ~ Exporter.Country, trade, function(x)length(unique(x)))
