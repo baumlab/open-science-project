@@ -1,6 +1,6 @@
 ---
 title: "Aquarium Project Questions"
-author: "Jamie McDevitt-Irwin"
+author: "Jamie McDevitt-Irwin, James Robinson, Easton White, Jillian Dunic, Geoffrey Osgood"
 date: '2017-10-05'
 output:
   pdf_document: default
@@ -22,6 +22,7 @@ Consider temporal aspect here as well - does good/bad governance in year 1 reduc
 
 **Caveats** How to use the governance indicators when they are yearly and the data is from multiple years and months within certain years? 
   
+    
 \pagebreak  
 
 #### Question 2
@@ -56,5 +57,34 @@ Geographic analysis of range distributions - where are species exported from? Ar
 ![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/eoo_trade_volume_2008_09_11.pdf)  
 ![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/EOO_trade.trophic_volume_2008_09_11.pdf)
 
+  
+\pagebreak   
+
 #### Data Decisions  
 * subsetted to full years of data only (2008, 2009, 2011)  
+
+
+#### Modeling Ideas  
+glmer(volume ~ range size + (1 + range size | year / country), data=trade, family = Gamma(link=log))  
+
+* random slope for country, random intercept for year  
+* Gamma distribution= volume is positive non-integer, maybe compare with log(volume) and normal distribution  
+* or could try gls() variance structures? (varfixed, varpower) instead of transforming  
+  
+glmer(volume ~ range size + (1| year / country), data=trade, family = Gamma(link=log))  
+
+* random intercept for year  
+
+So then the full model would be (depending on which random structure is best):  
+glmer(volume ~ range size + CITES + gov.indicator + (1 + range size | year / country), data=trade, family = Gamma(link=log))  
+
+
+
+
+
+
+
+
+
+
+
