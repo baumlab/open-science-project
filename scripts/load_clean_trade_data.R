@@ -5,10 +5,10 @@
 
 # Purpose: this code reads in trade data from Andrew Rhyne, cleans, saves
 
-setwd("~/Desktop/Research/open-science-project")
-setwd("~/Documents/git-jpwrobinson/open-science-project")
+# setwd("~/Desktop/Research/open-science-project")
+# setwd("~/Documents/git-jpwrobinson/open-science-project")
 setwd("~/Documents/git_repos/open-science-project")
-library(dplyr); library(ggplot)
+library(dplyr); library(ggplot2)
 
 # pull in trade data
 trade<-read.csv('data/raw/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
@@ -32,7 +32,7 @@ dim(sp[sp$Total<100,]) # 834 species with < 100 individuals
 
 # examine commonest species
 hist(sp$Total, plot=F)
-sp %>% filter(Total > 78110)
+sp %>% filter(Total > 78110) # top 100 species in terms of total volume 
 
 
 # examine biggest exporting countries
@@ -45,6 +45,8 @@ div <- trade %>% group_by(Taxa) %>% summarise(N = n())
 # take top 100 most common species
 sp.common<-sp %>% filter(Total > 78110) 
 div <- div %>% filter(Taxa %in% sp.common$Taxa)
+head(div) # N is the number of countries the species is exported from? 
+dim(div)
 ## 
 
 write.csv(div, file='data/trade_top100.csv')

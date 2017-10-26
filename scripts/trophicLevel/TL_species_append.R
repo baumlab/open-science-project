@@ -57,7 +57,14 @@ devtools::install_github("ropensci/rfishbase")
 library("rfishbase")
 
 trade$Taxa
+
+# check for misspellings or alternate names 
+x <- synonyms(trade$Taxa)
+
+# check for alternate versions of a scientific name and return the names FishBase recognizes as valid 
 fishes <-validate_names(trade$Taxa, limit=1000)  # some warnings about names being misapplied to other species but returns the best match
 fishes # only found two of our fish
+
+# Get trophic level 
 test <-ecology(fishes,fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph"))
 fish
