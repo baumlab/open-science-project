@@ -33,5 +33,7 @@
 * get reef area data for each country (http://data.unep-wcmc.org/)
 * get phylogeny/biogeography categories from Kulbicki et al. 2013
 * try for trophic data again through fishbase (Rhyne got 1,200 records this way in his 2012 paper)
-* find trade papers and fill out lit. Review. get ideas for predictors, controlling for confounding factors across countries, governance questions
+* find trade papers and fill out lit. Review. get ideas for predictors, controlling for confounding factors across countries, governance questions (*all*)
 * find IUCN status of all traded species
+* subset to top 100 commonly traded fish species  (*JR - done*)
+* email Rhyne about why there is only 1 species per country in 2008-2011 (*JR*)
