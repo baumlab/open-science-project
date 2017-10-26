@@ -22,7 +22,7 @@
 * get CITES data (*JMI*-done)
 * run trophic groups with FishBase data (*JMI*- done, only two of our species are in the FishBase data so we can't use this)  
 * find a global reef fish functional group dataset from David Bellwood/Mouillot/Kulbicki, because this may have more values than FishBase for our species (*does not exist openly*)  
-* how to turn OBIS into an explanatory varaiible, because it has lat-lon occurances for each species? (*JMI*- thinking about this)  
+* how to turn OBIS into an explanatory varaiible, because it has lat-lon occurances for each species? (*JMI*-done)
 * Think about how to look at governance: over time? averaged?  (maybe look at papers using these values) (*GO*)
 * making a google sheets for the literature like we had for the oil spill data   (https://docs.google.com/spreadsheets/d/1w_iIuv7OuyRlaEyuy7ERDdN-RhIYcX-WMomZEagoSF8/edit?usp=sharing)
 
@@ -32,7 +32,7 @@
 
 * get reef area data for each country (http://data.unep-wcmc.org/)
 * get phylogeny/biogeography categories from Kulbicki et al. 2013
-* try for trophic data again through fishbase (Rhyne got 1,200 records this way in his 2012 paper)
+* try for trophic data again through fishbase (Rhyne got 1,200 records this way in his 2012 paper) (*JMI* try again)
 * find trade papers and fill out lit. Review. get ideas for predictors, controlling for confounding factors across countries, governance questions (*all*)
 * find IUCN status of all traded species
 * subset to top 100 commonly traded fish species  (*JR - done*)
