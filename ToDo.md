@@ -37,3 +37,11 @@
 * find IUCN status of all traded species (JR - though I think Rhyne said none were red listed)
 * subset to top 100 commonly traded fish species  (*JR - done*)
 * email Rhyne about why there is only 1 species per country in 2008-2011 (*JR* -done)
+
+
+
+```
+git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch *.shp' \
+--prune-empty --tag-name-filter cat -- --all
+```
