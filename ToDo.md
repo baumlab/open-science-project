@@ -42,6 +42,6 @@
 
 ```
 git filter-branch --force --index-filter \
-'git rm --cached --ignore-unmatch *.shp' \
+'git rm --cached --ignore-unmatch *.dbf' \
 --prune-empty --tag-name-filter cat -- --all
 ```
