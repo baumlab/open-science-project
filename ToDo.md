@@ -30,7 +30,6 @@
 
 #### October 25, 2017
 
-
 * get reef area data for each country (http://data.unep-wcmc.org/) (JR - done)
 * get phylogeny/biogeography categories from Kulbicki et al. 2013
 * try for trophic data again through fishbase (Rhyne got 1,200 records this way in his 2012 paper) (*JMI* success)
