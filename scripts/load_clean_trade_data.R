@@ -18,7 +18,8 @@ trade<-read.csv('data/raw/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
 ## remove un IDd species
 trade<-trade[!trade$Taxa=='',]
 ## remove incomplete years
-trade<-trade[trade$YEAR%in%c('2008', '2009' , '2011'),]
+
+# trade<-trade[trade$YEAR%in%c('2008', '2009' , '2011'),]
 
 write.csv(trade, file='data/trade_taxa_all.csv')
 
