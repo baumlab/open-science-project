@@ -15,9 +15,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Overarching goals
 
-JR: I think what we are trying to do here is to make predictions about aquarium trade based on 1) exporting country information, such as governance factors (CITES, development), and 2) species information, such as trophic group, range size. Trade volume is a big problem just now, because it is very skewed towards a couple of major exporters (PNG and Philippines). There may also be discrepepancies in volume estimates due to incorrect labelling of fish + exported boxes (Rhyne et al. 2012), but this seems less of an issue if we just analyse which species each country exports.
+Make predictions about aquarium trade based on 1) exporting country information, such as governance factors (CITES, development), and 2) species information, such as trophic group, range size. Trade volume is a big problem just now, because it is very skewed towards a couple of major exporters (PNG and Philippines). There may also be discrepepancies in volume estimates due to incorrect labelling of fish + exported boxes (Rhyne et al. 2012), but this seems less of an issue if we just analyse occurence of species being exported.
 
-So, I suggest that we put volumes to one side and simplify this question to focus on species incidences - our response variable is the list of species exported per country.
+Response variable: If a species was exported or not (0,1) (binomial).
 
 We probably need to control for biogeography here as well. Caribbean species can be exported by X countries, whereas Indo-Pacific species can be exported by Y countries - we want to measure effect of predictors *given* that there is a geographical constraint on how many countries can export each species. Kulbicki et al. (2013, PLoS ONE) has a dataset of biogeographical zones we could use.
 
@@ -27,7 +27,7 @@ We probably need to control for biogeography here as well. Caribbean species can
 #### Question 1
 *How effective are trade regulations in controlling aquarium export?*  
 
-**Hypotheses**: Countries with poor governance will have higher trade export diversity (standardised to reef area/coastline/regional richness). 
+**Hypotheses**: Countries with poor governance will trade more species (standardised to reef area/coastline/regional richness). 
 
 **Data**: CITES, UN human development indicators, World Bank Governance Indicators
 
@@ -49,11 +49,9 @@ Standardizing issue seems key here. We really need to understand why some countr
 
 *Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? * 
 
-**Hypotheses**: The planktivores are primarily targeted because they are wanted by the aquarium market due to brilliant colours and 
+**Hypotheses**: The planktivores are primarily targeted because?
 
-planktivores are primarily targeted. Are there 1) countries that export more herbs/piscs than expected? 2) Which non-planktivore species are exported in high volumes? 
-
-**Data**: CREP trophic groups (lots of data missing for our species), FishBase (only two of our species matched), JPWR looking for another dataset  
+**Data**: CREP trophic groups (lots of data missing for our species), FishBase (75 of our 100 species matched), JPWR looking for another dataset  
 
 *Caveats*: 1) Standardise countries by estimating proportional volume of functional groups for each country; 2) determining the baseline community structure is very difficult, probably impossible.  
 
@@ -69,11 +67,9 @@ JR: I think these figures are a little wonky - watch out for horizontal lines wi
 
 *Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less?*
 
-**Hypotheses**: There will be a positive linear relationship of export occurences (i.e. number of countries exporting that species) and range size, as species with a larger range size will be exported by more countries. However if any species fall of this line they are of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
+**Hypotheses**: There will be a positive linear relationship of export occurences and range size, as species with a larger range size will exported by more countries. However if any species fall of this line they are of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
 
 **Data**: OBIS range sizes (from this calculated EOO: extent of occurence), Luis et al. 2013 range size data. The figures below are for EOO
-
-JR: This would change to export diversity (= number of countries exporting that species) ~ range size.
 
 *Caveat:* This question is country-independent - ranges cross borders, data point = fish species.  
 
@@ -103,15 +99,14 @@ JR: Probably yes.
 
 Statistical models must make predictions on our fixed covariates of interest (range size, governance, species traits) while accounting for our random covariates of confounding information (biogeographic region, country, family). Random levels could be used to make family- or region-level predictions of the fixed covariate relationships.
 ```
-glmer(volume ~ range size + (1 + range size | year / country), data=trade, family = Gamma(link=log))  
+glmer(occurence ~ range size + (1 + range size | year / country), data=trade, family = Gamma(link=log))  
 ```
 * random slope for country OR biogeographic region, random intercept for year  
-* Gamma distribution= volume is positive non-integer, maybe compare with log(volume) and normal distribution  
-* if we look at export diversity, use poisson
+* Poisson distribution
 * or could try gls() variance structures? (varfixed, varpower) instead of transforming  
 
 ```
-glmer(volume ~ range size + (1| year / country), data=trade, family = Gamma(link=log))  
+glmer(occurence ~ range size + (1| year / country), data=trade, family = Gamma(link=log))  
 ``` 
 * random intercept for year  
 
@@ -119,10 +114,10 @@ So then the full model would be (depending on which random structure is best):
 
 Volume models:
 ```
-glmer(volume ~ range size + CITES + gov.indicator + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
+glmer(ocurrence ~ range size + CITES + gov.indicator + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
 ```
 
 Incidence models:
 ```
-glmer(export_diversity ~ range size + CITES + gov.indicator + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
+glmer(occurence ~ range size + CITES + gov.indicator + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
 ```

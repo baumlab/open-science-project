@@ -47,29 +47,34 @@ div <- trade %>% filter(Taxa %in% sp.common$Taxa) %>%
 
 ## check every species appears in every country as a 0 or 1
 aggregate(Taxa ~ Exporter.Country, div, length)
+head(div)
 
 #----------------------------------------#----------------------------------------
 								## ADDING PREDICTORS
 #----------------------------------------#----------------------------------------
 ## add TL and family information
 library(rfishbase)
-# Get trophic level - THIS NEEDS FINISHING. VALIDATE DIDN"T FINISH FOR JR
-fishes <-validate_names(div$Taxa, limit=1000)
-sp <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium'))
-ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph"))
-
+# Get trophic level - JMI finished
+fishes <-validate_names(div$Taxa, limit=1000) # no results for alot of species
+fishes
+sp <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
+ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
+ecol
 div$Genus<-sp$Genus[match(div$Taxa, sp$Taxa)]
 div$Vulnerability<-sp$Vulnerability[match(div$Taxa, sp$Taxa)]
 div$Length<-sp$Length[match(div$Taxa, sp$Taxa)]
 div$Aquarium<-sp$Aquarium[match(div$Taxa, sp$Taxa)]
-div$FoodTroph<-sp$FoodTroph[match(div$Taxa, sp$Taxa)]
-div$FoodSeTroph<-sp$FoodSeTroph[match(div$Taxa, sp$Taxa)]
-div$DietTroph<-sp$DietTroph[match(div$Taxa, sp$Taxa)]
-div$DietSeTroph<-sp$DietSeTroph[match(div$Taxa, sp$Taxa)]
+div$FoodTroph<-ecol$FoodTroph[match(div$Taxa, ecol$sciname)]
+div$FoodSeTroph<-ecol$FoodSeTroph[match(div$Taxa, ecol$sciname)]
+div$DietTroph<-ecol$DietTroph[match(div$Taxa, ecol$sciname)]
+div$DietSeTroph<-ecol$DietSeTroph[match(div$Taxa, ecol$sciname)]
 
+head(div)
+div$FoodTroph
 ## add range size
 load('data/trade_with_obis_eoo.Rdata')
 div$EOO<-trade.obis$EOO[match(div$Taxa, trade.obis$Taxa)]
+str(div) # this has export (0,1), country, YEAR? (why is this not there?), data from fishbase, adn EOO
 
 # save files
 write.csv(trade, file='data/trade_taxa_all.csv')
