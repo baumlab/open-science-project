@@ -15,11 +15,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Overarching goals
 
+1) Are aquarium fish export countries characterised by specific habitat (reef area, biogeography) and governance (CITES, development) traits?
+
+(is there an analogue to this in the conservation literature? for trade of another taxa)
+
+2) Are traded reef fish characterised by specific ecological traits? 
+
+(similar idea to Graham et al. 2011 Extinction vulnerability of coral reef reef fishes. Ecology Letters.)
+
 Make predictions about aquarium trade based on 1) exporting country information, such as governance factors (CITES, development), and 2) species information, such as trophic group, range size. Trade volume is a big problem just now, because it is very skewed towards a couple of major exporters (PNG and Philippines). There may also be discrepepancies in volume estimates due to incorrect labelling of fish + exported boxes (Rhyne et al. 2012), but this seems less of an issue if we just analyse occurence of species being exported.
 
 Response variable: If a species was exported or not (0,1) (binomial).
 
-We probably need to control for biogeography here as well. Caribbean species can be exported by X countries, whereas Indo-Pacific species can be exported by Y countries - we want to measure effect of predictors *given* that there is a geographical constraint on how many countries can export each species. Kulbicki et al. (2013, PLoS ONE) has a dataset of biogeographical zones we could use.
+We probably need to control for reef area and biogeography here as well (Parravicini et al. 2013). Caribbean species can be exported by X countries, whereas Indo-Pacific species can be exported by Y countries - we want to measure effect of predictors *given* that there is a geographical constraint on how many countries can export each species. Kulbicki et al. (2013, PLoS ONE) has a dataset of biogeographical zones we could use for country level groupings - does anyone know of a species level equivalent?
 
 <br><br>
 
