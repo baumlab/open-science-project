@@ -11,7 +11,7 @@ setwd("~/Documents/git_repos/open-science-project")
 library(dplyr); library(ggplot2); library(tidyr)
 
 # pull in trade data
-trade<-read.csv('data/raw/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
+trade<-read.csv('data/raw/trade/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
 
 ## remove modelled data
 # trade<-trade[trade$Modeled.Data==0,]
@@ -54,23 +54,57 @@ head(div)
 #----------------------------------------#----------------------------------------
 ## add TL and family information
 library(rfishbase)
-# Get trophic level - JMI finished
-fishes <-validate_names(div$Taxa, limit=1000) # no results for alot of species
-fishes
-sp <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
-ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
-ecol
-div$Genus<-sp$Genus[match(div$Taxa, sp$Taxa)]
-div$Vulnerability<-sp$Vulnerability[match(div$Taxa, sp$Taxa)]
-div$Length<-sp$Length[match(div$Taxa, sp$Taxa)]
-div$Aquarium<-sp$Aquarium[match(div$Taxa, sp$Taxa)]
+# Get trophic level - commenting out since it takes so long to run
+#fishes <-validate_names(div$Taxa, limit=1000) # no results for alot of species
+#validate_names(div$Taxa, limit=1000)
+#spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
+head(spec)
+colnames(spec)
+spec$Genus
+#ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
+head(ecol)
+colnames(ecol)
+str(ecol)
+div$Taxa
+
+# trying to match 
+head(div)
+head(spec)
+head(ecol)
+class(div)
+class(spec)
+class(ecol)
+
+# save spec and ecol for later (since it takes so long to run)
+save(spec, file="data/species_fishbase.Rdata")
+save(ecol, file="data/ecology_fishbase.Rdata")
+
+# Taxa is not matching with the fishbase names 
+# sp is not working
+div$Genus<-spec$Genus[match(div$Taxa, spec$sciname)]
+div$Genus
+head(div)
+div$Vulnerability<-sp$Vulnerability[match(div$Taxa, sp$sciname)]
+div$Length<-sp$Length[match(div$Taxa, sp$sciname)]
+div$Aquarium<-sp$Aquarium[match(div$Taxa, sp$sciname)]
+
+# now both are not working
 div$FoodTroph<-ecol$FoodTroph[match(div$Taxa, ecol$sciname)]
+div$FoodTroph
 div$FoodSeTroph<-ecol$FoodSeTroph[match(div$Taxa, ecol$sciname)]
 div$DietTroph<-ecol$DietTroph[match(div$Taxa, ecol$sciname)]
 div$DietSeTroph<-ecol$DietSeTroph[match(div$Taxa, ecol$sciname)]
 
-head(div)
-div$FoodTroph
+
+
+test1 <- left_join(div, ecol, c("Taxa" = "sciname"))
+test2 <- left_join(div, spec, c("Taxa" = "sciname"))
+
+test1$FoodTroph.x 
+test2$Genus.x
+
+
+
 ## add range size
 load('data/trade_with_obis_eoo.Rdata')
 div$EOO<-trade.obis$EOO[match(div$Taxa, trade.obis$Taxa)]
