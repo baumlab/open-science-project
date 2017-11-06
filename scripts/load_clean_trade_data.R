@@ -52,67 +52,61 @@ head(div)
 #----------------------------------------#----------------------------------------
 								## ADDING PREDICTORS
 #----------------------------------------#----------------------------------------
+### Fishbase Information ###
 ## add TL and family information
 library(rfishbase)
-# Get trophic level - commenting out since it takes so long to run
-fishes <-validate_names(div$Taxa, limit=1000) # no results for alot of species
+# Get trophic level 
+fishes <-validate_names(div$Taxa, limit=1000) 
 head(fishes)
+str(fishes)
+
+x <- unique(fishes)
+x #78 unique fishes
+# gadus morhua is not in there!!!
+
+
+# Add Species Information
 spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
 head(spec)
 colnames(spec)
-spec$Genus
-#ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
-head(ecol)
-colnames(ecol)
-str(ecol)
-div$Taxa
+spec$Genus # no gadus
 
-# trying to match 
-head(div)
-head(spec)
-head(ecol)
-class(div)
-class(spec)
-class(ecol)
-
-# save spec and ecol for later (since it takes so long to run)
-save(spec, file="data/species_fishbase.Rdata")
-save(ecol, file="data/ecology_fishbase.Rdata")
-
-load( file="data/species_fishbase.Rdata")
-load( file="data/ecology_fishbase.Rdata")
-
-# Taxa is not matching with the fishbase names 
-# sp is not working
-div$Genus<-spec$Genus[match(div$Taxa, spec$sciname)]
-div$Genus
-head(div)
-div$Vulnerability<-sp$Vulnerability[match(div$Taxa, sp$sciname)]
-div$Length<-sp$Length[match(div$Taxa, sp$sciname)]
-div$Aquarium<-sp$Aquarium[match(div$Taxa, sp$sciname)]
-
-# now both are not working
-div$FoodTroph<-ecol$FoodTroph[match(div$Taxa, ecol$sciname)]
-div$FoodTroph
-div$FoodSeTroph<-ecol$FoodSeTroph[match(div$Taxa, ecol$sciname)]
-div$DietTroph<-ecol$DietTroph[match(div$Taxa, ecol$sciname)]
-div$DietSeTroph<-ecol$DietSeTroph[match(div$Taxa, ecol$sciname)]
-
-
-
-test1 <- left_join(div, ecol, c("Taxa" = "sciname"))
+# add back to the div table
 test2 <- left_join(div, spec, c("Taxa" = "sciname"))
-
-test1$FoodTroph.x 
-test2$Genus.x
+test2 # worked!
 
 
+# Add Trophic Information
+ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
+head(ecol) 
+colnames(ecol)
+ecol$sciname # no gadus morhua
 
-## add range size
-load('data/trade_with_obis_eoo.Rdata')
-div$EOO<-trade.obis$EOO[match(div$Taxa, trade.obis$Taxa)]
-str(div) # this has export (0,1), country, YEAR? (why is this not there?), data from fishbase, adn EOO
+# add to the species and div table already created 
+test3 <- left_join(test2, ecol, c("Taxa" = "sciname"))
+head(test3)
+test3$Genus
+test3$FoodTroph
+
+# rename
+trade.fishbase <-test3
+
+# save file
+write.csv(trade.fishbase, file='data/clean/trade_top100_fishbase.csv')
+
+
+
+
+#### Range Size Information ####
+load('data/clean/trade_with_obis_eoo.Rdata')
+trade.fishbase$EOO<-trade.obis$EOO[match(trade.fishbase$Taxa, trade.obis$Taxa)]
+str(trade.fishbase) # this has everything but year 
+
+# rename
+trade.fishbase.eoo <-trade.fishbase
 
 # save files
 write.csv(trade, file='data/clean/trade_taxa_all.csv')
-write.csv(div, file='data/clean/trade_top100.csv')
+write.csv(trade.fishbase.eoo, file='data/clean/trade_top100_fishbase_eoo.csv')
+
+
