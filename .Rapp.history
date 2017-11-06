@@ -1,11 +1,247 @@
-setwd("~/Documents/git-jpwrobinson/open-science-project")
-oil <- read.table('data/oil-spill-data/noaa-incidents.csv',sep=',',header=T)
-oil=subset(oil,is.na(oil$lat)==F) # only look at incidents with Lat and Long
-oil = subset(oil, oil$threat=='Oil') #only choose oil spill incidents
-oil= subset(oil,is.na(oil$max_ptl_release_gallons)==F) #only look at incidents with information on total number of gallons
-head(oil)
-str(oil)
-oil$Date<-as.Date(as.character(oild$open_date)))
-oil$Date<-as.Date(as.character(oild$open_date))
-oil$Date<-as.Date(as.character(oil$open_date))
-head(oil)
+load("/Users/robins64/Documents/git_repos/beta-catch/data/cleaned/SEY_UVC_fish_targets_community_matrices.Rdata")
+ls()
+head(fish.05.mat)
+load("/Users/robins64/Documents/git_repos/beta-catch/data/cleaned/CAS_landings_targets_trap.Rdata")
+ls()
+head(cas )
+ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(~GEAR)
+ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR)
+library(ggplot2)
+ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR)
+ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR, scales='free')
+ggplot(cas[cas$GEAR=='FIXS',], aes(HOURS)) + geom_histogram() + facet_wrap(stratum~GEAR, scales='free')
+ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR, scales='free')
+ggplot(cas[cas$GEAR=='FIXS',], aes(HOURS)) + geom_histogram() + facet_wrap(stratum~GEAR, scales='free')
+load("/Users/robins64/Documents/git_repos/beta-catch/data/cleaned/CAS_landings_targets_trap.Rdata")
+ls()
+head(cas )
+with(cas[cas$year=1998,], table(lunar, DATE.ym))
+with(cas[cas$year==1998,], table(lunar, DATE.ym))
+with(cas[cas$year==1998 & cas$lunar == 1,], table(lunar, DATE))
+library(lunar )
+?lunar
+??lunar
+head(cas )
+Sys.Date
+Sys.Date()
+cas$DATE[1]
+cas$DATE[10]
+rm(list=ls())#
+setwd('/Users/robins64/Documents/git_repos/beta-catch')#
+library(zoo); library(dplyr); library(tidyr); library(stringr); library(lunar)#
+load(file='data/raw/CAS/Art_Raw_Data.Rdata')#
+island.site<-read.csv('data/raw/CAS/SFA_site_codes_2001report.csv')#
+island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'NORTH WEST', 'NW')#
+island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'NORTH EAST', 'NE')#
+island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'WEST', 'W')#
+island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'EAST', 'E')#
+targets<-read.csv('data/raw/CAS/CAS_UVC_species_list.csv')#
+#
+## cleaning CAS data for biomass analysis#
+# attach site names + island#
+cas$SITE<-sites$SITE[match(cas$SITE.NO, sites$SITE.NO)]#
+cas$ISLAND<-island.site$Island[match(cas$SITE.NO, island.site$SITE.NO.)]#
+#
+# add lat lon #
+ll<-read.csv('data/raw/CAS/sites-gis/All_LandingSites_distributed.txt')#
+cas$lat <- ll$Lat[match(cas$SITE.NO, ll$Site_No)]#
+cas$lon <- ll$Lon[match(cas$SITE.NO, ll$Site_No)]#
+#
+## drop NA site record (1 trip = cordonier 23kg)#
+cas<-cas[-which(is.na(cas$SITE)),]#
+#
+## drop non-landed records#
+cas<-cas %>% filter(LANDED == 1)#
+#
+## label as adjacent to recovering or shifted UVC sites, remainder as unknown#
+shifted<-c('A. FORBAN', 'BOUGAINVILLE', 'A. ROYALE SCHOOL', 'A. ROYALE MARKET', 'P. AU SEL', 'A. A. PINS REEF', 'A. A. PINS MARKET',#
+		'F. DEUTCH/G. ANSE', 'S. SAUVEUR', # PRASLIN SW#
+		'A. M. LOUISE', 'BSA/C. SAMY', 'C. SAMY/AU CAP', 'A. LA BLAGUE', 'A. VOLBERT' # PRASLIN NE#
+		)#
+recovering<-c('A. GAULETTE', 'A. A. P. BLEUES', 'A. LA MOUCHE', 'A. BOILEAU', 'P. GLAUD',  # MAHE W#
+				'BELOMBRE', 'B. VALLON', 'M. ANGLAISE', 'GLACIS',  # MAHE NW#
+				'A. KERLAN/R.CORBIG', 'R.CORBIG./AIRSTRIP', 'AIRSTRIP/F. DEUTCH' # PRASLIN W#
+				)#
+#
+cas$state<-'Unknown'#
+cas$state[cas$SITE %in% shifted]<-'Shifted'#
+cas$state[cas$SITE %in% recovering]<-'Recovering'#
+#
+cas$state<-as.factor(cas$state)#
+cas$state<-factor(cas$state, c(levels(cas$state)[c(2,1)], 'Unknown'))#
+# add stratum to CAS data#
+cas$SITE.stratum<-factor(sites$STRATUM[match(cas$SITE.NO, sites$SITE.NO)])#
+cas$stratum <- factor(island.site$SITE.NAME[match(cas$SITE.stratum, island.site$SITE.NO.)])#
+#
+## change data to date format. date = month - day - year#
+cas$DATE<-plyr::ldply(strsplit(as.character(cas$DATE), '\ '))[,1]#
+cas$DATE<-as.Date(cas$DATE, format = '%m/%d/%y')#
+#
+## add day month vars#
+dates<-plyr::ldply(strsplit(as.character(cas$DATE), '-'))#
+cas$day<-as.numeric(dates$V3)#
+cas$month<-as.numeric(dates$V2)#
+cas$year<-as.numeric(dates$V1)#
+cas$DATE.ym<-as.Date(paste(cas$year, cas$month, '01', sep='-'), "%Y-%m-%d")#
+#
+## add lunar phase, shifted from UT/GMT +4 HOURS#
+cas$lunar<-round(lunar.illumination(cas$DATE, shift = 4), 1)#
+#
+## add survey ID#
+cas$survey<-with(cas, paste('S', SITE.NO, DATE, sep='-'))#
+## add survey-boat ID: one row per boat per survey (unique day at unique site)#
+cas<-cas %>%#
+    group_by(survey) %>%#
+    mutate(unique.id=paste(survey, 1:n(), sep='-'))#
+#
+## subsetting to look at trap fisheries only#
+## 47% of landings#
+dim(cas[cas$GEAR %in% c( 'FIXS', 'FIXA'),])[1]/dim(cas)[1]*100#
+cas<-cas[cas$GEAR %in% c( 'FIXS', 'FIXA'),]#
+#
+## subsetting to look at outboard fisheries only#
+dim(cas[cas$BOAT %in% c('OB'),])[1]/dim(cas)[1]*100#
+dim(cas[cas$BOAT %in% c('PIR'),])[1]/dim(cas)[1]*100#
+dim(cas[cas$BOAT %in% c('FOOT'),])[1]/dim(cas)[1]*100#
+dim(cas[cas$BOAT %in% c('IB'),])[1]/dim(cas)[1]*100#
+#
+## outboard vboats is > 74% of all trap catch records. #
+#  Rest are pirogue, inboard, and foot.#
+cas<-cas[cas$BOAT %in% c('OB', 'PIR'),]#
+#
+## change NA to 0 (in landed records)#
+sp<-c(paste('S', c(1:18), sep=''))#
+cas[, sp][is.na(cas[,sp])]<-0#
+#
+## correct TOTAL column to be sum of S1:S18#
+cas$TOTAL<-apply(cas[,sp],1, sum)#
+#
+## create dataset for full records and remove fake zeroes (i.e. non target fishes)#
+## change to long format#
+cas<-gather(cas, CAS.group, biomass.kg, S1:S18)#
+## add species group names#
+cas$CAS.name<-targets$Species.group[match(cas$CAS.group, paste('S', targets$CAS.group, sep=''))]#
+#
+## keep all species version#
+cas.allsp<-cas#
+#
+## keep only targets in UVC data#
+cas<-cas[cas$CAS.name %in% targets$Species.group[targets$UVC=="Yes"],]#
+#
+# keep zeroes for probability dataset#
+cas.zero<-cas#
+#
+## now remove zeroes for CPUE, gears, and yield datasets#
+cas<-cas[!cas$biomass.kg==0,]#
+cas<-droplevels(cas)#
+#
+## check NAs in effort data#
+## 47% of trap dataset is NA effort#
+dim(cas[which(is.na(cas$NO.GEAR)),])[1]/dim(cas)[1]*100#
+#
+# ------------------ DATASET 1 - YIELD ------------------------ ##
+	## create dataset for total fish yield patterns#
+# ------------------ ------------------- --------------------- ##
+## A) all fish combined#
+cas.total<-cas; cas.total$TOTAL<-NULL#
+cols<-colnames(cas.total)[1:28]#
+cas.total<-cas %>% group_by_at(cols) %>% summarise(TOTAL=sum(biomass.kg))#
+#
+### B) each species = cas dataframe#
+#
+# ------------------ DATASET 2 - CPUE ------------------------ ##
+	## create dataset for CPUE estimates#
+# ------------------ ------------------- --------------------- ##
+# A) by species#
+cpue<-cas[!(is.na(cas$NO.GEAR) | cas$NO.GEAR==0 #
+		# cas$HOURS==0 | is.na(cas$HOURS) #
+		# cas$SETS==0 | is.na(cas$SETS)#
+		),]#
+## metric 1 = biomass per trap#
+cpue$cpue<-with(cpue, biomass.kg/NO.GEAR)#
+#
+## metric 2 = biomass per static trap or per active trap set#
+cpue$cpue2<-NA#
+cpue$cpue2[which(cpue$GEAR=='FIXA')]<-with(cpue[which(cpue$GEAR=='FIXA'),], biomass.kg/NO.GEAR/HOURS/SETS)#
+cpue$cpue2[which(cpue$GEAR=='FIXS')]<-with(cpue[which(cpue$GEAR=='FIXS'),], biomass.kg/NO.GEAR)#
+#
+# B) all species#
+cpue.all<-cas.total[!(is.na(cas.total$NO.GEAR) | cas.total$NO.GEAR==0 #
+		# cas.total$HOURS==0 | is.na(cas.total$HOURS) #
+		# cas.total$SETS==0 | is.na(cas.total$SETS)#
+		),]#
+#
+## metric 1 = biomass per trap#
+cpue.all$cpue<-with(cpue.all, TOTAL/NO.GEAR)#
+#
+## metric 2 = biomass per static trap or per active trap set#
+cpue.all$cpue2<-NA		#
+cpue.all$cpue2[which(cpue.all$GEAR=='FIXA')]<-with(cpue.all[which(cpue.all$GEAR=='FIXA'),], TOTAL/NO.GEAR/HOURS/SETS)#
+cpue.all$cpue2[which(cpue.all$GEAR=='FIXS')]<-with(cpue.all[which(cpue.all$GEAR=='FIXS'),], TOTAL/NO.GEAR)#
+#
+# ------------------ DATASET 3 - GEARS = cpue dataframe ------------------------ ##
+#
+# ------------------ DATASET 4 - BINOMIAL ------------------------ ##
+	## create dataset for probability of species catch#
+# ------------------ ------------------- --------------------- ##
+#
+# A) For only traps catching reef fish#
+cas.zero$catch<-ifelse(cas.zero$biomass.kg>0, 1, 0)#
+#
+# B) For any trap catch record#
+cas.allsp$catch<-ifelse(cas.allsp$biomass.kg>0, 1, 0)#
+#
+## save all data frames#
+#
+# for catch success by all species#
+write.csv(cas.allsp, file='data/cleaned/CAS_landings_trap_allsp.csv')#
+save(cas.allsp, file='data/cleaned/CAS_landings_trap_allsp.Rdata')#
+#
+## for yield by species #
+write.csv(cas, file='data/cleaned/CAS_landings_targets_trap.csv')#
+save(cas, file='data/cleaned/CAS_landings_targets_trap.Rdata')#
+#
+## for yield total fishery#
+write.csv(cas.total, file='data/cleaned/CAS_landings_targets_trap_TOTAL.csv')#
+save(cas.total, file='data/cleaned/CAS_landings_targets_trap_TOTAL.Rdata')#
+#
+# for cpue by species#
+write.csv(cpue, file='data/cleaned/CAS_landings_targets_trapCPUE.csv')#
+save(cpue, file='data/cleaned/CAS_landings_targets_trapCPUE.Rdata')#
+#
+# for cpue total fishery#
+write.csv(cpue.all, file='data/cleaned/CAS_landings_targets_trapCPUE_TOTAL.csv')#
+save(cpue.all, file='data/cleaned/CAS_landings_targets_trapCPUE_TOTAL.Rdata')#
+#
+# for catch success by  reef species#
+write.csv(cas.zero, file='data/cleaned/CAS_landings_targets_trapCPUE_zeroes.csv')#
+save(cas.zero, file='data/cleaned/CAS_landings_targets_trapCPUE_zeroes.Rdata')
+with(cas[cas$year==1998 & cas$lunar == 1,], table(lunar, DATE))
+with(cas[cas$year==2010 & cas$lunar == 1,], table(lunar, DATE))
+load("/Users/robins64/Documents/git_repos/open-science-project/data/ecology_fishbase.Rdata")
+ls()
+rm(list=ls())
+load("/Users/robins64/Documents/git_repos/open-science-project/data/ecology_fishbase.Rdata")
+ls()
+head(ecol )
+load("/Users/robins64/Documents/git_repos/open-science-project/data/species_fishbase.Rdata")
+ls()
+head(spec )
+spec
+ecol
+setwd("~/Documents/git_repos/open-science-project")
+div<-read.csv(file='data/trade_top100.csv')
+div<-read.csv(file='data/clean/trade_top100.csv')
+head(div )
+div$Genus<-spec$Genus[match(div$Taxa, spec$sciname)]
+head(div )
+div$Genus<-spec$Genus[match(spec$sciname, div$Taxa)]
+head(div )
+head(spec )
+spec$Genus[match(div$Taxa, spec$sciname)]
+div$Taxa
+spec$sciname
+div[div$Taxa=="Oreochromis niloticus",]
+spec$sciname
+unique(div$Taaxa )
+unique(div$Taxa )

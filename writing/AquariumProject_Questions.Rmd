@@ -57,9 +57,9 @@ Standardizing issue seems key here. We really need to understand why some countr
 
 *Are certain trophic levels or functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? * 
 
-**Hypotheses**: The planktivores are primarily targeted because?
+**Hypotheses**: The planktivores are primarily targeted because of their size (small, easy to collect many and popular for small aquariums). 
 
-**Data**: CREP trophic groups (lots of data missing for our species), FishBase (75 of our 100 species matched), JPWR looking for another dataset  
+**Data**: FishBase (89 of our 100 species matched). Provides FoodTL estimates = 
 
 *Caveats*: 1) Standardise countries by estimating proportional volume of functional groups for each country; 2) determining the baseline community structure is very difficult, probably impossible.  
 
@@ -100,6 +100,7 @@ JR: Probably yes.
 * subsetted to full years of data only (2008, 2009, 2011) 
 * subset to the top 100 species exported (by volume)  
 * only look species occurence not volume because of large outliers driven by a couple of countries  
+* we need to check each species in the top 100 - are they reef-associated? Are they traded for aquaria? I have opened issue on this.
 
 <br><br>  
 

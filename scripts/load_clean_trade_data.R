@@ -55,9 +55,9 @@ head(div)
 ## add TL and family information
 library(rfishbase)
 # Get trophic level - commenting out since it takes so long to run
-#fishes <-validate_names(div$Taxa, limit=1000) # no results for alot of species
-#validate_names(div$Taxa, limit=1000)
-#spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
+fishes <-validate_names(div$Taxa, limit=1000) # no results for alot of species
+head(fishes)
+spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
 head(spec)
 colnames(spec)
 spec$Genus
@@ -78,6 +78,9 @@ class(ecol)
 # save spec and ecol for later (since it takes so long to run)
 save(spec, file="data/species_fishbase.Rdata")
 save(ecol, file="data/ecology_fishbase.Rdata")
+
+load( file="data/species_fishbase.Rdata")
+load( file="data/ecology_fishbase.Rdata")
 
 # Taxa is not matching with the fishbase names 
 # sp is not working
@@ -111,5 +114,5 @@ div$EOO<-trade.obis$EOO[match(div$Taxa, trade.obis$Taxa)]
 str(div) # this has export (0,1), country, YEAR? (why is this not there?), data from fishbase, adn EOO
 
 # save files
-write.csv(trade, file='data/trade_taxa_all.csv')
-write.csv(div, file='data/trade_top100.csv')
+write.csv(trade, file='data/clean/trade_taxa_all.csv')
+write.csv(div, file='data/clean/trade_top100.csv')
