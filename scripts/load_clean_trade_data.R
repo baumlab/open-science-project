@@ -105,8 +105,16 @@ str(trade.fishbase) # this has everything but year
 # rename
 trade.fishbase.eoo <-trade.fishbase
 
+## add species aggregated dataframe for number of exporting countries
+## take top 100 then complete cases
+div<- trade.fishbase.eoo %>% filter(export==1) %>% group_by(Taxa) %>% mutate(n.export=length(unique(Exporter.Country)))
+div<-div[!duplicated(div$Taxa),]
+div$Exporter.Country<-NULL
+
+
 # save files
 write.csv(trade, file='data/clean/trade_taxa_all.csv')
 write.csv(trade.fishbase.eoo, file='data/clean/trade_top100_fishbase_eoo.csv')
+write.csv(div, file='data/clean/trade_top100_nexporters.csv')
 
 
