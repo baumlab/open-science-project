@@ -85,7 +85,9 @@ JR: I think these figures are a little wonky - watch out for horizontal lines wi
 
 JR: This is super weird. I have emailed Andrew Rhyne to query.
 
-*Problem 2)* There are lots of fish species that have 0 calculated as the range size, not NA (those were already filtered out). Should we get rid of these species because maybe they have only been picked up by OBIS in one area so thats why they have an EOO of zero?  
+*Problem 2)* There are lots of fish species that have 0 calculated as the range size, not NA (those were already filtered out). Should we get rid of these species because maybe they have only been picked up by OBIS in one area so thats why they have an EOO of zero?   
+
+Update: for the top 100 subsetted there is only this problem for *Gobiodon atrangulatus*. It only has two occurences in the OBIS dataset, thus making its EOO zero.  
 
 JR: Probably yes.
 
@@ -97,7 +99,7 @@ JR: Probably yes.
 
 #### Data Decisions  
 
-* subsetted to full years of data only (2008, 2009, 2011) 
+* using all years of data since we are not using volume as the response variable  
 * subset to the top 100 species exported (by volume)  
 * only look species occurence not volume because of large outliers driven by a couple of countries  
 * we need to check each species in the top 100 - are they reef-associated? Are they traded for aquaria? I have opened issue on this.
@@ -120,11 +122,6 @@ glmer(occurence ~ range size + (1| year / country), data=trade, family = Gamma(l
 * random intercept for year  
 
 So then the full model would be (depending on which random structure is best):  
-
-Volume models:
-```
-glmer(ocurrence ~ range size + CITES + gov.indicator + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
-```
 
 Incidence models:
 ```
