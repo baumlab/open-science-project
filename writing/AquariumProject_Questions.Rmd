@@ -77,7 +77,7 @@ JR: I think these figures are a little wonky - watch out for horizontal lines wi
 
 **Hypotheses**: There will be a positive linear relationship of export occurences and range size, as species with a larger range size will exported by more countries. However if any species fall of this line they are of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
 
-**Data**: OBIS range sizes (from this calculated EOO: extent of occurence), Luis et al. 2013 range size data. The figures below are for EOO
+**Data**: OBIS range sizes (from this calculated EOO: extent of occurence and AOO: area of occurence), Luis et al. 2013 range size data. The figures below are for EOO
 
 *Caveat:* This question is country-independent - ranges cross borders, data point = fish species.  
 
