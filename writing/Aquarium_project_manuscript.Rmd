@@ -1,0 +1,47 @@
+---
+title: "Aquarium Project Manuscript"
+author: Jamie McDevitt-Irwin, James Robinson, Easton White, Jillian Dunic, Geoffrey
+  Osgood
+date: '2017-11-14'
+output:
+  html_document: 
+    fig_caption: yes
+    fig_width: 7.5
+    force_captions: yes
+    highlight: pygments
+    number_sections: yes
+  pdf_document:
+    fig_caption: yes
+    fig_width: 7.5
+    keep_tex: yes
+    number_sections: no
+  word_document:
+    fig_caption: yes
+    fig_width: 7.5
+linestretch: 2
+mainfont: mathptmx
+geometry: margin=2.5cm
+bibliography: PapersExportedLibrary_Bibtex.bib
+---
+
+Target Journal: Conservation Biology, Biological Conservation, Conservation Letters, Fish and Fisheries  
+
+# Title {-}
+
+# Abstract {-}
+
+# Introduction {-}
+
+# Methods {-}
+
+Any data subsetting, decisions, transformations. 
+
+Datasets used: Rhyne aquarium trade, fishbase, OBIS, UN governance indicators  
+
+Statistical analyses: GLM with binary response of trade  
+-variance structure  
+-fixed effects selection  
+
+# Results {-}  
+
+# Discussion {-}
