@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Make predictions about aquarium trade based on 1) exporting country information, such as governance factors (CITES, development), and 2) species information, such as trophic group, range size. Trade volume is a big problem just now, because it is very skewed towards a couple of major exporters (PNG and Philippines). There may also be discrepepancies in volume estimates due to incorrect labelling of fish + exported boxes (Rhyne et al. 2012), but this seems less of an issue if we just analyse occurence of species being exported.
 
-Response variable: If a species was exported or not (0,1) (binomial).
+Response variable: If a species was exported or not (0,1) (binomial) (Also look at how many countries export that fish species?)
 
 We probably need to control for reef area and biogeography here as well (Parravicini et al. 2013). Caribbean species can be exported by X countries, whereas Indo-Pacific species can be exported by Y countries - we want to measure effect of predictors *given* that there is a geographical constraint on how many countries can export each species. Kulbicki et al. (2013, PLoS ONE) has a dataset of biogeographical zones we could use for country level groupings - does anyone know of a species level equivalent?
 
@@ -125,5 +125,5 @@ So then the full model would be (depending on which random structure is best):
 
 Incidence models:
 ```
-glmer(occurence ~ range size + CITES + gov.indicator + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
+glmer(occurence ~ range size + CITES + gov.indicator + trophic + (1 + range size | year / region), data=trade, family = Gamma(link=log))  
 ```
