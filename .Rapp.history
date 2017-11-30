@@ -1,247 +1,459 @@
-load("/Users/robins64/Documents/git_repos/beta-catch/data/cleaned/SEY_UVC_fish_targets_community_matrices.Rdata")
+2.1*^0.24
+?sqrt
+?rt
+log(0.8026)-log(2.1)
+(log(0.8026)-log(2.1))/0.24
+exp(-4.00)
+20*exp(0.02)
+1 + 0.02*(1-20/500)
+0.02*(1-(20/500))
+1-(20/500)
+0.96*0.02
+1.0192*20
+20*(1+ 0.02*(1-20/500))
+50*(1+ 0.02*(1-50/500))
+100*(1+ 0.02*(1-100/500))
+20*exp(0.02*2)
+20*1.065*
+log(2)/0.063
+20+0.02*20*(1-20/500)
+2.1*(0.6^0.24)
+1/2.1
+(1/2.1)/(exp0.24)
+(1/2.1)/(exp(0.24))
+5.2^(1/6)
+5.2^(1/5)
+(5.2/5)^(1/5)
+avg(1+0.8)^(1/5)
+avergage(1+0.8)^(1/5)
+average(1+0.8)^(1/5)
+mean
+mean(1,1.2,0.9,1.3,0.8)
+1^0.2
+5.2/5
+1.04^0.2
+mean(1800,23,36,27,14)
+sum(1800,23,36,27,14)
+1900/5
+(1/1800 + 1/23+1/36+1/27+1/14)
+0.1802772/5
+1/0.03605
+0.017/0.018
+0.9444444^130
+0.00059*100
+product(1,0.8,1.2,0.9,1.3)
+1*0.8*1.2*0.9*1.3
+1.232^0.2
+1*0.8*1.2*0.9*1.3
+1.1232*0.2
+2.1*1^0.31
+2.1*0.4^0.31
+2.1/1.580731
+1.580731/2.1
+0.8*1.2*0.9*1.3
+1.1232^(1/5)
+1+0.8+1.2+0.9+1.3
+5.2^(0.2)
+1.1232^0.2
+0.8*1.2*0.9*1.3*1
+(0.8*1.2*0.9*1.3*1)^0.2
+(0.8*1.2*0.9*1.3*1)^(0.2)
+(0.8*1.2*0.9*1.3*1)*0.2
+35.68/0.059
+average(1,0.8,1.2,0.9,1.3)
+mean(1,0.8,1.2,0.9,1.3)
+14/24
+.583333-15
+0.5833333-0.15
+0.4333333*24
+exp(0.0232)
+0.15*24
+exp(0.0234)
+14300/7000
+sum(1:20)
+36*0.05
+0.3*27
+0.45*5
+species<-read.csv(file.choose())
+master<-read.csv(file.choose())
+vec<-match(species, master[,1])
+vec
+vec<-match(species$species, master[,1])
+vec
+species
+match(master[,1], species)
+head(master)
+vec<-match(master$SPECIES, species$species)
+vec
+vec<-match(species$species, master$SPECIES)
+vec
+head(species)
+vec<-match(species$Species, master$SPECIES)
+vec
+sub<-master[vec,]
+head(sub)
+write.table(sub, file="Common CRED species.csv")
+write.table(sub, file="Common CRED species.csv", sep=",")
+rm(ls=c())
+ls
 ls()
-head(fish.05.mat)
-load("/Users/robins64/Documents/git_repos/beta-catch/data/cleaned/CAS_landings_targets_trap.Rdata")
-ls()
-head(cas )
-ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(~GEAR)
-ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR)
-library(ggplot2)
-ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR)
-ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR, scales='free')
-ggplot(cas[cas$GEAR=='FIXS',], aes(HOURS)) + geom_histogram() + facet_wrap(stratum~GEAR, scales='free')
-ggplot(cas, aes(HOURS)) + geom_histogram() + facet_wrap(ISLAND~GEAR, scales='free')
-ggplot(cas[cas$GEAR=='FIXS',], aes(HOURS)) + geom_histogram() + facet_wrap(stratum~GEAR, scales='free')
-load("/Users/robins64/Documents/git_repos/beta-catch/data/cleaned/CAS_landings_targets_trap.Rdata")
-ls()
-head(cas )
-with(cas[cas$year=1998,], table(lunar, DATE.ym))
-with(cas[cas$year==1998,], table(lunar, DATE.ym))
-with(cas[cas$year==1998 & cas$lunar == 1,], table(lunar, DATE))
-library(lunar )
-?lunar
-??lunar
-head(cas )
-Sys.Date
-Sys.Date()
-cas$DATE[1]
-cas$DATE[10]
-rm(list=ls())#
-setwd('/Users/robins64/Documents/git_repos/beta-catch')#
-library(zoo); library(dplyr); library(tidyr); library(stringr); library(lunar)#
-load(file='data/raw/CAS/Art_Raw_Data.Rdata')#
-island.site<-read.csv('data/raw/CAS/SFA_site_codes_2001report.csv')#
-island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'NORTH WEST', 'NW')#
-island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'NORTH EAST', 'NE')#
-island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'WEST', 'W')#
-island.site$SITE.NAME<-str_replace_all(island.site$SITE.NAME, 'EAST', 'E')#
-targets<-read.csv('data/raw/CAS/CAS_UVC_species_list.csv')#
-#
-## cleaning CAS data for biomass analysis#
-# attach site names + island#
-cas$SITE<-sites$SITE[match(cas$SITE.NO, sites$SITE.NO)]#
-cas$ISLAND<-island.site$Island[match(cas$SITE.NO, island.site$SITE.NO.)]#
-#
-# add lat lon #
-ll<-read.csv('data/raw/CAS/sites-gis/All_LandingSites_distributed.txt')#
-cas$lat <- ll$Lat[match(cas$SITE.NO, ll$Site_No)]#
-cas$lon <- ll$Lon[match(cas$SITE.NO, ll$Site_No)]#
-#
-## drop NA site record (1 trip = cordonier 23kg)#
-cas<-cas[-which(is.na(cas$SITE)),]#
-#
-## drop non-landed records#
-cas<-cas %>% filter(LANDED == 1)#
-#
-## label as adjacent to recovering or shifted UVC sites, remainder as unknown#
-shifted<-c('A. FORBAN', 'BOUGAINVILLE', 'A. ROYALE SCHOOL', 'A. ROYALE MARKET', 'P. AU SEL', 'A. A. PINS REEF', 'A. A. PINS MARKET',#
-		'F. DEUTCH/G. ANSE', 'S. SAUVEUR', # PRASLIN SW#
-		'A. M. LOUISE', 'BSA/C. SAMY', 'C. SAMY/AU CAP', 'A. LA BLAGUE', 'A. VOLBERT' # PRASLIN NE#
-		)#
-recovering<-c('A. GAULETTE', 'A. A. P. BLEUES', 'A. LA MOUCHE', 'A. BOILEAU', 'P. GLAUD',  # MAHE W#
-				'BELOMBRE', 'B. VALLON', 'M. ANGLAISE', 'GLACIS',  # MAHE NW#
-				'A. KERLAN/R.CORBIG', 'R.CORBIG./AIRSTRIP', 'AIRSTRIP/F. DEUTCH' # PRASLIN W#
-				)#
-#
-cas$state<-'Unknown'#
-cas$state[cas$SITE %in% shifted]<-'Shifted'#
-cas$state[cas$SITE %in% recovering]<-'Recovering'#
-#
-cas$state<-as.factor(cas$state)#
-cas$state<-factor(cas$state, c(levels(cas$state)[c(2,1)], 'Unknown'))#
-# add stratum to CAS data#
-cas$SITE.stratum<-factor(sites$STRATUM[match(cas$SITE.NO, sites$SITE.NO)])#
-cas$stratum <- factor(island.site$SITE.NAME[match(cas$SITE.stratum, island.site$SITE.NO.)])#
-#
-## change data to date format. date = month - day - year#
-cas$DATE<-plyr::ldply(strsplit(as.character(cas$DATE), '\ '))[,1]#
-cas$DATE<-as.Date(cas$DATE, format = '%m/%d/%y')#
-#
-## add day month vars#
-dates<-plyr::ldply(strsplit(as.character(cas$DATE), '-'))#
-cas$day<-as.numeric(dates$V3)#
-cas$month<-as.numeric(dates$V2)#
-cas$year<-as.numeric(dates$V1)#
-cas$DATE.ym<-as.Date(paste(cas$year, cas$month, '01', sep='-'), "%Y-%m-%d")#
-#
-## add lunar phase, shifted from UT/GMT +4 HOURS#
-cas$lunar<-round(lunar.illumination(cas$DATE, shift = 4), 1)#
-#
-## add survey ID#
-cas$survey<-with(cas, paste('S', SITE.NO, DATE, sep='-'))#
-## add survey-boat ID: one row per boat per survey (unique day at unique site)#
-cas<-cas %>%#
-    group_by(survey) %>%#
-    mutate(unique.id=paste(survey, 1:n(), sep='-'))#
-#
-## subsetting to look at trap fisheries only#
-## 47% of landings#
-dim(cas[cas$GEAR %in% c( 'FIXS', 'FIXA'),])[1]/dim(cas)[1]*100#
-cas<-cas[cas$GEAR %in% c( 'FIXS', 'FIXA'),]#
-#
-## subsetting to look at outboard fisheries only#
-dim(cas[cas$BOAT %in% c('OB'),])[1]/dim(cas)[1]*100#
-dim(cas[cas$BOAT %in% c('PIR'),])[1]/dim(cas)[1]*100#
-dim(cas[cas$BOAT %in% c('FOOT'),])[1]/dim(cas)[1]*100#
-dim(cas[cas$BOAT %in% c('IB'),])[1]/dim(cas)[1]*100#
-#
-## outboard vboats is > 74% of all trap catch records. #
-#  Rest are pirogue, inboard, and foot.#
-cas<-cas[cas$BOAT %in% c('OB', 'PIR'),]#
-#
-## change NA to 0 (in landed records)#
-sp<-c(paste('S', c(1:18), sep=''))#
-cas[, sp][is.na(cas[,sp])]<-0#
-#
-## correct TOTAL column to be sum of S1:S18#
-cas$TOTAL<-apply(cas[,sp],1, sum)#
-#
-## create dataset for full records and remove fake zeroes (i.e. non target fishes)#
-## change to long format#
-cas<-gather(cas, CAS.group, biomass.kg, S1:S18)#
-## add species group names#
-cas$CAS.name<-targets$Species.group[match(cas$CAS.group, paste('S', targets$CAS.group, sep=''))]#
-#
-## keep all species version#
-cas.allsp<-cas#
-#
-## keep only targets in UVC data#
-cas<-cas[cas$CAS.name %in% targets$Species.group[targets$UVC=="Yes"],]#
-#
-# keep zeroes for probability dataset#
-cas.zero<-cas#
-#
-## now remove zeroes for CPUE, gears, and yield datasets#
-cas<-cas[!cas$biomass.kg==0,]#
-cas<-droplevels(cas)#
-#
-## check NAs in effort data#
-## 47% of trap dataset is NA effort#
-dim(cas[which(is.na(cas$NO.GEAR)),])[1]/dim(cas)[1]*100#
-#
-# ------------------ DATASET 1 - YIELD ------------------------ ##
-	## create dataset for total fish yield patterns#
-# ------------------ ------------------- --------------------- ##
-## A) all fish combined#
-cas.total<-cas; cas.total$TOTAL<-NULL#
-cols<-colnames(cas.total)[1:28]#
-cas.total<-cas %>% group_by_at(cols) %>% summarise(TOTAL=sum(biomass.kg))#
-#
-### B) each species = cas dataframe#
-#
-# ------------------ DATASET 2 - CPUE ------------------------ ##
-	## create dataset for CPUE estimates#
-# ------------------ ------------------- --------------------- ##
-# A) by species#
-cpue<-cas[!(is.na(cas$NO.GEAR) | cas$NO.GEAR==0 #
-		# cas$HOURS==0 | is.na(cas$HOURS) #
-		# cas$SETS==0 | is.na(cas$SETS)#
-		),]#
-## metric 1 = biomass per trap#
-cpue$cpue<-with(cpue, biomass.kg/NO.GEAR)#
-#
-## metric 2 = biomass per static trap or per active trap set#
-cpue$cpue2<-NA#
-cpue$cpue2[which(cpue$GEAR=='FIXA')]<-with(cpue[which(cpue$GEAR=='FIXA'),], biomass.kg/NO.GEAR/HOURS/SETS)#
-cpue$cpue2[which(cpue$GEAR=='FIXS')]<-with(cpue[which(cpue$GEAR=='FIXS'),], biomass.kg/NO.GEAR)#
-#
-# B) all species#
-cpue.all<-cas.total[!(is.na(cas.total$NO.GEAR) | cas.total$NO.GEAR==0 #
-		# cas.total$HOURS==0 | is.na(cas.total$HOURS) #
-		# cas.total$SETS==0 | is.na(cas.total$SETS)#
-		),]#
-#
-## metric 1 = biomass per trap#
-cpue.all$cpue<-with(cpue.all, TOTAL/NO.GEAR)#
-#
-## metric 2 = biomass per static trap or per active trap set#
-cpue.all$cpue2<-NA		#
-cpue.all$cpue2[which(cpue.all$GEAR=='FIXA')]<-with(cpue.all[which(cpue.all$GEAR=='FIXA'),], TOTAL/NO.GEAR/HOURS/SETS)#
-cpue.all$cpue2[which(cpue.all$GEAR=='FIXS')]<-with(cpue.all[which(cpue.all$GEAR=='FIXS'),], TOTAL/NO.GEAR)#
-#
-# ------------------ DATASET 3 - GEARS = cpue dataframe ------------------------ ##
-#
-# ------------------ DATASET 4 - BINOMIAL ------------------------ ##
-	## create dataset for probability of species catch#
-# ------------------ ------------------- --------------------- ##
-#
-# A) For only traps catching reef fish#
-cas.zero$catch<-ifelse(cas.zero$biomass.kg>0, 1, 0)#
-#
-# B) For any trap catch record#
-cas.allsp$catch<-ifelse(cas.allsp$biomass.kg>0, 1, 0)#
-#
-## save all data frames#
-#
-# for catch success by all species#
-write.csv(cas.allsp, file='data/cleaned/CAS_landings_trap_allsp.csv')#
-save(cas.allsp, file='data/cleaned/CAS_landings_trap_allsp.Rdata')#
-#
-## for yield by species #
-write.csv(cas, file='data/cleaned/CAS_landings_targets_trap.csv')#
-save(cas, file='data/cleaned/CAS_landings_targets_trap.Rdata')#
-#
-## for yield total fishery#
-write.csv(cas.total, file='data/cleaned/CAS_landings_targets_trap_TOTAL.csv')#
-save(cas.total, file='data/cleaned/CAS_landings_targets_trap_TOTAL.Rdata')#
-#
-# for cpue by species#
-write.csv(cpue, file='data/cleaned/CAS_landings_targets_trapCPUE.csv')#
-save(cpue, file='data/cleaned/CAS_landings_targets_trapCPUE.Rdata')#
-#
-# for cpue total fishery#
-write.csv(cpue.all, file='data/cleaned/CAS_landings_targets_trapCPUE_TOTAL.csv')#
-save(cpue.all, file='data/cleaned/CAS_landings_targets_trapCPUE_TOTAL.Rdata')#
-#
-# for catch success by  reef species#
-write.csv(cas.zero, file='data/cleaned/CAS_landings_targets_trapCPUE_zeroes.csv')#
-save(cas.zero, file='data/cleaned/CAS_landings_targets_trapCPUE_zeroes.Rdata')
-with(cas[cas$year==1998 & cas$lunar == 1,], table(lunar, DATE))
-with(cas[cas$year==2010 & cas$lunar == 1,], table(lunar, DATE))
-load("/Users/robins64/Documents/git_repos/open-science-project/data/ecology_fishbase.Rdata")
+rm(list=lm()
+)
+rm(list=lm())
+lm
+lm()
 ls()
 rm(list=ls())
-load("/Users/robins64/Documents/git_repos/open-science-project/data/ecology_fishbase.Rdata")
+ls
 ls()
-head(ecol )
-load("/Users/robins64/Documents/git_repos/open-science-project/data/species_fishbase.Rdata")
+install.packages("ggmap")
+ints
+?points
+Y
+require(nlme)
+?gamm
+Y
+require(mcmc)
+install.packages(mcmc)
+install.packages("mcmc")
+require(xtable)
+install.packages("xtable")
+require(xtable)
+?xtable
+?glmulti
+?split
+install.packages('glmulti')
+require(glmulti)
+?glmulti
+?step
+getwd()
+?options
+options(defaultPackages:"ggplot2", "plyr","gridExtra", "reshape")
+options(defaultPackages=c("ggplot2", "plyr","gridExtra", "reshape"))
+getOption("defaultPackages")
+options(defaultPackages=c("ggplot2", "plyr","gridExtra", "reshape", "datasets", "utils", "grDevices", "graphics", "stats", "methods"))
+getOption("defaultPackages")
+save.image()
+getOption("defaultPackages")
+?ggplot
+?ggplot2
+?min
+require(ggplot2)
+?nlogL
+install.packages
+install.packages("lognlike")
+require(MASS)
+?fitdstir
+?fitdistr
+warnings()
+require("plyr")
+require(gridArrnage)
+require(gridArrange
+0
+require("gridArrange")
+require(gridExta)
+require(grid.Extra)
+require("gridExtra")
+getwd()
+ls9)
 ls()
-head(spec )
-spec
-ecol
-setwd("~/Documents/git_repos/open-science-project")
-div<-read.csv(file='data/trade_top100.csv')
-div<-read.csv(file='data/clean/trade_top100.csv')
-head(div )
-div$Genus<-spec$Genus[match(div$Taxa, spec$sciname)]
-head(div )
-div$Genus<-spec$Genus[match(spec$sciname, div$Taxa)]
-head(div )
-head(spec )
-spec$Genus[match(div$Taxa, spec$sciname)]
-div$Taxa
-spec$sciname
-div[div$Taxa=="Oreochromis niloticus",]
-spec$sciname
-unique(div$Taaxa )
-unique(div$Taxa )
+installed.packages()
+require(ggplot2)
+installed.packages()
+require(ggplot2)
+melt(0, 0)
+require(reshape)
+require(plyr)
+ggplot(0, 0)
+require(ggplot2)
+touch ~/.Rprofile
+getwd()
+require(ggplot2)
+cast(0, 0)
+grid.Arrange(0)
+require(gridExtra)
+gridArrange()
+grid.arrange()
+ggplot(0, 0)
+?match
+?subset
+plot(1:10, 1:10, axis=F)
+plot(1:10, 1:10, x.axis=F)
+require(xtabs)
+install.packages("xtabs")
+?xtabs
+?fatble
+?ftable
+58.7+73.6+57.4+63.8+63.6+66.6+67.3+69.7+64.4+62.7+65.6
+713.4/11
+?ln
+?log
+log(1)
+log2(1)
+log(4)
+10^4
+lbn_func<-function(df, biomass=FALSE){#
+#specify doubling size bins based on min and max body sizes#
+breaks=vector()#
+x=1#
+repeat {#
+	x<-x+1#
+	breaks[1]=a#
+	breaks[x]=2*breaks[x-1]#
+	if (breaks[x] > b) {break}#
+}#
+#
+## widths of each size bin#
+widths=breaks[1:length(breaks)-1]#
+### to arrange data into vector of masses#
+freqs<- data.frame(rep(df$size.var, times=df$count.var)#
+#
+### enter values into mass classes that double in size#
+histogram<-hist(freqs[,1],breaks=breaks, plot=F)#
+#
+### take midpoints of mass classes#
+mids<-histogram$mids#
+#
+## add counts in each mass class for ISD#
+counts<-histogram$counts#
+## normalise counts#
+normcounts<-counts/widths#
+## estimate non-normalised ISD#
+	slopes<-data.frame(coef(lm(log10(counts[counts>0]) ~ log10(mids[which(counts>0)]))))#
+	slopes[1,2]<-"intercept"#
+	slopes[2,2]<-"slope"#
+colnames(slopes)<-c("value", "stat")#
+#
+## estimate normalised ISD#
+	norm_slopes<-data.frame(coef(lm(log10(normcounts[normcounts>0]) ~ log10(mids[which(normcounts>0)]))))#
+	norm_slopes[1,2]<-"intercept"#
+	norm_slopes[2,2]<-"slope"#
+colnames(norm_slopes)<-c("norm_value", "norm_stat")#
+slopes<-cbind(slopes, norm_slopes)#
+slopes$type<-"ISD"#
+#
+## estimate "biomass" as the slope under the normalised ISD#
+slopes$biomass<-integral(a=slopes$norm_value[slopes$norm_stat=="intercept"],#
+ b=slopes$norm_value[slopes$norm_stat=="slope"],#
+ mass=normcounts)#
+### for the biomass spectrum #####
+#
+if(biomass==TRUE){#
+#
+### break each mass into a mass class#
+cuts<-cut(freqs[,1], breaks, right=F)#
+#
+bios<-cbind(freqs, cuts)#
+colnames(bios)<-c("freqs", "cuts")#
+### find sum of masses within each mass class#
+biomass<-tapply(bios$freqs, bios$cuts, sum)#
+#
+normbiomass<-biomass/widths#
+#
+## estimate non-normalised biomass spectrum#
+	slopes<-data.frame(coef(lm(log10(biomass[biomass>0]) ~ log10(mids[which(biomass>0)]))))#
+	slopes[1,2]<-"intercept"#
+	slopes[2,2]<-"slope"#
+colnames(slopes)<-c("value", "stat")#
+#
+## estimate normalised biomass spectrum#
+#
+	norm_slopes<-data.frame(coef(lm(log10(normbiomass[normbiomass>0]) ~ log10(mids[which(normbiomass>0)]))))#
+	norm_slopes[1,2]<-"intercept"#
+	norm_slopes[2,2]<-"slope"#
+colnames(norm_slopes)<-c("norm_value", "norm_stat")#
+slopes<-cbind(slopes, norm_slopes)#
+slopes$type<-"BIOMASS"#
+#
+## add "biomass" as the slope under the biomass spectrum#
+slopes$biomass<-integral(a=slopes$norm_value[slopes$norm_stat=="intercept"],#
+ b=slopes$norm_value[slopes$norm_stat=="slope"],#
+ mass=normbiomass)#
+}#
+#
+	return(slopes)#
+}
+ls()
+?integral
+mean.func<-function(x){ sum(x)/length(x)}
+source("/Users/jpwrobinson/Dropbox/R PROJECTS AND DATA/PROJECTS/AFS_meta-analysis/AFS_data_explore/ontario_cleaning_master.R")
+pairs(df_pred[, pred_vars], lower.panel=panel.cor, upper.panel=panel.lm)
+source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/PROJECTS/AFS_meta-analysis/AFS_functions_dataload/AFS_ISD_MLE_definitions.R")#
+source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/PROJECTS/AFS_meta-analysis/AFS_functions_dataload/AFS_ISD_functions.R")#
+source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/models_explore_functions.R")#
+#
+## load data#
+source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/PROJECTS/AFS_meta-analysis/AFS_functions_dataload/load_AFS_master_data.R")#
+#### ALL dataframes should be set up with the following variables:#
+# location : unique names of each island, lake, or sampling area#
+# location_id : unique ID of each island, lake or sampling area#
+# unique.id : unique ID of each sample#
+# lat : latitude of sampling site#
+# lon : longitude of sampling site#
+### Body size dataframe should be set up with the following additional variables:#
+# year : year of sampling#
+# mass : body size in grams#
+# length : body size in cm#
+# species : common species name#
+# scientific : scientific species name#
+# family_sci : scientific family name#
+# family_com : common family name#
+### Predictor dataframe should be set up with the following additional variables:#
+# area : area of each location in km^2#
+# perimeter : perimeter of the location in km#
+# max_depth : maximum depth of the location in metres#
+# mean_depth : mean depth of the location in metres#
+# elevation : elevation of the location in metres#
+# mean_temp : mean annual temperature of the location#
+# min_temp : mean minimum annual temperature of the location#
+# max_temp : mean maximum annual temperature of the location#
+### MORE MORE MORE MORE#
+#
+ontario_pred<-ontario_pred[-which(is.na(ontario_pred$phosphorus)),]#
+#
+df_size<-ontario_reduced#
+df_pred<-ontario_pred#
+dataset<-"ontario"#
+pred_vars<-c("max_depth", "elevation","area", #
+	"max_temp",  "season", "mean_pcp", "MPI", "TDS", "phosphorus", "pH", "TKN")
+source("/Users/jpwrobinson/Dropbox/AFS_size_spectra/AFS_methods_descriptions/ontario_knit/AFS_ontario_exploratory.Rmd")
+source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/ki_map/ki_map_sitecleaning.R")
+0.11435-0.06576
+0.01027+0.02863
+source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/Analyses/ki_abundance_iso_specimens.R")
+source("/Users/jpwrobinson/Dropbox/R PROJECTS AND DATA/PROJECTS/AFS_meta-analysis/AFS_data_explore/bc_cleaning_master.R")
+source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/Analyses/ki_cross-species_analysis.R")
+source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/Analyses/KI_clean_2011_fishabund.R")
+v1 <- c(1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,4,5,6)#
+v2 <- c(1,2,1,1,1,1,2,1,2,1,3,4,3,3,3,4,6,5)#
+v3 <- c(3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,5,4,6)#
+v4 <- c(3,3,4,3,3,1,1,2,1,1,1,1,2,1,1,5,6,4)#
+v5 <- c(1,1,1,1,1,3,3,3,3,3,1,1,1,1,1,6,4,5)#
+v6 <- c(1,1,1,2,1,3,3,3,4,3,1,1,1,2,1,6,5,4)#
+m1 <- cbind(v1,v2,v3,v4,v5,v6)#
+cor(m1)#
+factanal(m1, factors = 3) # varimax is the default#
+factanal(m1, factors = 3, rotation = "promax")#
+# The following shows the g factor as PC1#
+prcomp(m1) # signs may depend on platform#
+## formula interface#
+factanal(~v1+v2+v3+v4+v5+v6, factors = 3,#
+         scores = "Bartlett")$scores
+candidates <- c( Sys.getenv("R_PROFILE"),#
+                 file.path(Sys.getenv("R_HOME"), "etc", "Rprofile.site"),#
+                 Sys.getenv("R_PROFILE_USER"),#
+                 file.path(getwd(), ".Rprofile") )#
+#
+Filter(file.exists, candidates)
+setwd("~/Documents/git_repos/open-science-project")#
+library(dplyr); library(ggplot2); library(tidyr)#
+#
+# pull in trade data#
+trade<-read.csv('data/raw/trade/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
+head(trade )
+aggregate(YEAR ~ Taxa + Exporter.Country, trade, length(unique(x)))
+aggregate(YEAR ~ Taxa + Exporter.Country, trade, function(x) length(unique(x)))
+t<-aggregate(YEAR ~ Taxa + Exporter.Country, trade, function(x) length(unique(x)))
+head(t )
+unique(t$YEAR)
+trade[trade$Taxa=='Acanthurus blochii',]
+hist(t$YEAR)
+y<-aggregate(Taxa ~ YEAR, trade, function(x) length(unique(x)))
+head(y )
+y<-aggregate(YEAR ~ Taxa, trade, function(x) length(unique(x)))
+head(y)
+unique(trade$YEAR )
+y[y$YEAR==6,]
+trade[trade$Taxa=='Acanthurus olivaceus',]
+setwd("~/Documents/git_repos/open-science-project")#
+rm(list=ls())#
+library(ggplot2); library(dplyr); library(lme4); library(MuMIn); library(visreg)#
+theme_set(theme_bw())#
+source('scripts/functions/scaling_function.R')#
+source('scripts/functions/plot-cor-functions.R')#
+#
+trade <- read.csv('data/clean/trade_top100_fishbase.csv') #
+trade$StockCode<-NULL#
+#
+pdf(file='figures/02_trophic/explore_trophic_patterns.pdf', height=7, width=11)#
+#
+## create dataframe just for top 100 species - no duplicates across countries#
+trade.sp<- trade %>% distinct(Taxa, Genus, FoodTroph)#
+#
+## scaling pred vars#
+scaled<-scaler(trade, ID=c('Exporter.Country', 'Taxa', 'Genus', 'export'))#
+#
+## check collinearity#
+temp<-trade %>% select(FoodTroph, Length, Vulnerability)#
+pairs(na.omit(temp), upper.panel=panel.cor, diag.panel=panel.hist, lower.panel=panel.smooth2)#
+#
+# plot observed relationships so we expect model predictions#
+trade %>% group_by(Genus, FoodTroph) %>% summarise(sum=sum(export)) %>%#
+ggplot(aes(FoodTroph, sum)) + geom_point() + labs(y="n. species")#
+#
+trade %>% group_by(Genus, Vulnerability) %>% summarise(sum=sum(export)) %>%#
+ggplot(aes(Vulnerability, sum)) + geom_point() + labs(y="n. species")#
+## Q2A - how are aquarium fish distributed across trophic levels?#
+# m.null<-glmer(export ~ 1 + (1 | Genus) + (1 | Exporter.Country), trade[!is.na(trade$FoodTroph),], family='binomial')#
+#
+m1<-glmer(export ~  FoodTroph + #
+					# Length + #
+					Vulnerability + #
+					(1 | Genus) + #
+					(1 | Exporter.Country), #
+					scaled, family='binomial')#
+summary(m1)#
+# P(export) increases with trophic level. But model is terrible (R2 < 10%)#
+# What are we missing?#
+r.squaredGLMM(m1)#
+par(mfrow=c(2,2)); visreg(m1)#
+#
+# predictions#
+newdf<-scaled#
+newdf$Vulnerability<-mean(newdf$Vulnerability)#
+newdf$pred<-predict(m1, newdf, type='response')#
+ggplot(newdf, aes(FoodTroph, pred, col=FoodTroph)) + geom_point() +#
+			# facet_wrap(~Exporter.Country) +#
+			labs(x = 'Trophic level', y='Probability of export')
+newdf$pred<-predict(m1, newdf, type='response')#
+ggplot(newdf, aes(FoodTroph, pred, col=FoodTroph)) + geom_point() +#
+			# facet_wrap(~Exporter.Country) +#
+			labs(x = 'Trophic level', y='Probability of export')
+library(ggplot2)
+newdf$pred<-predict(m1, newdf, type='response')#
+ggplot(newdf, aes(FoodTroph, pred, col=FoodTroph)) + geom_point() +#
+			# facet_wrap(~Exporter.Country) +#
+			labs(x = 'Trophic level', y='Probability of export')
+head(scaled )
+head(trade.sp )
+trade.all %>% group_by(Genus, Vulnerability) %>% summarise(sum=sum(export))
+trade.all <- trade %>% group_by(Genus, Vulnerability) %>% summarise(sum=sum(export))
+head(trade.all )
+trade.all <- trade %>% group_by(Genus, Vulnerability, FoodTroph) %>% summarise(sum=sum(export))
+trade.all.scaled<-scaler(trade, ID=c('Taxa', 'Genus', 'sum'))
+m2<-glmer(sum ~  FoodTroph + #
+					# Length + #
+					Vulnerability + #
+					(1 | Genus) ,#
+					trade.all.scaled)#
+summary(m2)
+trade.all.scaled
+head(trade.all.scaled )
+trade.all.scaled<-scaler(trade.all, ID=c('Taxa', 'Genus', 'sum'))
+m2<-glmer(sum ~  FoodTroph + #
+					# Length + #
+					Vulnerability + #
+					(1 | Genus) ,#
+					trade.all.scaled)#
+summary(m2)
+r.squaredGLMM(m2)
+library(visreg )
+install.packages('visreg')
+library(visreg )
+# What are we missing?#
+r.squaredGLMM(m2)#
+par(mfrow=c(2,2)); visreg(m2)
+quartz()
+# What are we missing?#
+r.squaredGLMM(m2)#
+par(mfrow=c(2,2)); visreg(m2)
