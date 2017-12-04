@@ -4,8 +4,8 @@ author: Jamie McDevitt-Irwin, James Robinson, Easton White, Jillian Dunic, Geoff
   Osgood
 date: '2017-10-05'
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
