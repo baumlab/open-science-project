@@ -22,8 +22,20 @@ trade<-trade[!trade$Taxa=='',]
 ## remove incomplete years
 # trade<-trade[trade$YEAR%in%c('2008', '2009' , '2011'),]
 
+## remove invertebrates
+inverts<-c('Archaster typicus', 'Calcinus elegans', 'Clibanarius tricolor', 'Condylactis gigantea',
+		'Dardanus megistos', 'Engina mendicaria', 'Entacmaea quadricolor', 'Heteractis malu', 
+		'Lysmata amboinensis', 'Lysmata ankeri', 'Lysmata debelius', 'Mithraculus sculptus', 'Nassarius distortus', 
+		'Nassarius venustus', 'Paguristes cadenati', 'Percnon gibbesi', 'Protoreaster nodosus',
+		'Sabellastarte spectabilis', 'Stenopus hispidus', 'Stenorhynchus seticorni', 'Synchiropus ocellatus', 
+		'Tectus fenestratus', 'Tectus pyramis', 'Trochus maculatus')
+trade<-trade[!trade$Taxa %in% inverts,]
 
-length(unique(trade$Taxa)) ## 2645 species!
+## rename some species in prep for fishbase
+trade$Taxa[trade$Taxa=='Centropyge loricula']<-'Centropyge loriculus' ## flame angel
+
+
+length(unique(trade$Taxa)) ## 2622 species!
 length(unique(trade$Exporter.Country)) ## 51 countries
 
 # examine rarest species
@@ -32,7 +44,7 @@ dim(sp[sp$Total<100,]) # 834 species with < 100 individuals
 
 # examine commonest species
 hist(sp$Total, plot=F)
-sp.common<-sp %>% filter(Total > 78110) # top 100 species in terms of total volume 
+sp.common<-sp %>% filter(Total > 64000) # top 100 species in terms of total volume 
 
 # examine biggest exporting countries
 country<-aggregate(Total ~ Exporter.Country, trade, sum)
@@ -46,9 +58,14 @@ div <- trade %>% filter(Taxa %in% sp.common$Taxa) %>%
 		mutate(export = 1) %>% # assign export status as 1
 		complete(Exporter.Country, nesting(Taxa), fill=list(export=0)) # add export = 0 for other countries
 
+### NEED TO FIX HERE - SPECIES CANNOT BE ASSIGNED EXPORT  = 0 IF THEY ARE NOT FOUND IN THAT COUNTRY!
+
+
 ## check every species appears in every country as a 0 or 1
 aggregate(Taxa ~ Exporter.Country, div, length)
 head(div)
+
+
 
 #----------------------------------------#----------------------------------------
 								## ADDING PREDICTORS
@@ -57,6 +74,7 @@ head(div)
 ## add TL and family information
 library(rfishbase)
 # Get trophic level 
+## this function takes a LONG time to run (> 30 minutes)
 fishes <-validate_names(div$Taxa, limit=1000) 
 head(fishes)
 str(fishes)
@@ -64,7 +82,7 @@ str(fishes)
 x <- unique(fishes)
 x #78 unique fishes
 # gadus morhua is not in there!!!
-
+## ^^ best comment ever 
 
 # Add Species Information
 spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
