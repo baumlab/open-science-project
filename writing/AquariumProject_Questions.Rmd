@@ -63,10 +63,6 @@ Standardizing issue seems key here. We really need to understand why some countr
 
 *Caveats*: 1) Standardise countries by estimating proportional volume of functional groups for each country; 2) determining the baseline community structure is very difficult, probably impossible.  
 
-JR: I think these figures are a little wonky - watch out for horizontal lines within ggplot bars - suggests that multiple numbers are being used to build one bar, and it doesn't know how to combine the data. Have remade for single data points per bar.
-
-![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/trophic_by_trade_volume_2008_09_11.pdf) 
-![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/trophic_by_trade_volume_country_2008_09_11.pdf)
 
 <br><br>
 \pagebreak   
@@ -91,8 +87,6 @@ Update: for the top 100 subsetted there is only this problem for *Gobiodon atran
 
 JR: Probably yes.
 
-![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/eoo_trade_volume_2008_09_11.pdf)  
-![](/Users/jamiemcdevitt-irwin/Documents/Git_Repos/open-science-project/figures/EOO_trade.trophic_volume_2008_09_11.pdf)
 
 <br><br>  
 \pagebreak   
