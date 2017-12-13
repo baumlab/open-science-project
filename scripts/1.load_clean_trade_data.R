@@ -87,7 +87,7 @@ head(fishes)
 str(fishes)
 
 x <- unique(fishes)
-x # 92 unique fishes
+x #  96 unique fishes
 # gadus morhua is not in there!!!
 ## ^^ best comment ever 
 
@@ -96,24 +96,27 @@ spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) 
 head(spec)
 colnames(spec)
 spec$Genus # no gadus
-
+spec$sciname # 95 unique species
 
 # add back to the div table
 test2 <- left_join(div, spec, c("Taxa" = "sciname"))
 test2 # worked!
 
 
+
 # Add Trophic Information
 ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
 head(ecol) 
 colnames(ecol)
-ecol$sciname # no gadus morhua
+ecol$sciname # no gadus morhua, only 92 sci names (so only has ecology info for 92 species) 
 
 # add to the species and div table already created 
 test3 <- left_join(test2, ecol, c("Taxa" = "sciname"))
 head(test3)
 test3$Genus
 test3$FoodTroph
+x <- unique(test3$Taxa)
+x # back to the 100 
 
 # rename
 trade.fishbase <-test3
