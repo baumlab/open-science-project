@@ -30,6 +30,9 @@ inverts<-c('Archaster typicus', 'Calcinus elegans', 'Clibanarius tricolor', 'Con
 		'Sabellastarte spectabilis', 'Stenopus hispidus', 'Stenorhynchus seticorni', 'Synchiropus ocellatus', 
 		'Tectus fenestratus', 'Tectus pyramis', 'Trochus maculatus')
 trade<-trade[!trade$Taxa %in% inverts,]
+str(trade)
+head(trade)
+dim(trade)
 
 ## rename some species in prep for fishbase
 trade$Taxa[trade$Taxa=='Centropyge loricula']<-'Centropyge loriculus' ## flame angel
@@ -45,6 +48,9 @@ dim(sp[sp$Total<100,]) # 834 species with < 100 individuals
 # examine commonest species
 hist(sp$Total, plot=F)
 sp.common<-sp %>% filter(Total > 64000) # top 100 species in terms of total volume 
+head(sp.common)
+dim(sp.common) # only has 99 species (FIX?)
+
 
 # examine biggest exporting countries
 country<-aggregate(Total ~ Exporter.Country, trade, sum)
@@ -57,6 +63,7 @@ div <- trade %>% filter(Taxa %in% sp.common$Taxa) %>%
 		distinct(Exporter.Country, Taxa) %>% ## keep unique taxa for each country (i.e. drop years)
 		mutate(export = 1) %>% # assign export status as 1
 		complete(Exporter.Country, nesting(Taxa), fill=list(export=0)) # add export = 0 for other countries
+head(div)
 
 ### NEED TO FIX HERE - SPECIES CANNOT BE ASSIGNED EXPORT  = 0 IF THEY ARE NOT FOUND IN THAT COUNTRY!
 
@@ -80,7 +87,7 @@ head(fishes)
 str(fishes)
 
 x <- unique(fishes)
-x #78 unique fishes
+x # 92 unique fishes
 # gadus morhua is not in there!!!
 ## ^^ best comment ever 
 
@@ -89,6 +96,7 @@ spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) 
 head(spec)
 colnames(spec)
 spec$Genus # no gadus
+
 
 # add back to the div table
 test2 <- left_join(div, spec, c("Taxa" = "sciname"))
@@ -109,8 +117,9 @@ test3$FoodTroph
 
 # rename
 trade.fishbase <-test3
+head(trade.fishbase)
 
-# save file
+# # save file
 write.csv(trade.fishbase, file='data/clean/trade_top100_fishbase.csv')
 write.csv(trade, file='data/clean/trade_taxa_all.csv')
 
