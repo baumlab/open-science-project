@@ -1,6 +1,6 @@
 ---
 title: "Aquarium Project Manuscript"
-author: Jamie McDevitt-Irwin, James Robinson, Easton White, Jillian Dunic, Geoffrey
+author: Jamie McDevitt-Irwin, James Robinson, Geoffrey
   Osgood
 date: '2017-11-14'
 output:
@@ -32,9 +32,22 @@ Target Journal: Conservation Biology, Biological Conservation, Conservation Lett
 
 # Introduction {-}
 
+Human threats to biodiversity, conservation and trade
+
+Previous work on the coral reef aquarium trade
+
+Gap: statistical analysis of aquarium trade data, identifying threatened species and regions 
+
+Our Study: goals, questions, hypotheses
+
+Our goal here is to understand what is driving coral reef aquarium trade based on exporting country information (e.g. goverance indicators) and species information (e.g. trophic group and range size). We ask the questions 1) how effective are trade regulations in controlling aquarium export? 2) Are certain functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? and 3) Are fish species with different range sizes disproportionately targeted by aquarium trade? 
+
+
 # Methods {-}
 
 Any data subsetting, decisions, transformations. 
+- modeled and not-modeled  
+- only use presence/absence data 
 
 Datasets used: Rhyne aquarium trade, fishbase, OBIS, UN governance indicators  
 

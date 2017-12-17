@@ -1,7 +1,6 @@
 ---
 title: "Aquarium Project Questions"
-author: Jamie McDevitt-Irwin, James Robinson, Easton White, Jillian Dunic, Geoffrey
-  Osgood
+author: Jamie McDevitt-Irwin, James Robinson, Geoffrey Osgood
 date: '2017-10-05'
 output:
   pdf_document: default
@@ -13,9 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 <br><br>
 
-#### Overarching goals
+#### Overarching goals  
+Goal: What are the drivers of aquarium fish exports?  
 
-1) Are aquarium fish export countries characterised by specific habitat (reef area, biogeography) and governance (CITES, development) traits?
+1) Are aquarium fish export countries characterised by specific governance (CITES, development) traits?
 
 (is there an analogue to this in the conservation literature? for trade of another taxa)
 
@@ -26,10 +26,13 @@ knitr::opts_chunk$set(echo = TRUE)
 Make predictions about aquarium trade based on 1) exporting country information, such as governance factors (CITES, development), and 2) species information, such as trophic group, range size. Trade volume is a big problem just now, because it is very skewed towards a couple of major exporters (PNG and Philippines). There may also be discrepancies in volume estimates due to incorrect labelling of fish + exported boxes (Rhyne et al. 2012), but this seems less of an issue if we just analyse occurence of species being exported.
 
 Response variable: If a species was exported or not (0,1) (binomial) (Also look at how many countries export that fish species?)
+(*Idea* Response variable: volume * price in the US (this would capture fishing effort and demand))  
+* because then you are capturing differences between the fish and making them a similar 'unit'   
 
 We probably need to control for reef area and biogeography here as well (Parravicini et al. 2013). Caribbean species can be exported by X countries, whereas Indo-Pacific species can be exported by Y countries - we want to measure effect of predictors *given* that there is a geographical constraint on how many countries can export each species. Kulbicki et al. (2013, PLoS ONE) has a dataset of biogeographical zones we could use for country level groupings - does anyone know of a species level equivalent?
 
-<br><br>
+<br><br>  
+
 
 
 #### Question 1
@@ -42,6 +45,8 @@ We probably need to control for reef area and biogeography here as well (Parravi
 Consider temporal aspect here as well - does good/bad governance in year 1 reduce/increase fish trade in year 2?
 
 Standardizing issue seems key here. We really need to understand why some countries have huge trade exports - Philippines has big coastline, reef area and regional diversity, but export demand is also driven by market factors (e.g. Philippines probably has quite strong trade links with the US). Or consider Christmas island - small reef area + coastline, but high demand for one species (flame angel).
+
+CITES (does this policy work?): explanatory varaible= look at the trade volume prior or just prior to joining CITES and then look at the difference three or so years later when they are in CITES. Then as a fixed effect you could see if those countries had lower trade than countries who hadn't been in CITES that long. (differential analysis?)
 
 *Caveats* 
 
@@ -69,7 +74,7 @@ Standardizing issue seems key here. We really need to understand why some countr
 
 #### Question 3
 
-*Geographic analysis of range distributions - where are species exported from? Are small or large range size fishes exported more or less?*
+*Are fish species with different range sizes disproportionately targeted by aquarium trade?*
 
 **Hypotheses**: There will be a positive linear relationship of export occurences and range size, as species with a larger range size will exported by more countries. However if any species fall of this line they are of interest: 1) smaller range size for volume = high risk; 2) larger range size than volume = low risk?
 
