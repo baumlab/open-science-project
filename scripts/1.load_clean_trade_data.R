@@ -21,24 +21,26 @@ trade<-trade[!trade$Taxa=='',]
 
 ## remove incomplete years
 # trade<-trade[trade$YEAR%in%c('2008', '2009' , '2011'),]
-
 ## remove invertebrates
 inverts<-c('Archaster typicus', 'Calcinus elegans', 'Clibanarius tricolor', 'Condylactis gigantea',
 		'Dardanus megistos', 'Engina mendicaria', 'Entacmaea quadricolor', 'Heteractis malu', 
 		'Lysmata amboinensis', 'Lysmata ankeri', 'Lysmata debelius', 'Mithraculus sculptus', 'Nassarius distortus', 
 		'Nassarius venustus', 'Paguristes cadenati', 'Percnon gibbesi', 'Protoreaster nodosus',
 		'Sabellastarte spectabilis', 'Stenopus hispidus', 'Stenorhynchus seticorni', 'Synchiropus ocellatus', 
-		'Tectus fenestratus', 'Tectus pyramis', 'Trochus maculatus')
+		'Tectus fenestratus', 'Tectus pyramis', 'Trochus maculatus',
+		'Echidna nebulosa','Elysia crispata','Heteractis crispa',
+		'Sabellastarte magnifica','Stenorhynchus seticornis','Linckia laevigata')
 trade<-trade[!trade$Taxa %in% inverts,]
 str(trade)
 head(trade)
 dim(trade)
 
 ## rename some species in prep for fishbase
+trade$Taxa<-as.character(trade$Taxa)
 trade$Taxa[trade$Taxa=='Centropyge loricula']<-'Centropyge loriculus' ## flame angel
 
 
-length(unique(trade$Taxa)) ## 2622 species!
+length(unique(trade$Taxa)) ## 2616 species!
 length(unique(trade$Exporter.Country)) ## 51 countries
 
 # examine rarest species
@@ -47,9 +49,9 @@ dim(sp[sp$Total<100,]) # 834 species with < 100 individuals
 
 # examine commonest species
 hist(sp$Total, plot=F)
-sp.common<-sp %>% filter(Total > 64000) # top 100 species in terms of total volume 
+sp.common<-sp %>% filter(Total > 57960) # top 100 species in terms of total volume 
 head(sp.common)
-dim(sp.common) # only has 99 species (FIX?)
+dim(sp.common) 
 
 
 # examine biggest exporting countries
