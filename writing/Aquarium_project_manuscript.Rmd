@@ -24,7 +24,7 @@ geometry: margin=2.5cm
 bibliography: PapersExportedLibrary_Bibtex.bib
 ---
 
-Target Journal: Conservation Biology, Biological Conservation, Conservation Letters, Fish and Fisheries  
+Target Journal: Conservation Biology, Biological Conservation, Conservation Letters, Fish and Fisheries?  
 
 # Title {-}
 
@@ -40,18 +40,22 @@ Gap: statistical analysis of aquarium trade data, identifying threatened species
 
 Our Study: goals, questions, hypotheses
 
-Our goal here is to understand what is driving coral reef aquarium trade based on exporting country information (e.g. goverance indicators) and species information (e.g. trophic group and range size). We ask the questions 1) how effective are trade regulations in controlling aquarium export? 2) Are certain functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? and 3) Are fish species with different range sizes disproportionately targeted by aquarium trade? 
+Our goal here is to understand what is driving coral reef fish aquarium trade based on exporting country information (e.g. goverance indicators) and species information (e.g. trophic group and range size). We ask the questions 1) how effective are trade regulations in controlling aquarium export? 2) Are certain functional groups disproportionately targeted by aquarium trade, and does this pattern vary regionally? and 3) Are fish species with different range sizes disproportionately targeted by aquarium trade? 
 
 
-# Methods {-}
+# Methods {-}  
 
-Any data subsetting, decisions, transformations. 
-- modeled and not-modeled  
-- only use presence/absence data 
+## Data {-}  
 
-Datasets used: Rhyne aquarium trade, fishbase, OBIS, UN governance indicators  
+We used aquarium trade data from https://www.aquariumtradedata.org/ to evaluate drivers of aquarium trade. This data tracks the trade of marine tropical fish and invertebrates into the United States from import records (Rhyne et al. 2012, 2017). We used all years of data available for fish imported: 2000, 2004, 2005, 2008, 2009, 2011. Three of these years (i.e. 2000, 2004, and 2005) were incomplete and imports were back-calculated from the complete three years (i.e.2008, 2009, and 2011). We used these back-calculated years because we did not include volume within our analyses, just binary presence-absence of a fish species being imported. We conducted these analyses on the top 100 fish species traded (by volume) into the United States. 
+
+For explanatory variables, we explored how governance indictors, trophic groups and range sizes explain trends in coral reef fish aquarium trade. We used X, Y, and Z indictors as proxies for governance... For species information we used trophic groupings from Fishbase and range size proxies calculated from the Ocean Biogeographic Information System (OBIS). We used both extent of occurence (EOO) (i.e. the area within the outermost geographic limits where a species occurs) and area of occurence (i.e. the area within these outermost limits where the species actually occurs) as proxies for range size (Cite other papers that have done this). There has been debate about which of these metrics are most accurate, however, its suggested that they serve different purposes, are not the same measurement, and it should be remembered that they are estimations of the distribution of a species (Gaston and Fuller 2009).  
+
+## Statistical Analyses {-}  
 
 Statistical analyses: GLM with binary response of trade  
+-poisson distribution
+-random effects
 -variance structure  
 -fixed effects selection  
 
