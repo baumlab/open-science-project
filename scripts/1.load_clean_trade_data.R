@@ -64,68 +64,80 @@ country[country$Total>500000,]
 div <- trade %>% filter(Taxa %in% sp.common$Taxa) %>% 
 		distinct(Exporter.Country, Taxa) %>% ## keep unique taxa for each country (i.e. drop years)
 		mutate(export = 1) %>% # assign export status as 1
-		complete(Exporter.Country, nesting(Taxa), fill=list(export=0)) # add export = 0 for other countries
+		ungroup() %>% group_by(Taxa) %>%
+		summarise(N = sum(export))
+		# complete(Exporter.Country, nesting(Taxa), fill=list(export=0)) # add export = 0 for other countries
 head(div)
 
 ### NEED TO FIX HERE - SPECIES CANNOT BE ASSIGNED EXPORT  = 0 IF THEY ARE NOT FOUND IN THAT COUNTRY!
 
 
 ## check every species appears in every country as a 0 or 1
-aggregate(Taxa ~ Exporter.Country, div, length)
-head(div)
+# aggregate(Taxa ~ Exporter.Country, div, length)
+# head(div)
 
 
 
 #----------------------------------------#----------------------------------------
 								## ADDING PREDICTORS
-#----------------------------------------#----------------------------------------
-### Fishbase Information ###
-## add TL and family information
-library(rfishbase)
-# Get trophic level 
-## this function takes a LONG time to run (> 30 minutes)
-fishes <-validate_names(div$Taxa, limit=1000) 
-head(fishes)
-str(fishes)
+# #----------------------------------------#----------------------------------------
+# ## Fishbase Information ###
+# ## add TL and family information
+# library(rfishbase)
+# # Get trophic level 
+# ## this function takes a LONG time to run (> 30 minutes)
+# fishes <-validate_names(div$Taxa, limit=1000) 
+# head(fishes)
+# str(fishes)
 
-x <- unique(fishes)
-x #  96 unique fishes
-# gadus morhua is not in there!!!
-## ^^ best comment ever 
+# x <- unique(fishes)
+# x #  100 unique fishes
+# # gadus morhua is not in there!!!
+# ## ^^ best comment ever 
 
-# Add Species Information
-spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
-head(spec)
-colnames(spec)
-spec$Genus # no gadus
-spec$sciname # 95 unique species
+# # Add Species Information
+# spec <-species(fishes,fields=c('Genus', 'Vulnerability', 'Length', 'Aquarium')) # warnings because species NA could not be parsed
+# head(spec)
+# colnames(spec)
+# spec$Genus # no gadus
+# spec$sciname # 100 unique species
 
-# add back to the div table
-test2 <- left_join(div, spec, c("Taxa" = "sciname"))
-test2 # worked!
+# # # add back to the div table
+# # test2 <- left_join(div, spec, c("Taxa" = "sciname"))
+# # test2 # worked!
 
 
 
-# Add Trophic Information
-ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
-head(ecol) 
-colnames(ecol)
-ecol$sciname # no gadus morhua, only 92 sci names (so only has ecology info for 92 species) 
+# # Add Trophic Information
+# ecol<-ecology(fishes, fields=c("FoodTroph", "FoodSeTroph", "DietTroph", "DietSeTroph")) # FoodTroph has the most information
+# head(ecol) 
+# colnames(ecol)
+# ecol$sciname # no gadus morhua, only 97 sci names (so only has ecology info for 92 species) 
 
-# add to the species and div table already created 
-test3 <- left_join(test2, ecol, c("Taxa" = "sciname"))
-head(test3)
-test3$Genus
-test3$FoodTroph
-x <- unique(test3$Taxa)
-x # back to the 100 
+# # add to the species and div table already created 
+# # test3 <- left_join(test2, ecol, c("Taxa" = "sciname"))
+# # head(test3)
+# # test3$Genus
+# # test3$FoodTroph
+# # x <- unique(test3$Taxa)
+# # x # back to the 100 
 
-# rename
-trade.fishbase <-test3
-head(trade.fishbase)
+# save(spec, file='data/species_fishbase.Rdata')
+# save(ecol, file='data/ecology_fishbase.Rdata')
+
+## Add predictors from fishbase data
+load('data/ecology_fishbase.Rdata')
+load('data/species_fishbase.Rdata')
+
+div$Genus<-spec$Genus[match(div$Taxa, spec$sciname)]
+div$Vulnerability<-spec$Vulnerability[match(div$Taxa, spec$sciname)]
+div$Length<-spec$Length[match(div$Taxa, spec$sciname)]
+div$DietTroph<-ecol$DietTroph[match(div$Taxa, ecol$sciname)]
+div$FoodTroph<-ecol$FoodTroph[match(div$Taxa, ecol$sciname)]
+
 
 # # save file
-write.csv(trade.fishbase, file='data/clean/trade_top100_fishbase.csv')
+write.csv(div, file='data/clean/trade_top100_fishbase.csv')
 write.csv(trade, file='data/clean/trade_taxa_all.csv')
 
 
