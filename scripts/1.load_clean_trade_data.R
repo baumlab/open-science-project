@@ -43,9 +43,18 @@ trade$Taxa[trade$Taxa=='Centropyge loricula']<-'Centropyge loriculus' ## flame a
 length(unique(trade$Taxa)) ## 2616 species!
 length(unique(trade$Exporter.Country)) ## 51 countries
 
+# temperate countries? 
+unique(trade$Exporter.Country)
+# Canada, United Kingdom (just visually looking)
+temp.countries <- c('Canada', 'United Kingdom')
+trade<-trade[!trade$Exporter.Country %in% temp.countries,]
+length(unique(trade$Exporter.Country)) ## 49 countries 
+str(trade)
+
 # examine rarest species
 sp<-aggregate(Total ~ Taxa, trade, sum)
 dim(sp[sp$Total<100,]) # 834 species with < 100 individuals
+# with canada and the UK removed now its only 834 species 
 
 # examine commonest species
 hist(sp$Total, plot=F)
@@ -135,6 +144,8 @@ div$Length<-spec$Length[match(div$Taxa, spec$sciname)]
 div$DietTroph<-ecol$DietTroph[match(div$Taxa, ecol$sciname)]
 div$FoodTroph<-ecol$FoodTroph[match(div$Taxa, ecol$sciname)]
 
+head(div)
+str(div)
 
 # # save file
 write.csv(div, file='data/clean/trade_top100_fishbase.csv')
