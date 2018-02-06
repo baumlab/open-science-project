@@ -1,459 +1,946 @@
-2.1*^0.24
-?sqrt
-?rt
-log(0.8026)-log(2.1)
-(log(0.8026)-log(2.1))/0.24
-exp(-4.00)
-20*exp(0.02)
-1 + 0.02*(1-20/500)
-0.02*(1-(20/500))
-1-(20/500)
-0.96*0.02
-1.0192*20
-20*(1+ 0.02*(1-20/500))
-50*(1+ 0.02*(1-50/500))
-100*(1+ 0.02*(1-100/500))
-20*exp(0.02*2)
-20*1.065*
-log(2)/0.063
-20+0.02*20*(1-20/500)
-2.1*(0.6^0.24)
-1/2.1
-(1/2.1)/(exp0.24)
-(1/2.1)/(exp(0.24))
-5.2^(1/6)
-5.2^(1/5)
-(5.2/5)^(1/5)
-avg(1+0.8)^(1/5)
-avergage(1+0.8)^(1/5)
-average(1+0.8)^(1/5)
-mean
-mean(1,1.2,0.9,1.3,0.8)
-1^0.2
-5.2/5
-1.04^0.2
-mean(1800,23,36,27,14)
-sum(1800,23,36,27,14)
-1900/5
-(1/1800 + 1/23+1/36+1/27+1/14)
-0.1802772/5
-1/0.03605
-0.017/0.018
-0.9444444^130
-0.00059*100
-product(1,0.8,1.2,0.9,1.3)
-1*0.8*1.2*0.9*1.3
-1.232^0.2
-1*0.8*1.2*0.9*1.3
-1.1232*0.2
-2.1*1^0.31
-2.1*0.4^0.31
-2.1/1.580731
-1.580731/2.1
-0.8*1.2*0.9*1.3
-1.1232^(1/5)
-1+0.8+1.2+0.9+1.3
-5.2^(0.2)
-1.1232^0.2
-0.8*1.2*0.9*1.3*1
-(0.8*1.2*0.9*1.3*1)^0.2
-(0.8*1.2*0.9*1.3*1)^(0.2)
-(0.8*1.2*0.9*1.3*1)*0.2
-35.68/0.059
-average(1,0.8,1.2,0.9,1.3)
-mean(1,0.8,1.2,0.9,1.3)
-14/24
-.583333-15
-0.5833333-0.15
-0.4333333*24
-exp(0.0232)
-0.15*24
-exp(0.0234)
-14300/7000
-sum(1:20)
-36*0.05
-0.3*27
-0.45*5
-species<-read.csv(file.choose())
-master<-read.csv(file.choose())
-vec<-match(species, master[,1])
-vec
-vec<-match(species$species, master[,1])
-vec
-species
-match(master[,1], species)
-head(master)
-vec<-match(master$SPECIES, species$species)
-vec
-vec<-match(species$species, master$SPECIES)
-vec
-head(species)
-vec<-match(species$Species, master$SPECIES)
-vec
-sub<-master[vec,]
-head(sub)
-write.table(sub, file="Common CRED species.csv")
-write.table(sub, file="Common CRED species.csv", sep=",")
-rm(ls=c())
-ls
-ls()
-rm(list=lm()
-)
-rm(list=lm())
-lm
-lm()
-ls()
-rm(list=ls())
-ls
-ls()
-install.packages("ggmap")
-ints
-?points
-Y
-require(nlme)
-?gamm
-Y
-require(mcmc)
-install.packages(mcmc)
-install.packages("mcmc")
-require(xtable)
-install.packages("xtable")
-require(xtable)
-?xtable
-?glmulti
-?split
-install.packages('glmulti')
-require(glmulti)
-?glmulti
-?step
-getwd()
-?options
-options(defaultPackages:"ggplot2", "plyr","gridExtra", "reshape")
-options(defaultPackages=c("ggplot2", "plyr","gridExtra", "reshape"))
-getOption("defaultPackages")
-options(defaultPackages=c("ggplot2", "plyr","gridExtra", "reshape", "datasets", "utils", "grDevices", "graphics", "stats", "methods"))
-getOption("defaultPackages")
-save.image()
-getOption("defaultPackages")
-?ggplot
-?ggplot2
-?min
-require(ggplot2)
-?nlogL
-install.packages
-install.packages("lognlike")
-require(MASS)
-?fitdstir
-?fitdistr
-warnings()
-require("plyr")
-require(gridArrnage)
-require(gridArrange
-0
-require("gridArrange")
-require(gridExta)
-require(grid.Extra)
-require("gridExtra")
-getwd()
-ls9)
-ls()
-installed.packages()
-require(ggplot2)
-installed.packages()
-require(ggplot2)
-melt(0, 0)
-require(reshape)
-require(plyr)
-ggplot(0, 0)
-require(ggplot2)
-touch ~/.Rprofile
-getwd()
-require(ggplot2)
-cast(0, 0)
-grid.Arrange(0)
-require(gridExtra)
-gridArrange()
-grid.arrange()
-ggplot(0, 0)
-?match
-?subset
-plot(1:10, 1:10, axis=F)
-plot(1:10, 1:10, x.axis=F)
-require(xtabs)
-install.packages("xtabs")
-?xtabs
-?fatble
-?ftable
-58.7+73.6+57.4+63.8+63.6+66.6+67.3+69.7+64.4+62.7+65.6
-713.4/11
-?ln
-?log
-log(1)
-log2(1)
-log(4)
-10^4
-lbn_func<-function(df, biomass=FALSE){#
-#specify doubling size bins based on min and max body sizes#
-breaks=vector()#
-x=1#
-repeat {#
-	x<-x+1#
-	breaks[1]=a#
-	breaks[x]=2*breaks[x-1]#
-	if (breaks[x] > b) {break}#
-}#
+apply(PR,2,mean,na.rm=TRUE)
+apply(PR,1,mean,na.rm=TRUE)
+class(PR)
+class(PR[,1])
+PR
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")
+names(FIW)
+head(FIW)
+PR<-FIW[-1,seq(2,50,3)]
+CL<-FIW[-1,seq(3,51,3)]
+Freedom_2011<-as.character(FIW$X.23[-1])
+apply(PR,1,mean,na.rm=TRUE)
+PR
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")
+names(FIW)
+head(FIW)
+PR<-FIW[-1,seq(2,50,3)]
+PR
+CL<-FIW[-1,seq(3,51,3)]
+Freedom_2011<-as.character(FIW$X.23[-1])
+FIW_avg<-data.frame(country=FIW$Country, Personal_rights=apply(PR,1,mean,na.rm=TRUE))
+apply(PR,1,mean,na.rm=TRUE)
+PR
+class(PR[,1])
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")
+names(FIW)
+Freedom_2011<-as.character(FIW$Status.11[-1])
+apply(PR,1,mean,na.rm=TRUE)
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")
+names(FIW)
+head(FIW)
+PR<-FIW[-1,seq(2,50,3)]
+CL<-FIW[-1,seq(3,51,3)]
+Freedom_2011<-as.character(FIW$Status.11[-1])
+apply(PR,1,mean,na.rm=TRUE)
+apply(CL,1,mean,na.rm=TRUE)
+FIW_avg<-data.frame(country=FIW$Country, Personal_rights=apply(PR,1,mean,na.rm=TRUE), #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE), Freedom_2011=Freedom_2011)
+Freedom_2011<-as.character(FIW$Status.11)
+FIW_avg<-data.frame(country=FIW$Country, Personal_rights=apply(PR,1,mean,na.rm=TRUE), #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE), Freedom_2011=Freedom_2011)
+Freedom_2011
+FIW$Country
+apply(PR,1,mean,na.rm=TRUE)
+PR
+Freedom_2011
+CL
+FIW
+FIW$Country
+FIW
+FIW$Country[1:323]
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])
+FIW_avg
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")
+head(gdp)
+gdp_avg<-data.frame(country=gdp$Country, gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))
+gdp_avg
+gdp_avg<-data.frame(country=gdp$Country, gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185]
+gdp_avg<-data.frame(country=gdp$Country, gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]
+gdp_avg
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")
+head(humdev)
+apply(humdev[,13:24],1,mean, na.rm=TRUE)
+humdev_avg<-data.frame(country=humdev$Country, hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))
+humdev_avg
+head(res_dep)
+res_dep_avg<-data.frame(country=res_dep$Country, hum_dev=apply(res_dep[,5:8],1,mean, na.rm=TRUE))
+head(trade)
+head(trade)
+match(trade$Exporter.Country,cites$country)
+cites$country
+cites$cites[match(trade$Exporter.Country,cites$country)]
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]
+trade$democracy_2011<-democracy_2011$democracy_2011[match(trade$Exporter.Country,democracy_2011$country)]
+trade$democracy_2011
+match(trade$Exporter.Country,democracy_2011$country)
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]
+trade$democracy_2011
+govind_avg
+head(govind)
+library(reshape2)
+colnames(govind)
+govind_wide<-govind[,c(1,3,7:17)]
+govind_avg
+govind_avg<-data.frame(country=govind$Country.Name, series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))
+govind_avg
+govind_wide<-dcast(country~Series.Name, value.vars=worldbank, data=govind_avg)
+govind_wide<-dcast(country~series.name, value.vars=worldbank, data=govind_avg)
+govind_wide<-dcast(country~series.name, value.var=worldbank, data=govind_avg)
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)
+govind_wide
+head(govind_wide)
+trade$corruption<-govind_avg$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_avg$country)]
+trade$corruption
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_avg$country)]
+trade$corruption
+trade$democracy_2011
+trade$cites
+match(trade$Exporter.Country,govind_avg$country)
+govind_avg$country
+match(trade$Exporter.Country,govind_wide$country)
+govind_wide$country
+trade$Exporter.Country
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]
+setwd("/Users/gjosgood/Dropbox")
+trade$corruption
+head(govind_wide)
+trade$corruption<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]
+trade$stability
+head(govind_wide)
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]
+trade$Civil_liberties
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]
+trade$Personal_rights
+FIW_avg$Freedom_2011
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]
+head(schwartz)
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]
+trade$Embeddedness
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,humdev_avg$country)]
+trade$hum_dev
+match(trade$Exporter.Country,humdev_avg$country)
+humdev_avg$country
+trade$Exporter.Country
+match(trade$Exporter.Country,humdev_avg$country)
+humdev_avg$country
+trade$Exporter.Country
+humdev_avg$country
+match(trade$Exporter.Country,humdev_avg$country)
+match(trade$Exporter.Country,as.character(humdev_avg$country))
+as.character(humdev_avg$country)
+humdev_avg<-data.frame(country=gsub(" ", "", humdev$Country, fixed=TRUE), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))
+gsub(" ", "", humdev$Country, fixed=TRUE)
+humdev$Country
+gsub(" ", "", as.character(humdev$Country), fixed=TRUE)
+gsub(" ", "", as.character(humdev$Country), fixed=TRUE)
+library(stringr)
+str_trim(as.character(humdev$Country), "left")
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))
+trade$hum_dev<-humdev_avg$hum_dev[match(astrade$Exporter.Country,as.character(humdev_avg$country))]
+match(astrade$Exporter.Country,as.character(humdev_avg$country))
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]
+trade$hum_dev
+trade$res_dep<-res_dep_avg$hum_dev[match(trade$Exporter.Country,as.character(res_dep_avg$country))]
+trade$res_dep
+match(trade$Exporter.Country,res_dep_avg$country)
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), hum_dev=apply(res_dep[,5:8],1,mean, na.rm=TRUE))
+setwd("/Users/gjosgood/Dropbox")
+trade$res_dep<-res_dep_avg$hum_dev[match(trade$Exporter.Country,res_dep_avg$country)]
+trade$res_dep
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
 #
-## widths of each size bin#
-widths=breaks[1:length(breaks)-1]#
-### to arrange data into vector of masses#
-freqs<- data.frame(rep(df$size.var, times=df$count.var)#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
 #
-### enter values into mass classes that double in size#
-histogram<-hist(freqs[,1],breaks=breaks, plot=F)#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
 #
-### take midpoints of mass classes#
-mids<-histogram$mids#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")
+setwd("~/Documents/git_repos/open-science-project")
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
 #
-## add counts in each mass class for ISD#
-counts<-histogram$counts#
-## normalise counts#
-normcounts<-counts/widths#
-## estimate non-normalised ISD#
-	slopes<-data.frame(coef(lm(log10(counts[counts>0]) ~ log10(mids[which(counts>0)]))))#
-	slopes[1,2]<-"intercept"#
-	slopes[2,2]<-"slope"#
-colnames(slopes)<-c("value", "stat")#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
 #
-## estimate normalised ISD#
-	norm_slopes<-data.frame(coef(lm(log10(normcounts[normcounts>0]) ~ log10(mids[which(normcounts>0)]))))#
-	norm_slopes[1,2]<-"intercept"#
-	norm_slopes[2,2]<-"slope"#
-colnames(norm_slopes)<-c("norm_value", "norm_stat")#
-slopes<-cbind(slopes, norm_slopes)#
-slopes$type<-"ISD"#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
 #
-## estimate "biomass" as the slope under the normalised ISD#
-slopes$biomass<-integral(a=slopes$norm_value[slopes$norm_stat=="intercept"],#
- b=slopes$norm_value[slopes$norm_stat=="slope"],#
- mass=normcounts)#
-### for the biomass spectrum #####
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]
+trade$gdp
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]
+trade$hum_dev
+trade$res_dep
+write.csv(trade, file="trade_top100_governance.csv")
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv')#
+head(trade)#
 #
-if(biomass==TRUE){#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv')#
+head(cites)#
 #
-### break each mass into a mass class#
-cuts<-cut(freqs[,1], breaks, right=F)#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')#
+head(govind)#
+colnames(govind)#
 #
-bios<-cbind(freqs, cuts)#
-colnames(bios)<-c("freqs", "cuts")#
-### find sum of masses within each mass class#
-biomass<-tapply(bios$freqs, bios$cuts, sum)#
+govind_avg<-data.frame(country=govind$Country.Name, series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
 #
-normbiomass<-biomass/widths#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv")#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
 #
-## estimate non-normalised biomass spectrum#
-	slopes<-data.frame(coef(lm(log10(biomass[biomass>0]) ~ log10(mids[which(biomass>0)]))))#
-	slopes[1,2]<-"intercept"#
-	slopes[2,2]<-"slope"#
-colnames(slopes)<-c("value", "stat")#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
 #
-## estimate normalised biomass spectrum#
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
 #
-	norm_slopes<-data.frame(coef(lm(log10(normbiomass[normbiomass>0]) ~ log10(mids[which(normbiomass>0)]))))#
-	norm_slopes[1,2]<-"intercept"#
-	norm_slopes[2,2]<-"slope"#
-colnames(norm_slopes)<-c("norm_value", "norm_stat")#
-slopes<-cbind(slopes, norm_slopes)#
-slopes$type<-"BIOMASS"#
+# read in Schwartz_Cultural_Indicators#
 #
-## add "biomass" as the slope under the biomass spectrum#
-slopes$biomass<-integral(a=slopes$norm_value[slopes$norm_stat=="intercept"],#
- b=slopes$norm_value[slopes$norm_stat=="slope"],#
- mass=normbiomass)#
-}#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)#
 #
-	return(slopes)#
-}
-ls()
-?integral
-mean.func<-function(x){ sum(x)/length(x)}
-source("/Users/jpwrobinson/Dropbox/R PROJECTS AND DATA/PROJECTS/AFS_meta-analysis/AFS_data_explore/ontario_cleaning_master.R")
-pairs(df_pred[, pred_vars], lower.panel=panel.cor, upper.panel=panel.lm)
-source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/PROJECTS/AFS_meta-analysis/AFS_functions_dataload/AFS_ISD_MLE_definitions.R")#
-source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/PROJECTS/AFS_meta-analysis/AFS_functions_dataload/AFS_ISD_functions.R")#
-source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/models_explore_functions.R")#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
 #
-## load data#
-source("/Users/jpwrobinson/Dropbox/R\ PROJECTS\ AND\ DATA/PROJECTS/AFS_meta-analysis/AFS_functions_dataload/load_AFS_master_data.R")#
-#### ALL dataframes should be set up with the following variables:#
-# location : unique names of each island, lake, or sampling area#
-# location_id : unique ID of each island, lake or sampling area#
-# unique.id : unique ID of each sample#
-# lat : latitude of sampling site#
-# lon : longitude of sampling site#
-### Body size dataframe should be set up with the following additional variables:#
-# year : year of sampling#
-# mass : body size in grams#
-# length : body size in cm#
-# species : common species name#
-# scientific : scientific species name#
-# family_sci : scientific family name#
-# family_com : common family name#
-### Predictor dataframe should be set up with the following additional variables:#
-# area : area of each location in km^2#
-# perimeter : perimeter of the location in km#
-# max_depth : maximum depth of the location in metres#
-# mean_depth : mean depth of the location in metres#
-# elevation : elevation of the location in metres#
-# mean_temp : mean annual temperature of the location#
-# min_temp : mean minimum annual temperature of the location#
-# max_temp : mean maximum annual temperature of the location#
-### MORE MORE MORE MORE#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
 #
-ontario_pred<-ontario_pred[-which(is.na(ontario_pred$phosphorus)),]#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
 #
-df_size<-ontario_reduced#
-df_pred<-ontario_pred#
-dataset<-"ontario"#
-pred_vars<-c("max_depth", "elevation","area", #
-	"max_temp",  "season", "mean_pcp", "MPI", "TDS", "phosphorus", "pH", "TKN")
-source("/Users/jpwrobinson/Dropbox/AFS_size_spectra/AFS_methods_descriptions/ontario_knit/AFS_ontario_exploratory.Rmd")
-source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/ki_map/ki_map_sitecleaning.R")
-0.11435-0.06576
-0.01027+0.02863
-source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/Analyses/ki_abundance_iso_specimens.R")
-source("/Users/jpwrobinson/Dropbox/R PROJECTS AND DATA/PROJECTS/AFS_meta-analysis/AFS_data_explore/bc_cleaning_master.R")
-source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/Analyses/ki_cross-species_analysis.R")
-source("/Users/jpwrobinson/Dropbox/git_repos/reef-isotopes-tp/Analyses/KI_clean_2011_fishabund.R")
-v1 <- c(1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,4,5,6)#
-v2 <- c(1,2,1,1,1,1,2,1,2,1,3,4,3,3,3,4,6,5)#
-v3 <- c(3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,5,4,6)#
-v4 <- c(3,3,4,3,3,1,1,2,1,1,1,1,2,1,1,5,6,4)#
-v5 <- c(1,1,1,1,1,3,3,3,3,3,1,1,1,1,1,6,4,5)#
-v6 <- c(1,1,1,2,1,3,3,3,4,3,1,1,1,2,1,6,5,4)#
-m1 <- cbind(v1,v2,v3,v4,v5,v6)#
-cor(m1)#
-factanal(m1, factors = 3) # varimax is the default#
-factanal(m1, factors = 3, rotation = "promax")#
-# The following shows the g factor as PC1#
-prcomp(m1) # signs may depend on platform#
-## formula interface#
-factanal(~v1+v2+v3+v4+v5+v6, factors = 3,#
-         scores = "Bartlett")$scores
-candidates <- c( Sys.getenv("R_PROFILE"),#
-                 file.path(Sys.getenv("R_HOME"), "etc", "Rprofile.site"),#
-                 Sys.getenv("R_PROFILE_USER"),#
-                 file.path(getwd(), ".Rprofile") )#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
 #
-Filter(file.exists, candidates)
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]
+write.csv(trade, file="trade_top100_governance.csv")
+govind_wide
+govind_wide$country=="Federated States of Micronesia"
+govind_wide$country=="Federated States of Micronesia"
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')
+govind_avg<-data.frame(country=govind$Country.Name, series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)
+head(govind_wide)
+govind_wide$country=="Federated States of Micronesia"
+govind$Country.Name=="Federated States of Micronesia"
+govind$Country.Name=="Mauritius"
+govind$Country.Name
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))
+govind$Country.Name=="Federated Republic of Micronesia"
+which(govind$Country.Name=="Federated Republic of Micronesia")
+which(govind$Country.Name=="Moldova")
+which(govind$Country.Name=="Federated States of Micronesia")
+)rm(list=ls(all=T))
+rm(list=ls(all=T))
 setwd("~/Documents/git_repos/open-science-project")#
-library(dplyr); library(ggplot2); library(tidyr)#
+getwd()#
 #
-# pull in trade data#
-trade<-read.csv('data/raw/trade/SpeciesCountryYearsEstFish_SSS_NetworkModel_Data.csv')
-head(trade )
-aggregate(YEAR ~ Taxa + Exporter.Country, trade, length(unique(x)))
-aggregate(YEAR ~ Taxa + Exporter.Country, trade, function(x) length(unique(x)))
-t<-aggregate(YEAR ~ Taxa + Exporter.Country, trade, function(x) length(unique(x)))
-head(t )
-unique(t$YEAR)
-trade[trade$Taxa=='Acanthurus blochii',]
-hist(t$YEAR)
-y<-aggregate(Taxa ~ YEAR, trade, function(x) length(unique(x)))
-head(y )
-y<-aggregate(YEAR ~ Taxa, trade, function(x) length(unique(x)))
-head(y)
-unique(trade$YEAR )
-y[y$YEAR==6,]
-trade[trade$Taxa=='Acanthurus olivaceus',]
+library(dplyr)#
+library(reshape2)#
+library(stringr)#
+#
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv')#
+head(trade)#
+#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv')#
+head(cites)#
+#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')#
+head(govind)#
+colnames(govind)#
+#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
+#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+which(govind$Country.Name=="Federated States of Micronesia")#
+#
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv")#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
+#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
+#
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
+#
+# read in Schwartz_Cultural_Indicators#
+#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)#
+#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
+#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
+#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
+#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
+#
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')
+head(govind)
+colnames(govind)
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)
+head(govind_wide)
+which(govind$Country.Name=="Federated States of Micronesia")
+which(govind_wide$country=="Federated States of Micronesia")
+which(trade$Exporter.Country=="Federated States of Micronesia")
 setwd("~/Documents/git_repos/open-science-project")#
-rm(list=ls())#
-library(ggplot2); library(dplyr); library(lme4); library(MuMIn); library(visreg)#
-theme_set(theme_bw())#
-source('scripts/functions/scaling_function.R')#
-source('scripts/functions/plot-cor-functions.R')#
+getwd()#
 #
-trade <- read.csv('data/clean/trade_top100_fishbase.csv') #
-trade$StockCode<-NULL#
+library(dplyr)#
+library(reshape2)#
+library(stringr)#
 #
-pdf(file='figures/02_trophic/explore_trophic_patterns.pdf', height=7, width=11)#
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv')#
+head(trade)#
 #
-## create dataframe just for top 100 species - no duplicates across countries#
-trade.sp<- trade %>% distinct(Taxa, Genus, FoodTroph)#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv')#
+head(cites)#
 #
-## scaling pred vars#
-scaled<-scaler(trade, ID=c('Exporter.Country', 'Taxa', 'Genus', 'export'))#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')#
+head(govind)#
+colnames(govind)#
 #
-## check collinearity#
-temp<-trade %>% select(FoodTroph, Length, Vulnerability)#
-pairs(na.omit(temp), upper.panel=panel.cor, diag.panel=panel.hist, lower.panel=panel.smooth2)#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
 #
-# plot observed relationships so we expect model predictions#
-trade %>% group_by(Genus, FoodTroph) %>% summarise(sum=sum(export)) %>%#
-ggplot(aes(FoodTroph, sum)) + geom_point() + labs(y="n. species")#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+#which(govind$Country.Name=="Federated States of Micronesia")#
+#which(govind_wide$country=="Federated States of Micronesia")#
 #
-trade %>% group_by(Genus, Vulnerability) %>% summarise(sum=sum(export)) %>%#
-ggplot(aes(Vulnerability, sum)) + geom_point() + labs(y="n. species")#
-## Q2A - how are aquarium fish distributed across trophic levels?#
-# m.null<-glmer(export ~ 1 + (1 | Genus) + (1 | Exporter.Country), trade[!is.na(trade$FoodTroph),], family='binomial')#
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv")#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
 #
-m1<-glmer(export ~  FoodTroph + #
-					# Length + #
-					Vulnerability + #
-					(1 | Genus) + #
-					(1 | Exporter.Country), #
-					scaled, family='binomial')#
-summary(m1)#
-# P(export) increases with trophic level. But model is terrible (R2 < 10%)#
-# What are we missing?#
-r.squaredGLMM(m1)#
-par(mfrow=c(2,2)); visreg(m1)#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
 #
-# predictions#
-newdf<-scaled#
-newdf$Vulnerability<-mean(newdf$Vulnerability)#
-newdf$pred<-predict(m1, newdf, type='response')#
-ggplot(newdf, aes(FoodTroph, pred, col=FoodTroph)) + geom_point() +#
-			# facet_wrap(~Exporter.Country) +#
-			labs(x = 'Trophic level', y='Probability of export')
-newdf$pred<-predict(m1, newdf, type='response')#
-ggplot(newdf, aes(FoodTroph, pred, col=FoodTroph)) + geom_point() +#
-			# facet_wrap(~Exporter.Country) +#
-			labs(x = 'Trophic level', y='Probability of export')
-library(ggplot2)
-newdf$pred<-predict(m1, newdf, type='response')#
-ggplot(newdf, aes(FoodTroph, pred, col=FoodTroph)) + geom_point() +#
-			# facet_wrap(~Exporter.Country) +#
-			labs(x = 'Trophic level', y='Probability of export')
-head(scaled )
-head(trade.sp )
-trade.all %>% group_by(Genus, Vulnerability) %>% summarise(sum=sum(export))
-trade.all <- trade %>% group_by(Genus, Vulnerability) %>% summarise(sum=sum(export))
-head(trade.all )
-trade.all <- trade %>% group_by(Genus, Vulnerability, FoodTroph) %>% summarise(sum=sum(export))
-trade.all.scaled<-scaler(trade, ID=c('Taxa', 'Genus', 'sum'))
-m2<-glmer(sum ~  FoodTroph + #
-					# Length + #
-					Vulnerability + #
-					(1 | Genus) ,#
-					trade.all.scaled)#
-summary(m2)
-trade.all.scaled
-head(trade.all.scaled )
-trade.all.scaled<-scaler(trade.all, ID=c('Taxa', 'Genus', 'sum'))
-m2<-glmer(sum ~  FoodTroph + #
-					# Length + #
-					Vulnerability + #
-					(1 | Genus) ,#
-					trade.all.scaled)#
-summary(m2)
-r.squaredGLMM(m2)
-library(visreg )
-install.packages('visreg')
-library(visreg )
-# What are we missing?#
-r.squaredGLMM(m2)#
-par(mfrow=c(2,2)); visreg(m2)
-quartz()
-# What are we missing?#
-r.squaredGLMM(m2)#
-par(mfrow=c(2,2)); visreg(m2)
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
+#
+# read in Schwartz_Cultural_Indicators#
+#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)#
+#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
+#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
+#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
+#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
+#
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")
+names(FIW)
+FIW$Country=="Yemen"
+which(FIW$Country=="Yemen")
+setwd("~/Documents/git_repos/open-science-project")#
+getwd()#
+#
+library(dplyr)#
+library(reshape2)#
+library(stringr)#
+#
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv')#
+head(trade)#
+#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv')#
+head(cites)#
+#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')#
+head(govind)#
+colnames(govind)#
+#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
+#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+#which(govind$Country.Name=="Federated States of Micronesia")#
+#which(govind_wide$country=="Federated States of Micronesia")#
+#
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv")#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
+#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
+#
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
+#
+# read in Schwartz_Cultural_Indicators#
+#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)#
+#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
+#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
+#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
+#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
+#
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
+setwd("~/Documents/git_repos/open-science-project")#
+getwd()#
+#
+library(dplyr)#
+library(reshape2)#
+library(stringr)#
+#
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv')#
+head(trade)#
+#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv')#
+head(cites)#
+#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')#
+head(govind)#
+colnames(govind)#
+#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
+#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+#which(govind$Country.Name=="Federated States of Micronesia")#
+#which(govind_wide$country=="Federated States of Micronesia")#
+#
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv")#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
+#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
+#
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
+#
+# read in Schwartz_Cultural_Indicators#
+#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)#
+#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
+#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
+#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
+#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
+#
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
+which(govind$Country.Name=="New Caledonia")
+which(trade$country=="New Caledonia")
+trade<-read.csv(file='data/clean/trade_top100.csv')
+which(trade$country=="New Caledonia")
+levels(trade$country)
+levels(factor(trade$country))
+trade$country
+which(trade$Exporter.Country=="New Caledonia")
+which(govind$Country.Name=="New Caledonia")
+setwd("~/Documents/git_repos/open-science-project")#
+getwd()#
+#
+library(dplyr)#
+library(reshape2)#
+library(stringr)#
+#
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv')#
+head(trade)#
+#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv')#
+head(cites)#
+#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv')#
+head(govind)#
+colnames(govind)#
+#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
+#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+#
+#which(govind_wide$country=="Federated States of Micronesia")#
+#
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv")#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
+#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv")#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
+#
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
+#
+# read in Schwartz_Cultural_Indicators#
+#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv")#
+head(schwartz)#
+#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv")#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
+#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv")#
+head(humdev)#
+#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
+#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv")#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
+#
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
+which(govind$Country.Name=="New Caledonia")
+govind$Country.Name[835]
+which(trade$Exporter.Country=="New Caledonia")
+govind$Country.Name[835]==trade$Exporter.Country[2401]
+trade$Exporter.Country
+as.character(govind$Country.Name[835])==as.character(trade$Exporter.Country[2401])
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', stringAsFactor=F)
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', stringAsfactor=F)
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', stringAsFactors=F)
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', StringAsFactors=F)
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', stringsAsFactors=F)
+setwd("~/Documents/git_repos/open-science-project")#
+getwd()#
+#
+library(dplyr)#
+library(reshape2)#
+library(stringr)#
+#
+# read aquarium data#
+trade<-read.csv(file='data/clean/trade_top100.csv', stringsAsFactors=F)#
+head(trade)#
+#
+# read CITES data#
+cites<-read.csv(file='data/raw/governance-preds/cites_country.csv', stringsAsFactors=F)#
+head(cites)#
+#
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', stringsAsFactors=F)#
+head(govind)#
+colnames(govind)#
+#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
+#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+which(govind$Country.Name=="New Caledonia")#
+which(trade$Exporter.Country=="New Caledonia")#
+levels(factor(trade$Exporter.Country))
+# read democracy data#
+democracy<-read.csv(file="data/raw/governance-preds/democracy_YN.csv", stringsAsFactors=F)#
+head(democracy)#
+democracy_2011<-data.frame(country=democracy$Country, democracy=democracy$X2011)#
+#
+# read Freedom in the World country and territory rating#
+FIW<- read.csv(file="data/raw/governance-preds/FH_Country_and_Territory_Ratings_and_Statuses.csv", stringsAsFactors=F)#
+names(FIW)#
+head(FIW)#
+PR<-FIW[-1,seq(2,50,3)]#
+CL<-FIW[-1,seq(3,51,3)]#
+Freedom_2011<-as.character(FIW$Status.11)#
+#
+FIW_avg<-data.frame(country=FIW$Country[1:205], Personal_rights=apply(PR,1,mean,na.rm=TRUE)[1:205], #
+    Civil_liberties=apply(CL,1,mean,na.rm=TRUE)[1:205], Freedom_2011=Freedom_2011[1:205])#
+#
+# read in Schwartz_Cultural_Indicators#
+#
+schwartz<-read.csv(file="data/raw/governance-preds/Schwartz_Cultural_Indicators.csv", stringsAsFactors=F)#
+head(schwartz)#
+#
+# UN Human development#
+#GDP#
+gdp<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/GDP_percapita.csv", stringsAsFactors=F)#
+head(gdp)#
+gdp_avg<-data.frame(country=str_trim(as.character(gdp$Country), "left"), gdp=apply(gdp[,5:8],1,mean, na.rm=TRUE))[1:185,]#
+#
+#human development#
+humdev<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/human_development_index.csv", stringsAsFactors=F)#
+head(humdev)#
+#
+humdev_avg<-data.frame(country=str_trim(as.character(humdev$Country), "left"), hum_dev=apply(humdev[,13:24],1,mean, na.rm=TRUE))#
+#
+#resource depletion#
+res_dep<-read.csv(file="data/raw/governance-preds/UN_HumanDevelopment/natural_resource_depletion.csv", stringsAsFactors=F)#
+head(res_dep)#
+res_dep_avg<-data.frame(country=str_trim(as.character(res_dep$Country), "left"), res_dep=apply(res_dep[,5:8],1,mean, na.rm=TRUE))#
+#
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
+which(govind$Country.Name=="New Caledonia")
+which(trade$Exporter.Country=="New Caledonia")
+which(govind_wide$country=="New Caledonia")
+which(trade$Exporter.Country=="New Caledonia")
+govind_wide$country[137]==trade$Exporter.Country[2401]
+match(trade$Exporter.Country,govind_wide$country)
+trade$Exporter.Country
+which(govind_wide$country=="New Caledonia")
+match(trade$Exporter.Country,govind_wide$country)
+govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country[137])]
+govind_wide$country[137]
+match(trade$Exporter.Country,govind_wide$country[137])
+# read governance data from worldbank#
+govind <-read.csv(file='data/raw/governance-preds/governance_indicators_worldbank.csv', stringsAsFactors=F)#
+head(govind)#
+colnames(govind)#
+#
+govind_avg<-data.frame(country=as.character(govind$Country.Name), series.name=govind$Series.Name, worldbank=apply(govind[,7:17],1, mean, na.rm=TRUE))#
+#
+govind_wide<-dcast(country~series.name, value.var="worldbank", data=govind_avg)#
+head(govind_wide)#
+which(govind_wide$country=="New Caledonia")#
+which(trade$Exporter.Country=="New Caledonia")#
+levels(factor(trade$Exporter.Country))
+class(govind_wide$country)
+govind_wide$country<-as.character(govind_wide)
+govind_wide$country<-as.character(govind_wide$country)
+which(govind_wide$country=="New Caledonia")
+match(trade$Exporter.Country,govind_wide$country[137])
+trade$Exporter.Country
+govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country[137])]
+govind_wide$country[137]
+match(trade$Exporter.Country,govind_wide$country[137])
+trade$Exporter.Country[2421]
+#Put all governance data together - mean values for all avaliable years since 2000; democracy and Freedom in 2011#
+#Add to trade data frame#
+#Add if in cites#
+trade$cites<-cites$cites[match(trade$Exporter.Country,cites$country)]#
+#Add if democracy yes or no#
+trade$democracy_2011<-democracy_2011$democracy[match(trade$Exporter.Country,democracy_2011$country)]#
+#Add world bank indicators#
+trade$corruption<-govind_wide$"Control of Corruption: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$stability<-govind_wide$"Political Stability and Absence of Violence/Terrorism: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$government<-govind_wide$"Government Effectiveness: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$regulatory<-govind_wide$"Regulatory Quality: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$law<-govind_wide$"Rule of Law: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+trade$accountability<-govind_wide$"Voice and Accountability: Estimate"[match(trade$Exporter.Country,govind_wide$country)]#
+#Add Freedom in the World (FIW) data#
+trade$Civil_liberties<-FIW_avg$Civil_liberties[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Personal_rights<-FIW_avg$Personal_rights[match(trade$Exporter.Country,FIW_avg$country)]#
+trade$Freedom_2011<-FIW_avg$Freedom_2011[match(trade$Exporter.Country,FIW_avg$country)]#
+#Add Schwartz cultural indicators#
+trade$Egalitarianism<-schwartz$Egalitarianism[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Harmony<-schwartz$Harmony[match(trade$Exporter.Country,schwartz$Country)]#
+trade$Embeddedness<-schwartz$Embeddedness[match(trade$Exporter.Country,schwartz$Country)]#
+#Add UN human development indices#
+trade$gdp<-gdp_avg$gdp[match(trade$Exporter.Country,as.character(gdp_avg$country))]#
+trade$hum_dev<-humdev_avg$hum_dev[match(trade$Exporter.Country,as.character(humdev_avg$country))]#
+trade$res_dep<-res_dep_avg$res_dep[match(trade$Exporter.Country,res_dep_avg$country)]#
+#
+write.csv(trade, file="trade_top100_governance.csv")
